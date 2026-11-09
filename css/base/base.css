@@ -12,6 +12,14 @@
   --color-secondary: #256cb7;
   --color-text-white: #ffffff;
   --color-text-gray: #6b7280;
+
+  /* Font chữ toàn trang */
+  --font-family-base: "Questrial", sans-serif;
+  --font-family-heading: "Questrial", sans-serif;
+}
+
+body {
+  font-family: "Questrial", sans-serif;
 }
 
 /* Base rules */
