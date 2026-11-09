@@ -1,0 +1,36 @@
+:root {
+  /* Màu chủ đạo (Primary) & Màu phụ đậm hơn (Secondary) */
+  --primary-color: #418FDE;
+  --secondary-color: #256cb7; /* Tăng độ đậm hơn so với primary */
+
+  /* Màu chữ (Text colors) */
+  --text-white: #ffffff;
+  --text-gray: #6b7280;
+
+  /* Hỗ trợ chuẩn biến màu cho dự án */
+  --color-primary: #418FDE;
+  --color-secondary: #256cb7;
+  --color-text-white: #ffffff;
+  --color-text-gray: #6b7280;
+}
+
+/* Base rules */
+html {
+  scroll-behavior: smooth;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nệm Chúa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <header class="header-section" id="header">
+    <!-- Topbar quảng cáo -->
+    <div class="header-advertisement">
+      <div class="container">
+        <ul>
+          <li>Giảm đến 25%</li>
+          <li>101 đêm ngủ thử</li>
+          <li>Freeship mọi đơn hàng </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="container">
+      <div class="wrapper">
+        <div class="header-logo">
+          <img src="./assets/images/logo.jpg" alt="logo-img">
+          <span class="">Nệm Chúa</span>
+        </div>
+        <div class="header-nav">
+          <ul>
+            <li>
+              <a href="#">Nệm</a>
+            </li>
+            <li>
+              <a href="#">Phụ kiện</a>
+            </li>
+            <li>
+              <a href="#">Giới thiệu</a>
+            </li>
+            <li>
+              <a href="#">FAQs</a>
+            </li>
+            <li>
+              <a href="#">101 Đêm Ngủ Thử</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-actions">
+          <div class="btn-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="btn-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- ==================== HERO SLIDER ==================== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-slider">
+        <div class="slider-track">
+          <div class="slide active">
+            <img src="./assets/images/hero1.webp" alt="Hero Banner 1">
+          </div>
+          <div class="slide">
+            <img src="./assets/images/hero2.webp" alt="Hero Banner 2">
+          </div>
+          <div class="slide">
+            <img src="./assets/images/hero3.webp" alt="Hero Banner 3">
+          </div>
+          <div class="slide">
+            <img src="./assets/images/hero4.webp" alt="Hero Banner 4">
+          </div>
+          <div class="slide">
+            <img src="./assets/images/hero5.webp" alt="Hero Banner 5">
+          </div>
+          <div class="slide">
+            <img src="./assets/images/hero6.webp" alt="Hero Banner 6">
+          </div>
+        </div>
+
+        <button class="slider-btn prev-btn" id="prevHero">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn next-btn" id="nextHero">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="slider-dots" id="heroDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Seller Section -->
+  <section class="best-seller-section">
+    <div class="container">
+      <h2 class="section-title">Sản phẩm bán chạy</h2>
+      <div class="product-grid" id="bestSellerGrid"></div>
+    </div>
+  </section>
+
+  <section class="hero-2">
+    <div class="container">
+      <div class="wrapper">
+        <img src="./assets/images/middle.png" alt="">
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/pages/home.js"></script>
+</body>
+
+</html>

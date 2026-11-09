@@ -1,0 +1,105 @@
+/* 1. Header Advertisement */
+.header-advertisement ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  background-color: var(--color-primary);
+  font-size: 14px;
+}
+.header-advertisement ul li{
+  color: var(--text-white);
+}
+
+/* 2. Logo, Menu và Nút bấm */
+.header-section .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  height: 50px;
+}
+.header-logo{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+}
+.header-logo span {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.header-logo span:hover {
+    color: var(--color-secondary);
+}
+
+
+.header-logo img{
+  height: 100%;
+
+}
+/* 3. Navigation */
+.header-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.header-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header-nav ul li a:hover {
+  color: var(--color-primary, #1e3a8a);
+}
+
+/* 4. Action buttons  */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-actions .btn-search {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.header-actions .btn-cart {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.header-actions .btn-search:hover,
+.header-actions .btn-cart:hover {
+    background-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+
+
+
