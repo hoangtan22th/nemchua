@@ -1,3 +1,241 @@
-/* Footer Layout */
-/* Footer Layout */
+/* ==================== FOOTER LAYOUT ==================== */
+.site-footer {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.6;
+}
 
+.footer-main {
+  padding: 48px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 32px;
+}
+
+/* ==================== FOOTER COL 1 ==================== */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-logo {
+  height: 36px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.footer-brand-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+}
+
+.footer-company-name {
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.footer-text {
+  margin: 4px 0;
+  color: #64748b;
+  font-size: 12.5px;
+}
+
+.footer-badges {
+  margin: 14px 0 10px;
+}
+
+.bct-badge {
+  height: 38px;
+  width: auto;
+}
+
+.footer-payment {
+  margin-top: 8px;
+}
+
+.payment-title {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.payment-img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.payment-note {
+  font-size: 11px;
+  color: #94a3b8;
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ==================== FOOTER LINKS (COL 2 & 3) ==================== */
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.footer-links li a:hover {
+  color: var(--primary-color);
+  transform: translateX(3px);
+}
+
+/* ==================== FOOTER CONNECT (COL 4) ==================== */
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  color: #475569;
+}
+
+.footer-contact-item i {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.footer-contact-item strong {
+  color: #0f172a;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 16px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.social-icon.facebook { background-color: #1877f2; }
+.social-icon.youtube { background-color: #ff0000; }
+.social-icon.shopee { background-color: #ee4d2d; }
+.social-icon.tiktok { background-color: #000000; }
+
+.footer-zalo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.btn-zalo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 12px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background-color 0.2s;
+}
+
+.btn-zalo:hover {
+  background-color: var(--secondary-color);
+}
+
+/* ==================== COPYRIGHT BOTTOM ==================== */
+.footer-bottom {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ==================== FLOATING CHAT WIDGET ==================== */
+.floating-chat-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(65, 143, 222, 0.4);
+  cursor: pointer;
+  z-index: 999;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.floating-chat-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

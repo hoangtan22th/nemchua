@@ -10,6 +10,7 @@
 }
 .header-advertisement ul li{
   color: var(--text-white);
+  font-weight: bold;
 }
 
 /* 2. Logo, Menu và Nút bấm */

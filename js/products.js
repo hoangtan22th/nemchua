@@ -21,6 +21,7 @@ export const products = [
     sizes: ["140x200", "160x200", "180x200", "200x200", "220x200"],
     thickness: ["10cm", "15cm"],
     gift: "Bộ quà tặng trị giá 1.864.000₫",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     isBestSeller: true
   },
   {
@@ -39,6 +40,7 @@ export const products = [
     sizes: ["140x200", "160x200", "180x200", "200x200"],
     thickness: ["10cm", "15cm", "20cm"],
     gift: "Bộ quà tặng trị giá 1.500.000₫",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     isBestSeller: true
   },
   {
@@ -57,6 +59,7 @@ export const products = [
     sizes: ["160x200", "180x200", "200x200"],
     thickness: ["12cm", "15cm"],
     gift: "Bộ quà tặng trị giá 1.200.000₫",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
     isBestSeller: true
   },
   {
@@ -75,6 +78,7 @@ export const products = [
     sizes: ["160x200", "180x200", "220x200"],
     thickness: ["15cm", "20cm"],
     gift: "Bộ quà tặng trị giá 2.000.000₫",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     isBestSeller: true
   },
   {
@@ -93,6 +97,7 @@ export const products = [
     sizes: ["160x200", "180x200", "200x200"],
     thickness: ["25cm", "30cm"],
     gift: "Bộ quà tặng trị giá 1.000.000₫",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     isBestSeller: false
   },
   {
@@ -111,6 +116,7 @@ export const products = [
     sizes: ["100x200", "120x200", "140x200", "160x200"],
     thickness: ["9cm", "14cm"],
     gift: "Bộ ga gối cotton cao cấp",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     isBestSeller: false
   },
   {
@@ -129,6 +135,7 @@ export const products = [
     sizes: ["140x200", "160x200", "180x200"],
     thickness: ["10cm", "15cm"],
     gift: "Bộ quà tặng trị giá 1.500.000₫",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
     isBestSeller: false
   },
   {
@@ -147,6 +154,75 @@ export const products = [
     sizes: ["120x200", "140x200", "160x200", "180x200"],
     thickness: ["10cm", "15cm"],
     gift: "Gối tựa công thái học",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     isBestSeller: false
+  }
+];
+
+/* ==================== DATA VIDEO REVIEWS ==================== */
+export const videoReviews = [
+  {
+    id: 1,
+    productId: 3,
+    reviewer: "KOC SƠN BÉO",
+    title: "ÊM ÁI TỰA MÂY NGỦ NGON TRÒN GIẤC",
+    subtitle: "Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu",
+    poster: "./assets/images/review-1.jpg",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    product: {
+      name: "Nệm Foam Latex Thuần Việt Hybrid – Công nghệ đa tầng,...",
+      image: "./assets/images/product-2.jpg",
+      originalPrice: 15840000,
+      salePrice: 11870000,
+      discount: 25
+    }
+  },
+  {
+    id: 2,
+    productId: 2,
+    reviewer: "KHÁCH HÀNG",
+    title: "NỖI NIỀM NẰM NỆM LỚN TUỔI KHÓ TÍNH",
+    subtitle: "Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu",
+    poster: "./assets/images/review-2.jpg",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    product: {
+      name: "Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đà...",
+      image: "./assets/images/product-1.jpg",
+      originalPrice: 6390000,
+      salePrice: 5060000,
+      discount: 21
+    }
+  },
+  {
+    id: 3,
+    productId: 1,
+    reviewer: "REVIEW",
+    title: "NỆM TITAN GREY ÊM SANG, GIẤC VÀNG",
+    subtitle: "Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu",
+    poster: "./assets/images/review-3.jpg",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    product: {
+      name: "Nệm cao su Thuần Việt Titan Grey – Sạch êm, mát lạnh,...",
+      image: "./assets/images/product-3.jpg",
+      originalPrice: 15800000,
+      salePrice: 12410000,
+      discount: 21
+    }
+  },
+  {
+    id: 4,
+    productId: 2,
+    reviewer: "CHỊ MINH TRANG",
+    title: "NỖI NIỀM NẰM NỆM TRẺ NHƯNG LƯNG KHÔNG KHOẺ?",
+    subtitle: "Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu",
+    poster: "./assets/images/review-4.jpg",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    product: {
+      name: "Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đà...",
+      image: "./assets/images/product-1.jpg",
+      originalPrice: 6390000,
+      salePrice: 5060000,
+      discount: 21
+    }
   }
 ];
