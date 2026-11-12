@@ -4,145 +4,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nệm Chúa - Đẳng Cấp Giấc Ngủ Thuần Việt</title>
+  <title>Nệm TBAY - Đẳng Cấp Giấc Ngủ Việt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
   <!-- 1. Header -->
-  <header class="header-section" id="header">
-    <div class="header-advertisement">
+    <!-- 1. Header -->
+  <header class="header" id="header">
+    <div class="header__advertisement">
       <div class="container">
-        <ul>
-          <li>Giảm đến 25%</li>
-          <li>101 đêm ngủ thử</li>
-          <li>Freeship mọi đơn hàng</li>
+        <ul class="header__advertisement-list">
+          <li class="header__advertisement-item">Giảm đến 25%</li>
+          <li class="header__advertisement-item">101 đêm ngủ thử</li>
+          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
         </ul>
       </div>
     </div>
 
-    <div class="container">
-      <div class="wrapper">
-        <a href="./index.html" class="header-logo">
-          <img src="./assets/images/logo.jpg" alt="Logo Nệm Chúa">
-          <span>Nệm Chúa</span>
-        </a>
-        <div class="header-nav">
-          <ul class="nav-list">
-            <li class="has-dropdown">
-              <a href="./products.html">Nệm</a>
-              <ul class="dropdown-menu">
-                <li><a href="./products.html?cat=nem-cao-su-thien-nhien">Nệm cao su thiên nhiên</a></li>
-                <li><a href="./products.html?cat=nem-foam">Nệm Foam</a></li>
-                <li><a href="./products.html?cat=nem-lo-xo">Nệm lò xo</a></li>
-                <li><a href="./products.html?cat=nem-lam-mat">Nệm làm mát</a></li>
-              </ul>
-            </li>
+    <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
+    <div class="header__middle">
+      <div class="container">
+        <div class="header__middle-wrapper">
+          <a href="./index.html" class="header__logo">
+            <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="header__logo-img">
+            <div class="header__logo-text-group">
+              <span class="header__logo-text">TBAY GROUP</span>
+              <span class="header__logo-slogan">Say giấc cùng TBAY</span>
+            </div>
+          </a>
 
-            <li class="has-dropdown">
-              <a href="./accessories.html">Phụ kiện</a>
-              <ul class="dropdown-menu">
-                <li><a href="./accessories.html?cat=chan-ga">Chăn ga</a></li>
-                <li><a href="./accessories.html?cat=goi-cao-su">Gối cao su</a></li>
-                <li><a href="./accessories.html?cat=long-vu">Lông vũ</a></li>
-                <li><a href="./accessories.html?cat=goi-gon">Gối gòn</a></li>
-              </ul>
-            </li>
-
-            <li><a href="#">Giới thiệu</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">101 Đêm Ngủ Thử</a></li>
-          </ul>
-        </div>
-        <div class="header-actions">
-          <div class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div class="header__search">
+            <input type="text" placeholder="Tìm kiếm nệm, phụ kiện..." class="header__search-input">
+            <button type="button" class="header__search-btn" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </div>
-          <div class="btn-cart">
-            <i class="fa-solid fa-cart-shopping"></i>
+
+          <div class="header__right">
+            <a href="./cart.html" class="header__cart">
+              <div class="header__cart-icon-wrap">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="header__cart-badge">0</span>
+              </div>
+              <span class="header__cart-text">Giỏ hàng</span>
+            </a>
+
+            <a href="tel:0852080383" class="header__hotline">
+              <div class="header__hotline-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="header__hotline-info">
+                <span class="header__hotline-label">Hotline 24/7</span>
+                <strong class="header__hotline-number">0852.080.383</strong>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Main Navigation Bar (Bottom Blue Bar) -->
+    <nav class="header__navbar">
+      <div class="container">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="./index.html" class="header__nav-link">TRANG CHỦ</a></li>
+          <li class="header__nav-item"><a href="./about.html" class="header__nav-link">GIỚI THIỆU</a></li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./products.html" class="header__nav-link">NỆM <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên nhiên</a></li>
+              <li><a href="./products.html?cat=nem-foam" class="header__dropdown-link">Nệm Foam</a></li>
+              <li><a href="./products.html?cat=nem-lo-xo" class="header__dropdown-link">Nệm lò xo</a></li>
+              <li><a href="./products.html?cat=nem-lam-mat" class="header__dropdown-link">Nệm làm mát</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./accessories.html" class="header__nav-link">PHỤ KIỆN <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./accessories.html?cat=chan-ga" class="header__dropdown-link">Chăn ga</a></li>
+              <li><a href="./accessories.html?cat=goi-cao-su" class="header__dropdown-link">Gối cao su</a></li>
+              <li><a href="./accessories.html?cat=long-vu" class="header__dropdown-link">Lông vũ</a></li>
+              <li><a href="./accessories.html?cat=goi-gon" class="header__dropdown-link">Gối gòn</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item"><a href="./contact.html" class="header__nav-link">LIÊN HỆ</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <!-- 2. Hero Slider -->
-  <section class="hero-section" id="heroSlider">
+  <section class="hero" id="heroSlider">
     <div class="container">
-      <div class="hero-slider">
-        <div class="slider-track">
-          <div class="slide active">
-            <img src="./assets/images/hero1.webp" alt="Hero Banner 1">
+      <div class="hero__slider">
+        <div class="hero__track">
+          <div class="hero__slide active">
+            <img src="./assets/images/banners/hero1.webp" alt="Hero Banner 1" class="hero__img">
           </div>
-          <div class="slide">
-            <img src="./assets/images/hero2.webp" alt="Hero Banner 2">
+          <div class="hero__slide">
+            <img src="./assets/images/banners/hero2.webp" alt="Hero Banner 2" class="hero__img">
           </div>
-          <div class="slide">
-            <img src="./assets/images/hero3.webp" alt="Hero Banner 3">
+          <div class="hero__slide">
+            <img src="./assets/images/banners/hero3.webp" alt="Hero Banner 3" class="hero__img">
           </div>
-          <div class="slide">
-            <img src="./assets/images/hero4.webp" alt="Hero Banner 4">
+          <div class="hero__slide">
+            <img src="./assets/images/banners/hero4.webp" alt="Hero Banner 4" class="hero__img">
           </div>
-          <div class="slide">
-            <img src="./assets/images/hero5.webp" alt="Hero Banner 5">
+          <div class="hero__slide">
+            <img src="./assets/images/banners/hero5.webp" alt="Hero Banner 5" class="hero__img">
           </div>
-          <div class="slide">
-            <img src="./assets/images/hero6.webp" alt="Hero Banner 6">
+          <div class="hero__slide">
+            <img src="./assets/images/banners/hero6.webp" alt="Hero Banner 6" class="hero__img">
           </div>
         </div>
 
-        <button class="slider-btn prev-btn" id="prevHero">
+        <button class="hero__btn hero__btn--prev" id="prevHero">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button class="slider-btn next-btn" id="nextHero">
+        <button class="hero__btn hero__btn--next" id="nextHero">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
 
-        <div class="slider-dots" id="heroDots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
-          <span class="dot" data-index="3"></span>
-          <span class="dot" data-index="4"></span>
-          <span class="dot" data-index="5"></span>
+        <div class="hero__dots" id="heroDots">
+          <span class="hero__dot active" data-index="0"></span>
+          <span class="hero__dot" data-index="1"></span>
+          <span class="hero__dot" data-index="2"></span>
+          <span class="hero__dot" data-index="3"></span>
+          <span class="hero__dot" data-index="4"></span>
+          <span class="hero__dot" data-index="5"></span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 3. Best Seller Section -->
-  <section class="best-seller-section">
+  <section class="best-seller">
     <div class="container">
       <h2 class="section-title">Sản phẩm bán chạy</h2>
       <div class="product-grid" id="bestSellerGrid">
         <!-- Card 1 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-21%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-21%</span>
             <a href="./details.html?id=1">
-              <img src="./assets/images/product-3.jpg" alt="Nệm cao su Thuần Việt Titan Grey">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">
-              <a href="./details.html?id=1">Nệm cao su Thuần Việt Titan Grey – Sạch êm, kháng khuẩn</a>
+          <div class="product-card__info">
+            <h3 class="product-card__title">
+              <a href="./details.html?id=1">Nệm cao su TBAY Titan Grey – Sạch êm, kháng khuẩn</a>
             </h3>
-            <div class="product-rating">
+            <div class="product-card__rating">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">23.000.000₫</span>
-              <span class="price-current">18.070.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">23.000.000₫</span>
+              <span class="product-card__price-current">18.070.000₫</span>
             </div>
-            <div class="product-saving">
+            <div class="product-card__saving">
               Tiết kiệm: <strong>4.930.000₫</strong>
             </div>
           </div>
@@ -150,28 +181,28 @@
 
         <!-- Card 2 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-21%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-21%</span>
             <a href="./details.html?id=2">
-              <img src="./assets/images/product-1.jpg" alt="Nệm cao su Latex Premium">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">
-              <a href="./details.html?id=2">Nệm cao su thiên nhiên Thuần Việt Latex Premium</a>
+          <div class="product-card__info">
+            <h3 class="product-card__title">
+              <a href="./details.html?id=2">Nệm cao su thiên nhiên TBAY Latex Premium</a>
             </h3>
-            <div class="product-rating">
+            <div class="product-card__rating">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">11.990.000₫</span>
-              <span class="price-current">9.490.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">11.990.000₫</span>
+              <span class="product-card__price-current">9.490.000₫</span>
             </div>
-            <div class="product-saving">
+            <div class="product-card__saving">
               Tiết kiệm: <strong>2.500.000₫</strong>
             </div>
           </div>
@@ -179,28 +210,28 @@
 
         <!-- Card 3 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-25%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-25%</span>
             <a href="./details.html?id=3">
-              <img src="./assets/images/product-2.jpg" alt="Nệm Foam Latex Thuần Việt Hybrid">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">
-              <a href="./details.html?id=3">Nệm Foam Latex Thuần Việt Hybrid – Công nghệ đa tầng</a>
+          <div class="product-card__info">
+            <h3 class="product-card__title">
+              <a href="./details.html?id=3">Nệm Foam Latex TBAY Hybrid – Công nghệ đa tầng</a>
             </h3>
-            <div class="product-rating">
+            <div class="product-card__rating">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">15.840.000₫</span>
-              <span class="price-current">11.870.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">15.840.000₫</span>
+              <span class="product-card__price-current">11.870.000₫</span>
             </div>
-            <div class="product-saving">
+            <div class="product-card__saving">
               Tiết kiệm: <strong>3.970.000₫</strong>
             </div>
           </div>
@@ -208,28 +239,28 @@
 
         <!-- Card 4 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-45%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-45%</span>
             <a href="./details.html?id=101">
-              <img src="./assets/images/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền Thuần Việt ECTC 01">
+              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">
-              <a href="./details.html?id=101">Bộ Ga Giường Mền Thuần Việt ECTC 01 – Lụa Thoáng Mát</a>
+          <div class="product-card__info">
+            <h3 class="product-card__title">
+              <a href="./details.html?id=101">Bộ Ga Giường Mền TBAY ECTC 01 – Lụa Thoáng Mát</a>
             </h3>
-            <div class="product-rating">
+            <div class="product-card__rating">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">1.230.000₫</span>
-              <span class="price-current">680.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">1.230.000₫</span>
+              <span class="product-card__price-current">680.000₫</span>
             </div>
-            <div class="product-saving">
+            <div class="product-card__saving">
               Tiết kiệm: <strong>550.000₫</strong>
             </div>
           </div>
@@ -239,285 +270,297 @@
   </section>
 
   <!-- 4. Middle Banner -->
-  <section class="hero-2" id="hero2">
+  <section class="banner-middle" id="bannerMiddle">
     <div class="container">
-      <div class="wrapper">
-        <img src="./assets/images/middle.png" alt="Middle Banner">
+      <div class="banner-middle__img">
+        <img src="./assets/images/banners/middle.png" alt="Middle Banner">
       </div>
     </div>
   </section>
 
   <!-- 5. All Products Section -->
-  <section class="products-section">
+  <section class="products-all">
     <div class="container">
       <h2 class="section-title">Tất cả sản phẩm</h2>
       <div class="product-grid" id="allProductsGrid">
         <!-- 1 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-21%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-21%</span>
             <a href="./details.html?id=1">
-              <img src="./assets/images/product-3.jpg" alt="Nệm cao su Thuần Việt Titan Grey">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=1">Nệm cao su Thuần Việt Titan Grey</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=1">Nệm cao su TBAY Titan Grey</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">23.000.000₫</span>
-              <span class="price-current">18.070.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">23.000.000₫</span>
+              <span class="product-card__price-current">18.070.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>4.930.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>4.930.000₫</strong></div>
           </div>
         </div>
 
         <!-- 2 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-21%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-21%</span>
             <a href="./details.html?id=2">
-              <img src="./assets/images/product-1.jpg" alt="Nệm cao su Latex Premium">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=2">Nệm cao su thiên nhiên Thuần Việt Latex Premium</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=2">Nệm cao su thiên nhiên TBAY Latex Premium</a>
+            </h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">11.990.000₫</span>
-              <span class="price-current">9.490.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">11.990.000₫</span>
+              <span class="product-card__price-current">9.490.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>2.500.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>2.500.000₫</strong></div>
           </div>
         </div>
 
         <!-- 3 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-25%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-25%</span>
             <a href="./details.html?id=3">
-              <img src="./assets/images/product-2.jpg" alt="Nệm Foam Hybrid">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Hybrid">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=3">Nệm Foam Latex Thuần Việt Hybrid</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=3">Nệm Foam Latex TBAY Hybrid</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">15.840.000₫</span>
-              <span class="price-current">11.870.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">15.840.000₫</span>
+              <span class="product-card__price-current">11.870.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>3.970.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>3.970.000₫</strong></div>
           </div>
         </div>
 
         <!-- 4 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-25%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-25%</span>
             <a href="./details.html?id=4">
-              <img src="./assets/images/product-4.jpg" alt="Nệm cao su Legend">
+              <img src="./assets/images/products/product-4.jpg" alt="Nệm cao su Legend">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=4">Nệm cao su thiên nhiên Thuần Việt Legend</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=4">Nệm cao su thiên nhiên TBAY Legend</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">10.300.000₫</span>
-              <span class="price-current">7.720.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">10.300.000₫</span>
+              <span class="product-card__price-current">7.720.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>2.580.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>2.580.000₫</strong></div>
           </div>
         </div>
 
         <!-- 5 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-25%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-25%</span>
             <a href="./details.html?id=5">
-              <img src="./assets/images/product-1.jpg" alt="Nệm Foam Original">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam Original">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=5">Nệm Foam Thuần Việt Original</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=5">Nệm Foam TBAY Original</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">8.500.000₫</span>
-              <span class="price-current">6.375.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">8.500.000₫</span>
+              <span class="product-card__price-current">6.375.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>2.125.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>2.125.000₫</strong></div>
           </div>
         </div>
 
         <!-- 6 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-25%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-25%</span>
             <a href="./details.html?id=6">
-              <img src="./assets/images/product-3.jpg" alt="Nệm lò xo Ruby">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm lò xo Ruby">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=6">Nệm lò xo túi độc lập Thuần Việt Ruby</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=6">Nệm lò xo túi độc lập TBAY Ruby</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">14.500.000₫</span>
-              <span class="price-current">10.875.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">14.500.000₫</span>
+              <span class="product-card__price-current">10.875.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>3.625.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>3.625.000₫</strong></div>
           </div>
         </div>
 
         <!-- 7 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-45%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-45%</span>
             <a href="./details.html?id=101">
-              <img src="./assets/images/acc-ectc-01.jpg" alt="Bộ Ga Giường ECTC 01">
+              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường ECTC 01">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=101">Bộ Ga Giường Mền Thuần Việt ECTC 01</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=101">Bộ Ga Giường Mền TBAY ECTC 01</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">1.230.000₫</span>
-              <span class="price-current">680.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">1.230.000₫</span>
+              <span class="product-card__price-current">680.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>550.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>550.000₫</strong></div>
           </div>
         </div>
 
         <!-- 8 -->
         <div class="product-card">
-          <div class="product-thumb">
-            <span class="product-badge">-45%</span>
+          <div class="product-card__thumb">
+            <span class="product-card__badge">-45%</span>
             <a href="./details.html?id=102">
-              <img src="./assets/images/acc-ectc-02.jpg" alt="Bộ Ga Giường ECTC 02">
+              <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường ECTC 02">
             </a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title"><a href="./details.html?id=102">Bộ Ga Giường Mền Thuần Việt ECTC 02</a></h3>
-            <div class="product-rating">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="product-card__info">
+            <h3 class="product-card__title"><a href="./details.html?id=102">Bộ Ga Giường Mền TBAY ECTC 02</a></h3>
+            <div class="product-card__rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <div class="product-price">
-              <span class="price-old">1.230.000₫</span>
-              <span class="price-current">680.000₫</span>
+            <div class="product-card__price">
+              <span class="product-card__price-old">1.230.000₫</span>
+              <span class="product-card__price-current">680.000₫</span>
             </div>
-            <div class="product-saving">Tiết kiệm: <strong>550.000₫</strong></div>
+            <div class="product-card__saving">Tiết kiệm: <strong>550.000₫</strong></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Banner Review -->
-  <section class="banner-review">
+  <!-- 6. Banner Intro -->
+  <section class="banner-intro">
     <div class="container">
-      <div class="wrapper">
-        <img src="./assets/images/BANER-GIOI-THIEU-DESKTOP.webp" alt="Banner Giới Thiệu">
+      <div class="banner-intro__img">
+        <img src="./assets/images/banners/BANER-GIOI-THIEU-DESKTOP.webp" alt="Banner Giới Thiệu">
       </div>
     </div>
   </section>
 
   <!-- 7. Video Reviews Section (Chia sẻ cảm nhận từ khách hàng) -->
-  <section class="video-reviews-section" id="videoReviews">
+  <section class="video-reviews" id="videoReviews">
     <div class="container">
-      <div class="reviews-header">
-        <h2 class="reviews-title">Chia sẻ cảm nhận từ khách hàng</h2>
-        <div class="reviews-arrows">
-          <button class="review-arrow-btn prev-review" id="prevReview">
+      <div class="video-reviews__header">
+        <h2 class="video-reviews__title">Chia sẻ cảm nhận từ khách hàng</h2>
+        <div class="video-reviews__arrows">
+          <button class="video-reviews__arrow-btn" id="prevReview" aria-label="Previous">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
-          <button class="review-arrow-btn next-review" id="nextReview">
+          <button class="video-reviews__arrow-btn" id="nextReview" aria-label="Next">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
       </div>
 
-      <div class="reviews-slider" id="reviewsTrack">
+      <div class="video-reviews__slider" id="reviewsTrack">
         <!-- Review 1 -->
-        <div class="review-card" data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
-          <div class="review-bg" style="background-image: url('./assets/images/review-1.jpg');"></div>
-          <div class="review-overlay"></div>
-          <button class="review-play-btn" aria-label="Xem video">
+        <div class="review-card"
+          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
+          <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-1.jpg');"></div>
+          <div class="review-card__overlay"></div>
+          <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
-          <div class="review-content">
-            <div class="review-tag">KOC SƠN BÉO</div>
-            <h3 class="review-card-title">ÊM ÁI TỰA MÂY NGỦ NGON TRÒN GIẤC</h3>
-            <p class="review-subtitle">Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
-            <a href="./details.html?id=3" class="review-product-box">
-              <img src="./assets/images/product-2.jpg" alt="Nệm Foam Latex Thuần Việt Hybrid">
-              <div class="review-product-meta">
-                <div class="review-product-top">
-                  <span class="review-old-price">15.840.000₫</span>
-                  <span class="review-discount">-25%</span>
+          <div class="review-card__content">
+            <div class="review-card__tag">KOC SƠN BÉO</div>
+            <h3 class="review-card__title">ÊM ÁI TỰA MÂY<br>NGỦ NGON TRÒN GIẤC</h3>
+            <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
+            <a href="./details.html?id=3" class="review-card__product">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid" class="review-card__product-img">
+              <div class="review-card__product-meta">
+                <div class="review-card__product-top">
+                  <span class="review-card__old-price">15.840.000₫</span>
+                  <span class="review-card__discount">-25%</span>
                 </div>
-                <div class="review-sale-price">Từ 11.870.000₫</div>
-                <div class="review-product-name">Nệm Foam Latex Thuần Việt Hybrid – Công nghệ đa tầng,...</div>
+                <div class="review-card__sale-price"><span class="price-prefix">Từ</span> 11.870.000₫</div>
+                <div class="review-card__product-name">Nệm Foam Latex TBAY Hybrid – Công nghệ đa tần...</div>
               </div>
             </a>
           </div>
         </div>
 
         <!-- Review 2 -->
-        <div class="review-card" data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
-          <div class="review-bg" style="background-image: url('./assets/images/review-2.jpg');"></div>
-          <div class="review-overlay"></div>
-          <button class="review-play-btn" aria-label="Xem video">
+        <div class="review-card"
+          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+          <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-2.jpg');"></div>
+          <div class="review-card__overlay"></div>
+          <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
-          <div class="review-content">
-            <div class="review-tag">KHÁCH HÀNG</div>
-            <h3 class="review-card-title">NỖI NIỀM NẰM NỆM LỚN TUỔI KHÓ TÍNH</h3>
-            <p class="review-subtitle">Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
-            <a href="./details.html?id=2" class="review-product-box">
-              <img src="./assets/images/product-1.jpg" alt="Nệm cao su Latex Premium">
-              <div class="review-product-meta">
-                <div class="review-product-top">
-                  <span class="review-old-price">6.390.000₫</span>
-                  <span class="review-discount">-21%</span>
+          <div class="review-card__content">
+            <div class="review-card__tag">KHÁCH HÀNG</div>
+            <h3 class="review-card__title">NỖI NIỀM NẰM NỆM<br>LỚN TUỔI KHÓ TÍNH</h3>
+            <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
+            <a href="./details.html?id=2" class="review-card__product">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="review-card__product-img">
+              <div class="review-card__product-meta">
+                <div class="review-card__product-top">
+                  <span class="review-card__old-price">6.390.000₫</span>
+                  <span class="review-card__discount">-21%</span>
                 </div>
-                <div class="review-sale-price">Từ 5.060.000₫</div>
-                <div class="review-product-name">Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đà...</div>
+                <div class="review-card__sale-price"><span class="price-prefix">Từ</span> 5.060.000₫</div>
+                <div class="review-card__product-name">Nệm cao su thiên nhiên TBAY Latex Premium – Siêu đà...</div>
               </div>
             </a>
           </div>
         </div>
 
         <!-- Review 3 -->
-        <div class="review-card" data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
-          <div class="review-bg" style="background-image: url('./assets/images/review-3.jpg');"></div>
-          <div class="review-overlay"></div>
-          <button class="review-play-btn" aria-label="Xem video">
+        <div class="review-card"
+          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
+          <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-3.jpg');"></div>
+          <div class="review-card__overlay"></div>
+          <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
-          <div class="review-content">
-            <div class="review-tag">REVIEW</div>
-            <h3 class="review-card-title">NỆM TITAN GREY ÊM SANG, GIẤC VÀNG</h3>
-            <p class="review-subtitle">Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
-            <a href="./details.html?id=1" class="review-product-box">
-              <img src="./assets/images/product-3.jpg" alt="Nệm cao su Titan Grey">
-              <div class="review-product-meta">
-                <div class="review-product-top">
-                  <span class="review-old-price">15.800.000₫</span>
-                  <span class="review-discount">-21%</span>
+          <div class="review-card__content">
+            <div class="review-card__tag">REVIEW</div>
+            <h3 class="review-card__title">NỆM TITAN GREY<br>ÊM SANG, GIẤC VÀNG</h3>
+            <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
+            <a href="./details.html?id=1" class="review-card__product">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su Titan Grey" class="review-card__product-img">
+              <div class="review-card__product-meta">
+                <div class="review-card__product-top">
+                  <span class="review-card__old-price">15.800.000₫</span>
+                  <span class="review-card__discount">-21%</span>
                 </div>
-                <div class="review-sale-price">Từ 12.410.000₫</div>
-                <div class="review-product-name">Nệm cao su Thuần Việt Titan Grey – Sạch êm, kháng khuẩn,...</div>
+                <div class="review-card__sale-price"><span class="price-prefix">Từ</span> 12.410.000₫</div>
+                <div class="review-card__product-name">Nệm cao su TBAY Titan Grey – Sạch êm, kháng khuẩn...</div>
               </div>
             </a>
           </div>
@@ -525,24 +568,24 @@
 
         <!-- Review 4 -->
         <div class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
-          <div class="review-bg" style="background-image: url('./assets/images/review-4.jpg');"></div>
-          <div class="review-overlay"></div>
-          <button class="review-play-btn" aria-label="Xem video">
+          <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-4.jpg');"></div>
+          <div class="review-card__overlay"></div>
+          <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
-          <div class="review-content">
-            <div class="review-tag">CHỊ MINH TRANG</div>
-            <h3 class="review-card-title">NỖI NIỀM NẰM NỆM TRẺ NHƯNG LƯNG KHÔNG KHOẺ?</h3>
-            <p class="review-subtitle">Nệm Thuần Việt - Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
-            <a href="./details.html?id=2" class="review-product-box">
-              <img src="./assets/images/product-1.jpg" alt="Nệm cao su Latex Premium">
-              <div class="review-product-meta">
-                <div class="review-product-top">
-                  <span class="review-old-price">6.390.000₫</span>
-                  <span class="review-discount">-21%</span>
+          <div class="review-card__content">
+            <div class="review-card__tag">CHỊ MINH TRANG</div>
+            <h3 class="review-card__title">NỖI NIỀM NẰM NỆM<br>TRẺ NHƯNG LƯNG KHÔNG KHOẺ?</h3>
+            <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
+            <a href="./details.html?id=2" class="review-card__product">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="review-card__product-img">
+              <div class="review-card__product-meta">
+                <div class="review-card__product-top">
+                  <span class="review-card__old-price">6.390.000₫</span>
+                  <span class="review-card__discount">-21%</span>
                 </div>
-                <div class="review-sale-price">Từ 5.060.000₫</div>
-                <div class="review-product-name">Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đà...</div>
+                <div class="review-card__sale-price"><span class="price-prefix">Từ</span> 5.060.000₫</div>
+                <div class="review-card__product-name">Nệm cao su thiên nhiên TBAY Latex Premium – Siêu đà...</div>
               </div>
             </a>
           </div>
@@ -552,12 +595,12 @@
 
     <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
-      <div class="video-modal-backdrop" id="videoBackdrop"></div>
-      <div class="video-modal-box">
-        <button class="video-modal-close" id="videoClose">
+      <div class="video-modal__backdrop" id="videoBackdrop"></div>
+      <div class="video-modal__box">
+        <button class="video-modal__close" id="videoClose">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="video-modal-player">
+        <div class="video-modal__player">
           <video id="modalVideoPlayer" controls playsinline></video>
         </div>
       </div>
@@ -565,35 +608,35 @@
   </section>
 
   <!-- 8. Press Section (Báo chí nói gì) -->
-  <section class="press-section" id="pressSection">
+  <section class="press" id="pressSection">
     <div class="container">
-      <h2 class="press-title">Báo chí nói gì về Nệm Thuần Việt?</h2>
-      <div class="press-logos">
-        <div class="press-logo-item">
-          <img src="./assets/images/press-vnexpress.png" alt="VnExpress">
+      <h2 class="press__title">Báo chí nói gì về Nệm TBAY?</h2>
+      <div class="press__logos">
+        <div class="press__item">
+          <img src="./assets/images/press/press-vnexpress.png" alt="VnExpress">
         </div>
-        <div class="press-logo-item">
-          <img src="./assets/images/press-vtv.png" alt="VTV">
+        <div class="press__item">
+          <img src="./assets/images/press/press-vtv.png" alt="VTV">
         </div>
-        <div class="press-logo-item">
-          <img src="./assets/images/press-dantri.png" alt="Dân Trí">
+        <div class="press__item">
+          <img src="./assets/images/press/press-dantri.png" alt="Dân Trí">
         </div>
-        <div class="press-logo-item">
-          <img src="./assets/images/press-tienphong.png" alt="Tiền Phong">
+        <div class="press__item">
+          <img src="./assets/images/press/press-tienphong.png" alt="Tiền Phong">
         </div>
       </div>
     </div>
   </section>
 
   <!-- 9. Store System Section (Hệ thống cửa hàng) -->
-  <section class="store-system-section" id="storeSystem">
+  <section class="store-system" id="storeSystem">
     <div class="container">
-      <div class="store-box">
-        <div class="store-info">
-          <h2 class="store-title">Hệ Thống Cửa Hàng Nệm Thuần Việt</h2>
-          <p class="store-subtitle">Trải nghiệm không gian mua sắm hiện đại để tìm kiếm giấc ngủ trọn vẹn</p>
+      <div class="store-system__box">
+        <div class="store-system__info">
+          <h2 class="store-system__title">Hệ Thống Cửa Hàng Nệm TBAY</h2>
+          <p class="store-system__subtitle">Trải nghiệm không gian mua sắm hiện đại để tìm kiếm giấc ngủ trọn vẹn</p>
         </div>
-        <a href="#he-thong-cua-hang" class="store-btn">
+        <a href="#he-thong-cua-hang" class="store-system__btn">
           CLICK XEM CỬA HÀNG GẦN NHẤT <i class="fa-solid fa-location-dot"></i>
         </a>
       </div>
@@ -608,20 +651,23 @@
           <!-- Cột 1: Thông tin công ty -->
           <div class="footer-col">
             <div class="footer-brand">
-              <img src="./assets/images/logo.jpg" alt="Logo" class="footer-logo">
-              <span class="footer-brand-name">NỆM THUẦN VIỆT</span>
+              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer-logo">
+              <div class="footer__brand-text-group">
+                <span class="footer-brand-name">TBAY GROUP</span>
+                <span class="footer__brand-slogan">Say giấc cùng TBAY</span>
+              </div>
             </div>
-            <div class="footer-company-name">CÔNG TY CP THUẦN VIỆT GLOBAL</div>
-            <p class="footer-text">Địa chỉ: H76-H77, Đường Thị Giang, P. Đông Hưng Thuận, TP.HCM.</p>
-            <p class="footer-text">Giấy CNĐKDN: <strong>0318692955</strong></p>
-            <p class="footer-text">Ngày cấp: 2024-10-01 – Sở KH&ĐT TP.HCM</p>
+            <div class="footer-company-name">CÔNG TY CỔ PHẦN TBAY GROUP</div>
+            <p class="footer-text"><strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
+            <p class="footer-text"><strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
+            <p class="footer-text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> | <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
 
             <div class="footer-badges">
-              <img src="./assets/images/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+              <img src="./assets/images/common/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
             </div>
             <div class="footer-payment">
               <div class="payment-title">Phương thức thanh toán</div>
-              <img src="./assets/images/payments.png" alt="Phương thức thanh toán" class="payment-img">
+              <img src="./assets/images/common/payments.png" alt="Phương thức thanh toán" class="payment-img">
               <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
             </div>
           </div>
@@ -630,18 +676,18 @@
           <div class="footer-col">
             <h3 class="footer-heading">CHÍNH SÁCH</h3>
             <ul class="footer-links">
-              <li><a href="#">Điều Khoản & Điều Kiện</a></li>
-              <li><a href="#">Chính sách bảo hành</a></li>
-              <li><a href="#">Chính sách giao hàng</a></li>
-              <li><a href="#">Chính sách đổi trả</a></li>
-              <li><a href="#">Chính sách về quy trình xử lý khiếu nại</a></li>
-              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="./terms.html">Điều Khoản &amp; Điều Kiện</a></li>
+              <li><a href="./warranty-policy.html">Chính sách bảo hành</a></li>
+              <li><a href="./shipping-policy.html">Chính sách giao hàng</a></li>
+              <li><a href="./return-policy.html">Chính sách đổi trả</a></li>
+              <li><a href="./complaint-policy.html">Chính sách về quy trình xử lý khiếu nại</a></li>
+              <li><a href="./privacy-policy.html">Chính sách bảo mật</a></li>
             </ul>
           </div>
 
           <!-- Cột 3: Thông tin -->
           <div class="footer-col">
-            <h3 class="footer-heading">THÔNG TIN NỆM THUẦN VIỆT</h3>
+            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
             <ul class="footer-links">
               <li><a href="#">Giới thiệu</a></li>
               <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
@@ -656,12 +702,20 @@
           <div class="footer-col">
             <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
             <p class="footer-contact-item">
-              <i class="fa-solid fa-phone"></i>
-              Hotline: <strong>1800.646.809</strong> (miễn phí cước gọi)
+              <i class="fa-solid fa-warehouse"></i>
+              <span>Tổng kho: <strong>303/41 Tân Sơn Nhì, Q. Tân Phú, TP. HCM</strong></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Hotline 24/7: <a href="tel:0852080383"><strong>0852.080.383</strong></a></span>
             </p>
             <p class="footer-contact-item">
               <i class="fa-solid fa-envelope"></i>
-              Email: <strong>nemthuanviet@gmail.com</strong>
+              <span>Email: <a href="mailto:hotro@tbay.vn"><strong>hotro@tbay.vn</strong></a></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>Website: <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
             </p>
 
             <div class="footer-socials">
@@ -685,7 +739,7 @@
     <!-- Copyright -->
     <div class="footer-bottom">
       <div class="container">
-        <p>Copyright 2026 © Nệm Thuần Việt</p>
+        <p>Copyright 2026 © NỆM TBAY</p>
       </div>
     </div>
   </footer>
@@ -697,6 +751,8 @@
   </div>
 
   <!-- Single Consolidated Script -->
+  <script src="./assets/js/products.js"></script>
+  <script src="./assets/js/cart.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
 

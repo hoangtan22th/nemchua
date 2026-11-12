@@ -2,16 +2,18 @@
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
   line-height: 1.6;
   color: var(--color-text-main);
   background-color: var(--color-bg-body);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.35;
   color: var(--color-text-main);
 }
 
@@ -31,4 +33,3 @@ button {
   background: none;
   cursor: pointer;
 }
-

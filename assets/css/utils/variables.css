@@ -1,11 +1,13 @@
 :root {
-  /* Colors */
-  --primary-color: #418FDE;
-  --secondary-color: #256cb7;
-  --color-primary: #418FDE;
-  --color-primary-hover: #256cb7;
-  --color-secondary: #256cb7;
-  --color-secondary-hover: #1e5692;
+  /* Colors (Tone Hồng chủ đạo #EB2365 & Hồng phụ nhạt #F25287) */
+  --primary-color: #EB2365;
+  --secondary-color: #F25287;
+  --color-primary: #EB2365;
+  --color-primary-hover: #D61858;
+  --color-secondary: #F25287;
+  --color-secondary-hover: #EB2365;
+  --color-primary-light: #FFF0F5;
+  --color-primary-shadow: rgba(235, 35, 101, 0.25);
   --color-accent: #f59e0b;
   
   --text-white: #ffffff;
@@ -17,11 +19,11 @@
   --color-bg-body: #ffffff;
   --color-bg-card: #ffffff;
   --color-border: #e5e7eb;
-  --color-border-focus: #418FDE;
+  --color-border-focus: #EB2365;
 
-  /* Typography */
-  --font-family-base: "Questrial", sans-serif;
-  --font-family-heading: "Questrial", sans-serif;
+  /* Typography (Chuẩn WordPress / WooCommerce font Roboto thanh thoát) */
+  --font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-family-heading: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   
   --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
@@ -31,10 +33,11 @@
   --font-size-2xl: 1.5rem;    /* 24px */
   --font-size-3xl: 1.875rem;  /* 30px */
 
+  --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
 
   /* Layout & Spacing */
   --container-max: 1200px;
@@ -46,13 +49,11 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 
   /* Transitions & Z-Index */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --z-header: 1000;
-  --z-modal: 1050;
 }
-

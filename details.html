@@ -4,76 +4,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi Tiết Sản Phẩm - Nệm Chúa</title>
+  <title>Chi Tiết Sản Phẩm - Nệm TBAY</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
   <!-- Header -->
-  <header class="header-section" id="header">
-    <div class="header-advertisement">
+    <!-- 1. Header -->
+  <header class="header" id="header">
+    <div class="header__advertisement">
       <div class="container">
-        <ul>
-          <li>Giảm đến 25%</li>
-          <li>101 đêm ngủ thử</li>
-          <li>Freeship mọi đơn hàng</li>
+        <ul class="header__advertisement-list">
+          <li class="header__advertisement-item">Giảm đến 25%</li>
+          <li class="header__advertisement-item">101 đêm ngủ thử</li>
+          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
         </ul>
       </div>
     </div>
 
-    <div class="container">
-      <div class="wrapper">
-        <a href="./index.html" class="header-logo">
-          <img src="./assets/images/logo.jpg" alt="Logo Nệm Chúa">
-          <span>Nệm Chúa</span>
-        </a>
-        <div class="header-nav">
-          <ul class="nav-list">
-            <li class="has-dropdown">
-              <a href="./products.html">Nệm</a>
-              <ul class="dropdown-menu">
-                <li><a href="./products.html?cat=nem-cao-su-thien-nhien">Nệm cao su thiên nhiên</a></li>
-                <li><a href="./products.html?cat=nem-foam">Nệm Foam</a></li>
-                <li><a href="./products.html?cat=nem-lo-xo">Nệm lò xo</a></li>
-                <li><a href="./products.html?cat=nem-lam-mat">Nệm làm mát</a></li>
-              </ul>
-            </li>
+    <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
+    <div class="header__middle">
+      <div class="container">
+        <div class="header__middle-wrapper">
+          <a href="./index.html" class="header__logo">
+            <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="header__logo-img">
+            <div class="header__logo-text-group">
+              <span class="header__logo-text">TBAY GROUP</span>
+              <span class="header__logo-slogan">Say giấc cùng TBAY</span>
+            </div>
+          </a>
 
-            <li class="has-dropdown">
-              <a href="./accessories.html">Phụ kiện</a>
-              <ul class="dropdown-menu">
-                <li><a href="./accessories.html?cat=chan-ga">Chăn ga</a></li>
-                <li><a href="./accessories.html?cat=goi-cao-su">Gối cao su</a></li>
-                <li><a href="./accessories.html?cat=long-vu">Lông vũ</a></li>
-                <li><a href="./accessories.html?cat=goi-gon">Gối gòn</a></li>
-              </ul>
-            </li>
-
-            <li><a href="#">Giới thiệu</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">101 Đêm Ngủ Thử</a></li>
-          </ul>
-        </div>
-        <div class="header-actions">
-          <div class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div class="header__search">
+            <input type="text" placeholder="Tìm kiếm nệm, phụ kiện..." class="header__search-input">
+            <button type="button" class="header__search-btn" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </div>
-          <div class="btn-cart">
-            <i class="fa-solid fa-cart-shopping"></i>
+
+          <div class="header__right">
+            <a href="./cart.html" class="header__cart">
+              <div class="header__cart-icon-wrap">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="header__cart-badge">0</span>
+              </div>
+              <span class="header__cart-text">Giỏ hàng</span>
+            </a>
+
+            <a href="tel:0852080383" class="header__hotline">
+              <div class="header__hotline-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="header__hotline-info">
+                <span class="header__hotline-label">Hotline 24/7</span>
+                <strong class="header__hotline-number">0852.080.383</strong>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Main Navigation Bar (Bottom Blue Bar) -->
+    <nav class="header__navbar">
+      <div class="container">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="./index.html" class="header__nav-link">TRANG CHỦ</a></li>
+          <li class="header__nav-item"><a href="./about.html" class="header__nav-link">GIỚI THIỆU</a></li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./products.html" class="header__nav-link">NỆM <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên nhiên</a></li>
+              <li><a href="./products.html?cat=nem-foam" class="header__dropdown-link">Nệm Foam</a></li>
+              <li><a href="./products.html?cat=nem-lo-xo" class="header__dropdown-link">Nệm lò xo</a></li>
+              <li><a href="./products.html?cat=nem-lam-mat" class="header__dropdown-link">Nệm làm mát</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./accessories.html" class="header__nav-link">PHỤ KIỆN <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./accessories.html?cat=chan-ga" class="header__dropdown-link">Chăn ga</a></li>
+              <li><a href="./accessories.html?cat=goi-cao-su" class="header__dropdown-link">Gối cao su</a></li>
+              <li><a href="./accessories.html?cat=long-vu" class="header__dropdown-link">Lông vũ</a></li>
+              <li><a href="./accessories.html?cat=goi-gon" class="header__dropdown-link">Gối gòn</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item"><a href="./contact.html" class="header__nav-link">LIÊN HỆ</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <!-- Product Details -->
-  <main id="productDetailsWrapper">
+  <main id="productDetailsWrapper" class="details">
     <!-- Breadcrumb -->
-    <div class="breadcrumb-section">
+    <div class="details__breadcrumb breadcrumb-section">
       <div class="container">
         <a href="./index.html">Trang chủ</a>
         <span>/</span>
@@ -84,31 +115,31 @@
     </div>
 
     <!-- Product Details Section -->
-    <section class="details-section">
+    <section class="details__main details-section">
       <div class="container">
-        <div class="details-wrapper">
+        <div class="details__wrapper details-wrapper">
           <!-- Gallery (Left) -->
-          <div class="details-gallery">
-            <div class="details-main-img">
-              <span class="details-badge">-45%</span>
-              <img id="mainProductImg" src="./assets/images/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền Thuần Việt ECTC 01">
+          <div class="details__gallery details-gallery">
+            <div class="details__main-img details-main-img">
+              <span class="details__badge details-badge">-45%</span>
+              <img id="mainProductImg" src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01">
             </div>
-            <div class="details-thumbs">
-              <div class="details-thumb-item active" data-src="./assets/images/acc-ectc-01.jpg">
-                <img src="./assets/images/acc-ectc-01.jpg" alt="Thumbnail 1">
+            <div class="details__thumbs details-thumbs">
+              <div class="details__thumb-item details-thumb-item active" data-src="./assets/images/accessories/acc-ectc-01.jpg">
+                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Thumbnail 1">
               </div>
-              <div class="details-thumb-item" data-src="./assets/images/acc-ectc-02.jpg">
-                <img src="./assets/images/acc-ectc-02.jpg" alt="Thumbnail 2">
+              <div class="details__thumb-item details-thumb-item" data-src="./assets/images/accessories/acc-ectc-02.jpg">
+                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Thumbnail 2">
               </div>
             </div>
           </div>
 
           <!-- Summary & Options (Right) -->
-          <div class="details-info">
-            <h1 class="details-title">Bộ Ga Giường Mền Thuần Việt ECTC 01 – Lụa Thoáng Mát, Thấm Hút Mồ Hôi Tốt</h1>
+          <div class="details__info details-info">
+            <h1 class="details__title details-title">Bộ Ga Giường Mền TBAY ECTC 01 – Lụa Thoáng Mát, Thấm Hút Mồ Hôi Tốt</h1>
 
-            <div class="details-rating-row">
-              <span class="details-stars">
+            <div class="details__rating-row details-rating-row">
+              <span class="details__stars details-stars">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </span>
               <span>(đánh giá)</span>
@@ -116,50 +147,50 @@
               <span>Đã bán 35</span>
             </div>
 
-            <div class="details-price-range">
+            <div class="details__price-range details-price-range">
               680.000₫ – 1.420.000₫
             </div>
 
-            <p class="details-desc">
-              Bộ sản phẩm Chăn ga gối Thuần Việt được kết hợp từ vải Cotton và vải lụa mang đến cảm giác êm ái và mát mẻ trong suốt quá trình sử dụng. Công nghệ may thêu hiện đại cho ra những sản phẩm có họa tiết vô cùng sống động.
+            <p class="details__desc details-desc">
+              Bộ sản phẩm Chăn ga gối TBAY được kết hợp từ vải Cotton và vải lụa mang đến cảm giác êm ái và mát mẻ trong suốt quá trình sử dụng. Công nghệ may thêu hiện đại cho ra những sản phẩm có họa tiết vô cùng sống động.
             </p>
 
             <!-- Chọn mẫu (Accessories) -->
-            <div class="option-group">
-              <div class="option-label-row">
+            <div class="details__option-group option-group">
+              <div class="details__option-label-row option-label-row">
                 <span>Chọn mẫu: <strong id="selectedModelLabel">Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)</strong></span>
-                <a href="javascript:void(0)" class="btn-clear-model" id="clearModelBtn">XÓA</a>
+                <a href="javascript:void(0)" class="details__btn-clear-model btn-clear-model" id="clearModelBtn">XÓA</a>
               </div>
-              <div class="option-model-chips" id="modelOptions">
-                <button type="button" class="option-chip-btn active" 
+              <div class="details__option-model-chips option-model-chips" id="modelOptions">
+                <button type="button" class="details__option-chip-btn option-chip-btn active" 
                   data-idx="0" 
                   data-price="680000" 
                   data-oldprice="1230000" 
                   data-name="Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)">
                   Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)
                 </button>
-                <button type="button" class="option-chip-btn" 
+                <button type="button" class="details__option-chip-btn option-chip-btn" 
                   data-idx="1" 
                   data-price="730000" 
                   data-oldprice="1300000" 
                   data-name="Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)">
                   Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)
                 </button>
-                <button type="button" class="option-chip-btn" 
+                <button type="button" class="details__option-chip-btn option-chip-btn" 
                   data-idx="2" 
                   data-price="890000" 
                   data-oldprice="1400000" 
                   data-name="Mền Lẻ - 2m2 x 2m">
                   Mền Lẻ - 2m2 x 2m
                 </button>
-                <button type="button" class="option-chip-btn" 
+                <button type="button" class="details__option-chip-btn option-chip-btn" 
                   data-idx="3" 
                   data-price="1350000" 
                   data-oldprice="2100000" 
                   data-name="Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)">
                   Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)
                 </button>
-                <button type="button" class="option-chip-btn" 
+                <button type="button" class="details__option-chip-btn option-chip-btn" 
                   data-idx="4" 
                   data-price="1420000" 
                   data-oldprice="2200000" 
@@ -170,127 +201,312 @@
             </div>
 
             <!-- Giá của phân loại mẫu -->
-            <div class="details-selected-price">
-              <span class="details-old-price" id="modelOldPrice">1.230.000₫</span>
-              <span class="details-current-price" id="modelActivePrice">680.000₫</span>
+            <div class="details__selected-price details-selected-price">
+              <span class="details__old-price details-old-price" id="modelOldPrice">1.230.000₫</span>
+              <span class="details__current-price details-current-price" id="modelActivePrice">680.000₫</span>
             </div>
 
             <!-- Quantity & Add to Cart -->
-            <div class="details-actions-row">
-              <div class="quantity-control">
-                <button class="qty-btn" id="qtyMinus">-</button>
-                <input type="text" class="qty-input" id="qtyInput" value="1" readonly>
-                <button class="qty-btn" id="qtyPlus">+</button>
+            <div class="details__actions-row details-actions-row">
+              <div class="details__quantity-control quantity-control">
+                <button class="details__qty-btn qty-btn" id="qtyMinus">-</button>
+                <input type="text" class="details__qty-input qty-input" id="qtyInput" value="1" readonly>
+                <button class="details__qty-btn qty-btn" id="qtyPlus">+</button>
               </div>
-              <button class="btn-add-cart">Thêm Vào Giỏ Hàng</button>
+              <button class="details__btn-add-cart btn-add-cart">Thêm Vào Giỏ Hàng</button>
             </div>
 
             <!-- Đặt hàng nhanh -->
-            <button class="btn-buy-now">
+            <button class="details__btn-buy-now btn-buy-now">
               ĐẶT HÀNG NHANH
               <span>Gọi điện xác nhận và giao hàng tận nơi</span>
             </button>
 
             <!-- Hotline -->
-            <div class="hotline-box">
-              Gọi tư vấn ngay <strong>1800.646.809</strong>
+            <div class="details__hotline-box hotline-box">
+              Hotline tư vấn 24/7: <a href="tel:0852080383" style="color: inherit; text-decoration: none;"><strong>0852.080.383</strong></a>
             </div>
 
             <!-- Khuyến mãi & Timer -->
-            <div class="details-promo-row">
-              <div class="gift-text">
+            <div class="details__promo-row details-promo-row">
+              <div class="details__gift-text gift-text">
                 <strong>Bộ quà tặng trị giá 1.864.000₫</strong>
               </div>
-              <div class="countdown-box">
-                <div class="countdown-item">00</div>
+              <div class="details__countdown-box countdown-box">
+                <div class="details__countdown-item countdown-item">00</div>
                 <span>:</span>
-                <div class="countdown-item">18</div>
+                <div class="details__countdown-item countdown-item">18</div>
                 <span>:</span>
-                <div class="countdown-item">29</div>
+                <div class="details__countdown-item countdown-item">29</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Tab Title Bar -->
+    <div class="details__tab-header">
+      <div class="container">
+        <h2 class="details__tab-title" id="detailsTabTitle">SẢN PHẨM NÀY DÀNH CHO AI</h2>
+      </div>
+    </div>
+
+    <!-- Product Detailed Content (Rendered dynamically based on Product) -->
+    <section class="details__content-section" id="detailsContentSection">
+      <div class="container">
+        <div class="details__content-body" id="detailsContentBody">
+          <!-- Main Title -->
+          <h2 class="details__content-main-title" id="contentMainTitle">
+            Nệm Foam Latex TBAY Hybrid Plus – Nâng tầm giấc ngủ với công nghệ 5IN1, nâng đỡ từng vùng chuyên sâu
+          </h2>
+
+          <!-- Subtitle & Paragraph -->
+          <h3 class="details__content-subtitle">SẢN PHẨM PHÙ HỢP CHO AI</h3>
+          <p class="details__content-desc" id="contentAudienceDesc">
+            Với độ dày 28cm, nệm Foam Latex TBAY Hybrid Plus là sự lựa chọn hoàn hảo cho những ai yêu thích trải nghiệm nằm nệm cao và sang trọng. Đồng thời muốn tìm kiếm một chiếc nệm êm ái để đảm bảo giấc ngủ sâu trọn vẹn mỗi đêm.
+          </p>
+          <img src="./assets/images/details/do-day-Hybrid-plus-01.jpg" alt="Độ dày Hybrid Plus" class="details__content-img" id="contentAudienceImg">
+
+          <!-- Warranty Section -->
+          <h3 class="details__content-subtitle" id="contentWarrantyTitle">CHẾ ĐỘ BẢO HÀNH</h3>
+          <p class="details__content-desc" id="contentWarrantyDesc">
+            Nệm được bảo hành 1 đổi 1 trong vòng 15 năm trong trường hợp bị xẹp lún hoặc lỗi do nhà sản xuất, đảm bảo mang lại sự an tâm và hài lòng tới khách hàng.
+          </p>
+          <img src="./assets/images/details/mo-ta-bao-hanh-15-nam-nem-cao-su.webp" alt="Chế độ bảo hành 15 năm" class="details__content-img" id="contentWarrantyImg">
+
+          <!-- Highlights & Features -->
+          <h3 class="details__content-subtitle" id="contentFeaturesTitle">ĐẶC ĐIỂM NỔI BẬT CỦA SẢN PHẨM</h3>
+          <h4 class="details__layer-title" id="contentFeaturesSub">Công nghệ 5IN1 thế hệ mới – Êm ái trọn vẹn ở mọi tư thế ngủ</h4>
+          <p class="details__content-desc" id="contentFeaturesDesc">
+            Nệm Foam Latex TBAY Hybrid Plus được cải tiến thiết kế với kết cấu đa tầng, tích hợp các tính năng ưu Việt mang lại trải nghiệm giấc ngủ với độ đàn hồi hoàn hảo, không quá lún hay khó chịu đau mỏi suốt đêm.
+          </p>
+
+          <!-- Layer 1 -->
+          <div class="details__layer-box" id="layer1Box">
+            <h4 class="details__layer-title">Tầng 1: Lớp cao su thiên nhiên</h4>
+            <p class="details__layer-desc">
+              Sở hữu đặc tính cao su đàn hồi, dẻo dai vượt trội giúp bảo vệ định hình tư thế ngủ khỏe. Đặc biệt nhờ ứng dụng công nghệ xử lý mùi cao su hiệu quả. Kết hợp cùng thiết kế hàng ngàn lỗ thoáng khí, tăng cường độ thông thoáng và duy trì sự mát mẻ trên bề mặt nệm.
+            </p>
+            <img src="./assets/images/details/hybrid_plus_02-1536x1536.webp" alt="Tầng 1 Cao su thiên nhiên" class="details__content-img">
+          </div>
+
+          <!-- Layer 2 -->
+          <div class="details__layer-box" id="layer2Box">
+            <h4 class="details__layer-title">Tầng 2: Lớp High-Resilience Foam 3 Zone</h4>
+            <p class="details__layer-desc">
+              Lớp High – Resilience Foam 3 Zone cải tiến với công nghệ đa tầng nâng đỡ tối ưu 3 vùng cơ thể Đầu – Lưng – Chân. Trong đó lớp HR foam trắng với độ mềm nhất định nâng đỡ cho vùng đầu và chân để tạo cảm giác thoải mái khi ngủ. Lớp HR foam xanh ở giữa với độ cứng tối ưu nâng đỡ vùng lưng hiệu quả.
+            </p>
+            <img src="./assets/images/details/hybrid-plus-03-800x800.webp" alt="Tầng 2 HR Foam 3 Zone" class="details__content-img">
+          </div>
+
+          <!-- Layer 3 & 4 -->
+          <div class="details__layer-box" id="layer3Box">
+            <h4 class="details__layer-title">Tầng 3: Lớp High-Resilience Foam cao cấp</h4>
+            <p class="details__layer-desc">
+              Cải tiến tầng giữa lớp HR foam (High-Resilience Foam) cao cấp mang đến cảm giác như cơ thể được ôm sát từng đường cong, giúp phân tán áp lực đồng đều, giảm áp lực tại các điểm tiếp xúc như cổ, vai, lưng và hông.
+            </p>
+          </div>
+
+          <div class="details__layer-box" id="layer4Box">
+            <h4 class="details__layer-title">Tầng 4: Lớp High-Resilience Foam cao cấp</h4>
+            <p class="details__layer-desc">
+              Cuối cùng, lớp foam cao cấp ở đáy nệm nâng đỡ cơ thể một cách hiệu quả, X2 độ êm ái, mang lại một giấc ngủ sâu và phục hồi năng lượng tốt hơn sau ngày dài.
+            </p>
+            <img src="./assets/images/details/hybrid-plus-artboard-4-800x800.webp" alt="Tầng 4 Foam đáy" class="details__content-img">
+          </div>
+
+          <!-- Cooling cover -->
+          <div class="details__layer-box" id="coolingBox">
+            <h4 class="details__layer-title">Áo nệm làm mát ứng dụng công nghệ hiện đại</h4>
+            <p class="details__layer-desc">
+              Áo nệm được ứng dụng công nghệ làm mát Aircool -5 độ C kết hợp lõi nệm cao su cùng thiết kế lỗ tròn thoáng khí mang đến sự mát mẻ, êm ái ngay lần đầu chạm lưng.
+            </p>
+          </div>
+
+          <!-- Specifications & Certifications -->
+          <h3 class="details__content-subtitle">THÔNG TIN SẢN PHẨM</h3>
+          <h4 class="details__layer-title">1. CHỨNG NHẬN CHẤT LƯỢNG</h4>
+          <img src="./assets/images/details/BANNER-CHUNG-NHAN.webp" alt="Chứng nhận chất lượng" class="details__content-img" id="contentCertImg">
+          <img src="./assets/images/details/banner-10-ly-do-nen-chon-mua-ntv.jpg" alt="10 lý do nên chọn mua Nệm TBAY" class="details__content-img" id="contentReasonImg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products Section (SẢN PHẨM TƯƠNG TỰ) -->
+    <section class="details__related-section" id="detailsRelatedSection">
+      <div class="container">
+        <h2 class="details__related-title">SẢN PHẨM TƯƠNG TỰ</h2>
+        <div class="details__related-grid" id="detailsRelatedGrid">
+          <!-- Will be rendered dynamically by JS -->
+          <div class="details__related-card">
+            <div class="details__related-thumb">
+              <span class="details__related-badge">-25%</span>
+              <a href="./details.html?id=4">
+                <img src="./assets/images/products/product-4.jpg" alt="Nệm cao su TBAY Legend">
+              </a>
+            </div>
+            <div class="details__related-info">
+              <h3 class="details__related-name">
+                <a href="./details.html?id=4">Nệm cao su TBAY Legend – Chuyên gia nâng đỡ vùng lưng</a>
+              </h3>
+              <div class="details__related-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="details__related-price">7.720.000₫ – 12.230.000₫</div>
+            </div>
+          </div>
+
+          <div class="details__related-card">
+            <div class="details__related-thumb">
+              <span class="details__related-badge">-25%</span>
+              <a href="./details.html?id=5">
+                <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam TBAY Standard">
+              </a>
+            </div>
+            <div class="details__related-info">
+              <h3 class="details__related-name">
+                <a href="./details.html?id=5">Nệm Foam TBAY Standard – Nệm foam êm ái nâng đỡ</a>
+              </h3>
+              <div class="details__related-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="details__related-price">2.760.000₫ – 7.060.000₫</div>
+            </div>
+          </div>
+
+          <div class="details__related-card">
+            <div class="details__related-thumb">
+              <span class="details__related-badge">-21%</span>
+              <a href="./details.html?id=2">
+                <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su thiên nhiên TBAY Latex Premium">
+              </a>
+              <div class="details__flash-sale-badge">
+                <span class="badge-tag">11.11</span> FLASH SALE
+              </div>
+            </div>
+            <div class="details__related-info">
+              <h3 class="details__related-name">
+                <a href="./details.html?id=2">Nệm cao su thiên nhiên TBAY Latex Premium – Siêu đàn hồi, êm ái, nâng đỡ...</a>
+              </h3>
+              <div class="details__related-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="details__related-price">5.060.000₫ – 18.140.000₫</div>
+            </div>
+          </div>
+
+          <div class="details__related-card">
+            <div class="details__related-thumb">
+              <span class="details__related-badge">-25%</span>
+              <a href="./details.html?id=1">
+                <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey">
+              </a>
+              <div class="details__flash-sale-badge">
+                <span class="badge-tag">11.11</span> FLASH SALE
+              </div>
+            </div>
+            <div class="details__related-info">
+              <h3 class="details__related-name">
+                <a href="./details.html?id=1">Nệm cao su TBAY Titan Grey – Kháng khuẩn, nâng đỡ vượt trội</a>
+              </h3>
+              <div class="details__related-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="details__related-price">18.070.000₫ – 23.000.000₫</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer" id="footer">
-    <div class="footer-main">
+    <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__main">
       <div class="container">
-        <div class="footer-grid">
-          <!-- Cột 1: Thông tin công ty -->
-          <div class="footer-col">
-            <div class="footer-brand">
-              <img src="./assets/images/logo.jpg" alt="Logo" class="footer-logo">
-              <span class="footer-brand-name">NỆM THUẦN VIỆT</span>
+        <div class="footer__grid">
+          <!-- Col 1: Thương hiệu & Pháp lý -->
+          <div class="footer__col">
+            <div class="footer__brand">
+              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer__logo">
+              <div class="footer__brand-text-group">
+                <span class="footer__brand-name">TBAY GROUP</span>
+                <span class="footer__brand-slogan">Say giấc cùng TBAY</span>
+              </div>
             </div>
-            <div class="footer-company-name">CÔNG TY CP THUẦN VIỆT GLOBAL</div>
-            <p class="footer-text">Địa chỉ: H76-H77, Đường Thị Giang, P. Đông Hưng Thuận, TP.HCM.</p>
-            <p class="footer-text">Giấy CNĐKDN: <strong>0318692955</strong></p>
-            <p class="footer-text">Ngày cấp: 2024-10-01 – Sở KH&ĐT TP.HCM</p>
-
-            <div class="footer-badges">
-              <img src="./assets/images/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+            <p class="footer__company-name">CÔNG TY CỔ PHẦN TBAY GROUP</p>
+            <p class="footer__text"><strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
+            <p class="footer__text"><strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
+            <p class="footer__text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> | <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
+            <div class="footer__badges">
+              <img src="./assets/images/common/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="footer__bct-badge">
             </div>
-            <div class="footer-payment">
-              <div class="payment-title">Phương thức thanh toán</div>
-              <img src="./assets/images/payments.png" alt="Phương thức thanh toán" class="payment-img">
-              <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
+            <div class="footer__payment">
+              <span class="footer__payment-title">Phương thức thanh toán:</span>
+              <img src="./assets/images/common/payments.png" alt="Phương thức thanh toán" class="footer__payment-img">
+              <span class="footer__payment-note">Hỗ trợ trả góp 0% lãi suất qua thẻ tín dụng</span>
             </div>
           </div>
 
-          <!-- Cột 2: Chính sách -->
-          <div class="footer-col">
-            <h3 class="footer-heading">CHÍNH SÁCH</h3>
-            <ul class="footer-links">
-              <li><a href="#">Điều Khoản & Điều Kiện</a></li>
-              <li><a href="#">Chính sách bảo hành</a></li>
-              <li><a href="#">Chính sách giao hàng</a></li>
-              <li><a href="#">Chính sách đổi trả</a></li>
-              <li><a href="#">Chính sách về quy trình xử lý khiếu nại</a></li>
-              <li><a href="#">Chính sách bảo mật</a></li>
+          <!-- Col 2: Về Nệm TBAY -->
+          <div class="footer__col">
+            <h4 class="footer__heading">VỀ NỆM TBAY</h4>
+            <ul class="footer__links">
+              <li><a href="#" class="footer__link">Giới thiệu công ty</a></li>
+              <li><a href="#" class="footer__link">Hệ thống showroom (50+ chi nhánh)</a></li>
+              <li><a href="#" class="footer__link">Nhà máy sản xuất tiêu chuẩn ISO</a></li>
+              <li><a href="#" class="footer__link">Tuyển dụng nhân tài</a></li>
+              <li><a href="#" class="footer__link">Tin tức &amp; Sự kiện</a></li>
+              <li><a href="#" class="footer__link">Báo chí nói về chúng tôi</a></li>
             </ul>
           </div>
 
-          <!-- Cột 3: Thông tin -->
-          <div class="footer-col">
-            <h3 class="footer-heading">THÔNG TIN NỆM THUẦN VIỆT</h3>
-            <ul class="footer-links">
-              <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
-              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
-              <li><a href="#">Tin trong ngành</a></li>
-              <li><a href="#">Hệ thống cửa hàng & đại lý</a></li>
-              <li><a href="#">TEST Nệm Phù Hợp</a></li>
+          <!-- Col 3: Chính sách khách hàng -->
+          <div class="footer__col">
+            <h4 class="footer__heading">CHÍNH SÁCH &amp; HỖ TRỢ</h4>
+            <ul class="footer__links">
+              <li><a href="./terms.html" class="footer__link">Điều Khoản &amp; Điều Kiện</a></li>
+              <li><a href="./warranty-policy.html" class="footer__link">Chính sách bảo hành lên tới 15 năm</a></li>
+              <li><a href="./shipping-policy.html" class="footer__link">Chính sách giao hàng &amp; Lắp đặt</a></li>
+              <li><a href="./return-policy.html" class="footer__link">Chính sách đổi trả &amp; Hoàn tiền</a></li>
+              <li><a href="./complaint-policy.html" class="footer__link">Quy trình xử lý khiếu nại</a></li>
+              <li><a href="./privacy-policy.html" class="footer__link">Chính sách bảo mật thông tin</a></li>
             </ul>
           </div>
 
-          <!-- Cột 4: Kết nối -->
-          <div class="footer-col">
-            <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
-            <p class="footer-contact-item">
-              <i class="fa-solid fa-phone"></i>
-              Hotline: <strong>1800.646.809</strong> (miễn phí cước gọi)
-            </p>
-            <p class="footer-contact-item">
+          <!-- Col 4: Liên hệ & Kết nối -->
+          <div class="footer__col">
+            <h4 class="footer__heading">TỔNG ĐÀI HỖ TRỢ</h4>
+            <div class="footer__contact-item">
+              <i class="fa-solid fa-warehouse"></i>
+              <span>Tổng kho: <strong>303/41 Tân Sơn Nhì, Q. Tân Phú, TP. HCM</strong></span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Hotline 24/7: <a href="tel:0852080383"><strong>0852.080.383</strong></a></span>
+            </div>
+            <div class="footer__contact-item">
               <i class="fa-solid fa-envelope"></i>
-              Email: <strong>nemthuanviet@gmail.com</strong>
-            </p>
-
-            <div class="footer-socials">
-              <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#" class="social-icon shopee"><i class="fa-solid fa-bag-shopping"></i></a>
-              <a href="#" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
+              <span>Email: <a href="mailto:hotro@tbay.vn"><strong>hotro@tbay.vn</strong></a></span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>Website: <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
             </div>
 
-            <div class="footer-zalo">
-              <span>Liên hệ qua Zalo OA</span>
-              <a href="#" class="btn-zalo">
-                <i class="fa-solid fa-comment"></i> Zalo <strong>QUAN TÂM</strong>
-              </a>
+            <div class="footer__socials">
+              <a href="#" class="footer__social-icon footer__social-icon--facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer__social-icon footer__social-icon--youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="footer__social-icon footer__social-icon--shopee" aria-label="Shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="footer__social-icon footer__social-icon--tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer__zalo">
+              <span>Chat Zalo tư vấn 24/7:</span>
+              <a href="#" class="footer__btn-zalo"><i class="fa-solid fa-comment-dots"></i> Nhắn tin Zalo ngay</a>
             </div>
           </div>
         </div>
@@ -298,15 +514,22 @@
     </div>
 
     <!-- Copyright -->
-    <div class="footer-bottom">
+    <div class="footer__bottom">
       <div class="container">
-        <p>Copyright 2026 © Nệm Thuần Việt</p>
+        <p>© 2026 NỆM TBAY. Tất cả các quyền được bảo lưu. Thiết kế chuẩn thương mại điện tử.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Single Consolidated Script -->
+  <!-- Floating Chat Button -->
+  <a href="#" class="floating-chat-btn" aria-label="Chat tư vấn">
+    <i class="fa-solid fa-comments"></i>
+    <span>Chat tư vấn</span>
+  </a>
+
+  <!-- Consolidated Scripts: products.js first, then main.js -->
+  <script src="./assets/js/products.js"></script>
+  <script src="./assets/js/cart.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
-
 </html>

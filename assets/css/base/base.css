@@ -1,25 +1,28 @@
 :root {
-  /* Màu chủ đạo (Primary) & Màu phụ đậm hơn (Secondary) */
-  --primary-color: #418FDE;
-  --secondary-color: #256cb7; /* Tăng độ đậm hơn so với primary */
+  /* Màu chủ đạo hồng (#EB2365) & Màu hồng phụ nhạt (#F25287) */
+  --primary-color: #EB2365;
+  --secondary-color: #F25287;
 
   /* Màu chữ (Text colors) */
   --text-white: #ffffff;
   --text-gray: #6b7280;
 
   /* Hỗ trợ chuẩn biến màu cho dự án */
-  --color-primary: #418FDE;
-  --color-secondary: #256cb7;
+  --color-primary: #EB2365;
+  --color-secondary: #F25287;
   --color-text-white: #ffffff;
   --color-text-gray: #6b7280;
 
-  /* Font chữ toàn trang */
-  --font-family-base: "Questrial", sans-serif;
-  --font-family-heading: "Questrial", sans-serif;
+  /* Font chữ toàn trang (Chuẩn WordPress / WooCommerce font Roboto thanh thoát) */
+  --font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-family-heading: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  font-family: "Questrial", sans-serif;
+  font-family: var(--font-family-base, "Roboto", sans-serif);
+  font-weight: 400;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Base rules */
@@ -40,5 +43,3 @@ img, svg {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
-

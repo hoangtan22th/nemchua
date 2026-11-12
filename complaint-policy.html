@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quy trình giải quyết khiếu nại minh bạch, nhanh chóng trong 3 ngày tại TBAY GROUP">
+  <title>Quy Trình Tiếp Nhận & Xử Lý Khiếu Nại - TBAY GROUP</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/common/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+  <!-- 1. Header -->
+  <header class="header" id="header">
+    <div class="header__advertisement">
+      <div class="container">
+        <ul class="header__advertisement-list">
+          <li class="header__advertisement-item">Giảm đến 25%</li>
+          <li class="header__advertisement-item">101 đêm ngủ thử</li>
+          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
+    <div class="header__middle">
+      <div class="container">
+        <div class="header__middle-wrapper">
+          <a href="./index.html" class="header__logo">
+            <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="header__logo-img">
+            <div class="header__logo-text-group">
+              <span class="header__logo-text">TBAY GROUP</span>
+              <span class="header__logo-slogan">Say giấc cùng TBAY</span>
+            </div>
+          </a>
+
+          <div class="header__search">
+            <input type="text" placeholder="Tìm kiếm nệm, phụ kiện..." class="header__search-input">
+            <button type="button" class="header__search-btn" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <div class="header__right">
+            <a href="./cart.html" class="header__cart">
+              <div class="header__cart-icon-wrap">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="header__cart-badge">0</span>
+              </div>
+              <span class="header__cart-text">Giỏ hàng</span>
+            </a>
+
+            <a href="tel:0852080383" class="header__hotline">
+              <div class="header__hotline-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="header__hotline-info">
+                <span class="header__hotline-label">Hotline 24/7</span>
+                <strong class="header__hotline-number">0852.080.383</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar (Nguyên bản chuẩn 100% như các trang khác) -->
+    <nav class="header__navbar">
+      <div class="container">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="./index.html" class="header__nav-link">TRANG CHỦ</a></li>
+          <li class="header__nav-item"><a href="./about.html" class="header__nav-link">GIỚI THIỆU</a></li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./products.html" class="header__nav-link">NỆM <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên nhiên</a></li>
+              <li><a href="./products.html?cat=nem-foam" class="header__dropdown-link">Nệm Foam</a></li>
+              <li><a href="./products.html?cat=nem-lo-xo" class="header__dropdown-link">Nệm lò xo</a></li>
+              <li><a href="./products.html?cat=nem-lam-mat" class="header__dropdown-link">Nệm làm mát</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./accessories.html" class="header__nav-link">PHỤ KIỆN <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./accessories.html?cat=chan-ga" class="header__dropdown-link">Chăn ga</a></li>
+              <li><a href="./accessories.html?cat=goi-cao-su" class="header__dropdown-link">Gối cao su</a></li>
+              <li><a href="./accessories.html?cat=long-vu" class="header__dropdown-link">Lông vũ</a></li>
+              <li><a href="./accessories.html?cat=goi-gon" class="header__dropdown-link">Gối gòn</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item"><a href="./contact.html" class="header__nav-link">LIÊN HỆ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="policy-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="./index.html">Trang chủ</a>
+      <span class="divider">/</span>
+      <span class="current">Quy trình xử lý khiếu nại</span>
+    </div>
+  </nav>
+
+  <!-- Policy Main Content (Từng trang riêng biệt, không menu gộp) -->
+  <main class="policy-section">
+    <div class="container">
+      <article class="policy-card">
+          <header class="policy-content__header">
+            <span class="policy-content__badge"><i class="fa-solid fa-clipboard-check"></i> Lắng nghe &amp; Giải quyết</span>
+            <h1 class="policy-content__title">Quy Trình Tiếp Nhận &amp; Xử Lý Khiếu Nại</h1>
+            <div class="policy-content__updated">
+              <i class="fa-regular fa-clock"></i>
+              <span>Cập nhật mới nhất: Tháng 11/2026</span>
+            </div>
+          </header>
+
+          <div class="policy-content__body">
+            <p>Tại <strong>TBAY GROUP</strong>, sự hài lòng và trải nghiệm giấc ngủ của khách hàng luôn là tôn chỉ hoạt động hàng đầu. Chúng tôi luôn sẵn sàng lắng nghe mọi ý kiến đóng góp, thắc mắc và khiếu nại nhằm không ngừng cải thiện chất lượng dịch vụ và bảo vệ tối đa lợi ích chính đáng của người tiêu dùng.</p>
+
+            <h2>1. Nguyên Tắc Tiếp Nhận Khiếu Nại</h2>
+            <ul>
+              <li>Mọi phản ánh của khách hàng liên quan đến chất lượng sản phẩm, thái độ phục vụ của nhân viên, thời gian giao hàng hoặc chính sách bảo hành đều được ghi nhận đầy đủ, minh bạch.</li>
+              <li>Quy trình xử lý dựa trên tinh thần thiện chí, tôn trọng, giải quyết nhanh chóng và thỏa đáng cho khách hàng.</li>
+              <li>Tất cả thông tin khiếu nại được theo dõi chặt chẽ trên hệ thống quản lý chăm sóc khách hàng chuyên biệt của TBAY GROUP.</li>
+            </ul>
+
+            <h2>2. Các Kênh Tiếp Nhận Thông Tin 24/7</h2>
+            <p>Quý khách có thể gửi phản ánh, khiếu nại qua các kênh chính thức sau:</p>
+            <ul>
+              <li><strong>Hotline khiếu nại &amp; tư vấn:</strong> <a href="tel:0852080383" style="color: var(--primary-color); font-weight: 600;">0852.080.383</a> (Hỗ trợ 24/7).</li>
+              <li><strong>Email tiếp nhận:</strong> <a href="mailto:hotro@tbay.vn" style="color: var(--primary-color); font-weight: 600;">hotro@tbay.vn</a> (Tiêu đề: [Khiếu Nại] - Mã Đơn Hàng / Tên Khách Hàng).</li>
+              <li><strong>Trực tiếp tại tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM (Giờ làm việc: 8h00 - 20h00 hàng ngày).</li>
+            </ul>
+
+            <h2>3. Quy Trình 4 Bước Giải Quyết Chuẩn Hóa</h2>
+            <ol>
+              <li><strong>Bước 1 - Tiếp nhận thông tin (Trong 2 - 4 giờ làm việc):</strong> Bộ phận CSKH ghi nhận phản hồi, kiểm tra mã đơn hàng và thông tin sản phẩm trên hệ thống.</li>
+              <li><strong>Bước 2 - Xác minh thực tế (Trong vòng 24 giờ):</strong> Chuyên viên kỹ thuật liên hệ để hướng dẫn kiểm tra, tiếp nhận hình ảnh/video phản ánh lỗi sản phẩm hoặc cử kỹ thuật viên đến tận nhà đối soát.</li>
+              <li><strong>Bước 3 - Đề xuất phương án &amp; Thỏa thuận:</strong> Đưa ra giải pháp rõ ràng: đổi mới sản phẩm, bảo hành sửa chữa miễn phí hoặc hoàn tiền theo quy định cam kết.</li>
+              <li><strong>Bước 4 - Hoàn tất xử lý (Tối đa 03 ngày làm việc):</strong> Thực hiện giải pháp đã thống nhất và liên hệ chăm sóc lại sau khi giải quyết để lắng nghe đánh giá của khách hàng.</li>
+            </ol>
+            <div class="policy-callout">
+              <p><strong>Cam kết thời gian:</strong> Thời gian giải quyết khiếu nại tối đa là <strong>03 (ba) ngày làm việc</strong> kể từ thời điểm tiếp nhận thông tin đầy đủ từ khách hàng. Trong trường hợp bất khả kháng, hai bên sẽ chủ động trao đổi để có phương án hỗ trợ tốt nhất.</p>
+            </div>
+
+            <div class="policy-contact-box">
+              <h3 class="policy-contact-box__title">
+                <i class="fa-solid fa-address-card"></i>
+                <span>THÔNG TIN LIÊN HỆ &amp; HỖ TRỢ</span>
+              </h3>
+              <div class="policy-contact-box__list">
+                <p><i class="fa-solid fa-building"></i> <strong>Đơn vị chủ quản:</strong> CÔNG TY CỔ PHẦN TBAY GROUP</p>
+                <p><i class="fa-solid fa-warehouse"></i> <strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
+                <p><i class="fa-solid fa-phone-volume"></i> <strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a></p>
+                <p><i class="fa-solid fa-globe"></i> <strong>Website chính thức:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
+              </div>
+            </div>
+          </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Cột 1: Thông tin công ty -->
+          <div class="footer-col">
+            <div class="footer-brand">
+              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer-logo">
+              <div class="footer__brand-text-group">
+                <span class="footer-brand-name">TBAY GROUP</span>
+                <span class="footer__brand-slogan">Say giấc cùng TBAY</span>
+              </div>
+            </div>
+            <div class="footer-company-name">CÔNG TY CỔ PHẦN TBAY GROUP</div>
+            <p class="footer-text"><strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
+            <p class="footer-text"><strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
+            <p class="footer-text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> | <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
+
+            <div class="footer-badges">
+              <img src="./assets/images/common/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+            </div>
+            <div class="footer-payment">
+              <div class="payment-title">Phương thức thanh toán</div>
+              <img src="./assets/images/common/payments.png" alt="Phương thức thanh toán" class="payment-img">
+              <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
+            </div>
+          </div>
+
+          <!-- Cột 2: Chính sách (Bấm từ footer để mở từng trang riêng biệt) -->
+          <div class="footer-col">
+            <h3 class="footer-heading">CHÍNH SÁCH</h3>
+            <ul class="footer-links">
+              <li><a href="./terms.html">Điều Khoản &amp; Điều Kiện</a></li>
+              <li><a href="./warranty-policy.html">Chính sách bảo hành</a></li>
+              <li><a href="./shipping-policy.html">Chính sách giao hàng</a></li>
+              <li><a href="./return-policy.html">Chính sách đổi trả</a></li>
+              <li><a href="./complaint-policy.html">Chính sách về quy trình xử lý khiếu nại</a></li>
+              <li><a href="./privacy-policy.html">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 3: Thông tin -->
+          <div class="footer-col">
+            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
+            <ul class="footer-links">
+              <li><a href="./about.html">Giới thiệu</a></li>
+              <li><a href="#">Sức khỏe &amp; Giấc ngủ</a></li>
+              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
+              <li><a href="./index.html#press">Tin trong ngành</a></li>
+              <li><a href="./index.html#storeSystem">Hệ thống cửa hàng &amp; đại lý</a></li>
+              <li><a href="./products.html">TEST Nệm Phù Hợp</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Kết nối -->
+          <div class="footer-col">
+            <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-warehouse"></i>
+              <span>Tổng kho: <strong>303/41 Tân Sơn Nhì, Q. Tân Phú, TP. HCM</strong></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Hotline 24/7: <a href="tel:0852080383"><strong>0852.080.383</strong></a></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: <a href="mailto:hotro@tbay.vn"><strong>hotro@tbay.vn</strong></a></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>Website: <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
+            </p>
+
+            <div class="footer-socials">
+              <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon shopee" aria-label="Shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="social-icon tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-zalo">
+              <span>Liên hệ qua Zalo OA</span>
+              <a href="#" class="btn-zalo">
+                <i class="fa-solid fa-comment"></i> Zalo <strong>QUAN TÂM</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 TBAY GROUP. Tất cả các quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Chat -->
+  <div class="floating-chat-btn">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span>Liên hệ</span>
+  </div>
+
+  <script src="./assets/js/products.js"></script>
+  <script src="./assets/js/cart.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

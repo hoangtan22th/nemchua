@@ -1,8 +1,10 @@
-/* ==================== HERO SLIDER ==================== */
+/* ==================== 1. HERO SLIDER ==================== */
+.hero,
 .hero-section {
   padding: 15px 0 25px;
 }
 
+.hero__slider,
 .hero-slider {
   position: relative;
   width: 100%;
@@ -10,16 +12,20 @@
   border-radius: 8px;
 }
 
+.hero__track,
 .slider-track {
   position: relative;
   width: 100%;
 }
 
+.hero__slide,
 .slide {
   display: none;
   width: 100%;
 }
 
+.hero__slide.active,
+.hero__slide--active,
 .slide.active {
   display: block;
   animation: fadeIn 0.4s ease-in-out;
@@ -30,6 +36,8 @@
   to { opacity: 1; }
 }
 
+.hero__img,
+.hero__slide img,
 .slide img {
   width: 100%;
   height: 420px;
@@ -37,6 +45,7 @@
   display: block;
 }
 
+.hero__btn,
 .slider-btn {
   position: absolute;
   top: 50%;
@@ -56,14 +65,19 @@
   z-index: 10;
 }
 
+.hero__btn:hover,
 .slider-btn:hover {
   background-color: var(--primary-color);
   color: var(--text-white);
 }
 
+.hero__btn--prev,
 .prev-btn { left: 16px; }
+
+.hero__btn--next,
 .next-btn { right: 16px; }
 
+.hero__dots,
 .slider-dots {
   position: absolute;
   bottom: 14px;
@@ -74,6 +88,7 @@
   z-index: 10;
 }
 
+.hero__dot,
 .dot {
   width: 10px;
   height: 10px;
@@ -83,12 +98,15 @@
   transition: background-color 0.2s, transform 0.2s;
 }
 
+.hero__dot.active,
+.hero__dot--active,
 .dot.active {
   background-color: var(--primary-color);
   transform: scale(1.2);
 }
 
-/* ==================== BEST SELLER SECTION ==================== */
+/* ==================== 2. BEST SELLER SECTION ==================== */
+.best-seller,
 .best-seller-section {
   padding: 40px 0;
   background-color: #ffffff;
@@ -97,19 +115,19 @@
 .section-title {
   text-align: center;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 28px;
 }
 
-/* ==================== PRODUCT GRID ==================== */
+/* ==================== 3. PRODUCT GRID ==================== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-/* ==================== PRODUCT CARD ==================== */
+/* ==================== 4. PRODUCT CARD COMPONENT ==================== */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -124,7 +142,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* ==================== THUMBNAIL & BADGE ==================== */
+.product-card__thumb,
 .product-thumb {
   position: relative;
   width: 100%;
@@ -134,6 +152,8 @@
   background-color: #f8f8f8;
 }
 
+.product-card__img,
+.product-card__thumb img,
 .product-thumb img {
   width: 100%;
   height: 100%;
@@ -141,10 +161,12 @@
   transition: transform 0.3s ease;
 }
 
+.product-card:hover .product-card__img,
 .product-card:hover .product-thumb img {
   transform: scale(1.03);
 }
 
+.product-card__badge,
 .product-badge {
   position: absolute;
   top: 10px;
@@ -153,14 +175,14 @@
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 2px 8px;
   border-radius: 12px;
   z-index: 2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* ==================== PRODUCT INFO ==================== */
+.product-card__info,
 .product-info {
   display: flex;
   flex-direction: column;
@@ -168,6 +190,7 @@
   gap: 6px;
 }
 
+.product-card__title,
 .product-title {
   font-size: 14px;
   line-height: 1.45;
@@ -180,16 +203,19 @@
   min-height: 40px;
 }
 
+.product-card__title a,
 .product-title a {
   text-decoration: none;
   color: #333333;
   transition: color 0.2s ease;
 }
 
+.product-card__title a:hover,
 .product-title a:hover {
   color: var(--secondary-color);
 }
 
+.product-card__rating,
 .product-rating {
   display: flex;
   align-items: center;
@@ -198,6 +224,7 @@
   font-size: 11px;
 }
 
+.product-card__price,
 .product-price {
   display: flex;
   align-items: baseline;
@@ -205,84 +232,101 @@
   margin-top: 2px;
 }
 
+.product-card__price-old,
 .price-old {
   font-size: 13px;
   color: var(--text-gray);
   text-decoration: line-through;
 }
 
+.product-card__price-current,
 .price-current {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
+.product-card__saving,
 .product-saving {
   font-size: 12px;
   color: var(--text-gray);
 }
 
+.product-card__saving strong,
 .product-saving strong {
   color: var(--secondary-color);
 }
 
-/* ==================== HERO 2 ==================== */
+/* ==================== 5. BANNER MIDDLE ==================== */
+.banner-middle,
 .hero-2 {
   padding: 10px 0 20px;
 }
 
+.banner-middle__img img,
+.banner-middle img,
 .hero-2 img {
   width: 100%;
   border-radius: 8px;
   display: block;
 }
 
-/* ==================== ALL PRODUCTS SECTION ==================== */
+/* ==================== 6. ALL PRODUCTS SECTION ==================== */
+.products-all,
 .products-section {
   padding: 20px 0 40px;
   background-color: #ffffff;
 }
 
-/* ==================== BANNER REVIEW ==================== */
+/* ==================== 7. BANNER INTRO ==================== */
+.banner-intro,
 .banner-review {
   padding: 10px 0 20px;
 }
 
+.banner-intro__img img,
+.banner-intro img,
 .banner-review img {
   width: 100%;
   border-radius: 8px;
   display: block;
 }
 
-/* ==================== VIDEO REVIEWS SECTION ==================== */
+/* ==================== 8. VIDEO REVIEWS SECTION ==================== */
+.video-reviews,
 .video-reviews-section {
-  padding: 20px 0 60px;
+  padding: 30px 0 60px;
   background-color: #ffffff;
 }
 
+.video-reviews__header,
 .reviews-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
+.video-reviews__title,
 .reviews-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #111827;
   margin: 0;
+  letter-spacing: -0.2px;
 }
 
+.video-reviews__arrows,
 .reviews-arrows {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
+.video-reviews__arrow-btn,
 .review-arrow-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: 1px solid #e5e7eb;
   background-color: #ffffff;
   color: var(--primary-color);
@@ -291,58 +335,89 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 13px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.video-reviews__arrow-btn:hover,
 .review-arrow-btn:hover {
   background-color: var(--primary-color);
   color: #ffffff;
   border-color: var(--primary-color);
+  transform: scale(1.05);
 }
 
+/* Horizontal Scrolling Carousel with Peek Effect */
+.video-reviews__slider,
 .reviews-slider {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 2px 14px;
 }
 
-/* ==================== REVIEW CARD ==================== */
+.video-reviews__slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==================== 9. REVIEW CARD (EXACT MOCKUP) ==================== */
 .review-card {
   position: relative;
-  height: 440px;
-  border-radius: 16px;
+  flex: 0 0 calc((100% - 48px) / 4);
+  min-width: 260px;
+  height: 480px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  scroll-snap-align: start;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.review-card__bg,
 .review-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
-  transition: transform 0.35s ease;
+  background-position: center top;
+  transition: transform 0.4s ease;
 }
 
+.review-card:hover .review-card__bg,
 .review-card:hover .review-bg {
   transform: scale(1.04);
 }
 
+/* Exact Gradient: Transparent on top, Rich Wine/Berry Pink on bottom */
+.review-card__overlay,
 .review-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(16, 52, 99, 0.95) 0%, rgba(37, 108, 183, 0.5) 45%, rgba(0, 0, 0, 0.15) 75%, transparent 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(150, 20, 75, 0.45) 55%, rgba(120, 15, 60, 0.88) 75%, #58142c 100%);
+  pointer-events: none;
 }
 
+/* Circular Play Button in the center */
+.review-card__play-btn,
 .review-play-btn {
   position: absolute;
-  top: 48%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-color: var(--primary-color);
   color: #ffffff;
@@ -350,116 +425,170 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   z-index: 2;
+  box-shadow: 0 4px 16px rgba(235, 35, 101, 0.5);
 }
 
+.review-card__play-btn i {
+  margin-left: 3px;
+}
+
+.review-card:hover .review-card__play-btn,
 .review-card:hover .review-play-btn {
-  transform: translate(-50%, -50%) scale(1.12);
-  box-shadow: 0 0 20px rgba(65, 143, 222, 0.65);
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 0 24px rgba(235, 35, 101, 0.7);
 }
 
+/* Content Container */
+.review-card__content,
 .review-content {
   position: relative;
   z-index: 2;
-  padding: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
 }
 
+/* Tag Pill Badge */
+.review-card__tag,
 .review-tag {
   align-self: flex-start;
   background-color: #ffffff;
   color: #111827;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
+  padding: 3px 11px;
+  border-radius: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
+/* Headline */
+.review-card__title,
 .review-card-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.35;
-  margin: 0;
+  line-height: 1.25;
+  margin: 0 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Subtitle Slogan */
+.review-card__subtitle,
 .review-subtitle {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-style: italic;
+  line-height: 1.35;
+  margin: 0 0 8px;
 }
 
-/* ==================== REVIEW ATTACHED PRODUCT ==================== */
+/* Floating White Product Box at Bottom */
+.review-card__product,
 .review-product-box {
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 8px 10px;
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  margin-top: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.review-card__product:hover,
 .review-product-box:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
+.review-card__product-img,
 .review-product-box img {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
   flex-shrink: 0;
+  background-color: #f1f5f9;
 }
 
+.review-card__product-meta,
 .review-product-meta {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: 100%;
+  gap: 1px;
 }
 
+.review-card__product-top,
 .review-product-top {
   display: flex;
   align-items: center;
   gap: 6px;
+  line-height: 1.2;
+}
+
+.review-card__old-price,
+.review-old-price {
+  color: #94a3b8;
+  text-decoration: line-through;
   font-size: 11px;
 }
 
-.review-old-price {
-  color: #9ca3af;
-  text-decoration: line-through;
-}
-
+.review-card__discount,
 .review-discount {
+  background-color: #ffe4ec;
   color: var(--primary-color);
+  font-size: 9.5px;
   font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  line-height: 1.1;
 }
 
+.review-card__sale-price,
 .review-sale-price {
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--primary-color);
+  line-height: 1.2;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 }
 
+.review-card__sale-price .price-prefix {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.review-card__product-name,
 .review-product-name {
   font-size: 11px;
   color: #374151;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.25;
+  margin-top: 1px;
+  font-weight: 500;
 }
 
-/* ==================== VIDEO MODAL ==================== */
+/* ==================== 10. VIDEO MODAL ==================== */
 .video-modal {
   position: fixed;
   inset: 0;
@@ -473,12 +602,14 @@
   display: flex;
 }
 
+.video-modal__backdrop,
 .video-modal-backdrop {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+.video-modal__box,
 .video-modal-box {
   position: relative;
   width: 90%;
@@ -490,6 +621,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.video-modal__close,
 .video-modal-close {
   position: absolute;
   top: 12px;
@@ -508,26 +640,30 @@
   z-index: 20;
 }
 
+.video-modal__player video,
 .video-modal-player video {
   width: 100%;
   max-height: 80vh;
   display: block;
 }
 
-/* ==================== PRESS SECTION ==================== */
+/* ==================== 11. PRESS SECTION ==================== */
+.press,
 .press-section {
   padding: 30px 0 20px;
   text-align: center;
   background-color: #ffffff;
 }
 
+.press__title,
 .press-title {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 24px;
 }
 
+.press__logos,
 .press-logos {
   display: flex;
   justify-content: center;
@@ -536,22 +672,26 @@
   flex-wrap: wrap;
 }
 
+.press__item img,
 .press-logo-item img {
   max-height: 44px;
   object-fit: contain;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.press__item img:hover,
 .press-logo-item img:hover {
   transform: scale(1.06);
 }
 
-/* ==================== STORE SYSTEM BANNER ==================== */
+/* ==================== 12. STORE SYSTEM ==================== */
+.store-system,
 .store-system-section {
   padding: 20px 0 50px;
   background-color: #ffffff;
 }
 
+.store-system__box,
 .store-box {
   display: flex;
   justify-content: space-between;
@@ -563,19 +703,27 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+.store-system__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-system__title,
 .store-title {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
   margin: 0 0 6px;
 }
 
+.store-system__subtitle,
 .store-subtitle {
   font-size: 13.5px;
   color: var(--text-gray);
   margin: 0;
 }
 
+.store-system__btn,
 .store-btn {
   display: inline-flex;
   align-items: center;
@@ -585,26 +733,33 @@
   padding: 10px 24px;
   border-radius: 30px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
+.store-system__btn:hover,
 .store-btn:hover {
   background-color: var(--primary-color);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(65, 143, 222, 0.25);
+  box-shadow: 0 4px 14px rgba(235, 35, 101, 0.25);
 }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
-  .product-grid,
-  .reviews-slider {
+  .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
+  .review-card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    min-width: 250px;
+    height: 470px;
+  }
+
+  .store-system__box,
   .store-box {
     flex-direction: column;
     text-align: center;
@@ -613,9 +768,15 @@
 }
 
 @media (max-width: 576px) {
-  .product-grid,
-  .reviews-slider {
+  .product-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  /* Chuẩn mockup: Card 1 hiển thị 82% chiều ngang, Card 2 lấp ló (peek) từ cạnh phải */
+  .review-card {
+    flex: 0 0 82%;
+    min-width: 250px;
+    height: 460px;
   }
 }

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Giỏ hàng mua sắm nệm và phụ kiện phòng ngủ chính hãng tại TBAY GROUP - wpshare247.com">
+  <title>Giỏ Hàng - TBAY GROUP</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/common/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+  <!-- 1. Header -->
+  <header class="header" id="header">
+    <div class="header__advertisement">
+      <div class="container">
+        <ul class="header__advertisement-list">
+          <li class="header__advertisement-item">Giảm đến 25%</li>
+          <li class="header__advertisement-item">101 đêm ngủ thử</li>
+          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Header Middle -->
+    <div class="header__middle">
+      <div class="container">
+        <div class="header__middle-wrapper">
+          <a href="./index.html" class="header__logo">
+            <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="header__logo-img">
+            <div class="header__logo-text-group">
+              <span class="header__logo-text">TBAY GROUP</span>
+              <span class="header__logo-slogan">Say giấc cùng TBAY</span>
+            </div>
+          </a>
+
+          <div class="header__search">
+            <input type="text" placeholder="Tìm kiếm nệm, phụ kiện..." class="header__search-input">
+            <button type="button" class="header__search-btn" aria-label="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <div class="header__right">
+            <a href="./cart.html" class="header__cart">
+              <div class="header__cart-icon-wrap">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="header__cart-badge">0</span>
+              </div>
+              <span class="header__cart-text">Giỏ hàng</span>
+            </a>
+
+            <a href="tel:0852080383" class="header__hotline">
+              <div class="header__hotline-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="header__hotline-info">
+                <span class="header__hotline-label">Hotline 24/7</span>
+                <strong class="header__hotline-number">0852.080.383</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="header__navbar">
+      <div class="container">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="./index.html" class="header__nav-link">TRANG CHỦ</a></li>
+          <li class="header__nav-item"><a href="./about.html" class="header__nav-link">GIỚI THIỆU</a></li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./products.html" class="header__nav-link">NỆM <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên nhiên</a></li>
+              <li><a href="./products.html?cat=nem-foam" class="header__dropdown-link">Nệm Foam</a></li>
+              <li><a href="./products.html?cat=nem-lo-xo" class="header__dropdown-link">Nệm lò xo</a></li>
+              <li><a href="./products.html?cat=nem-lam-mat" class="header__dropdown-link">Nệm làm mát</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item header__nav-item--has-dropdown">
+            <a href="./accessories.html" class="header__nav-link">PHỤ KIỆN <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="./accessories.html?cat=chan-ga" class="header__dropdown-link">Chăn ga</a></li>
+              <li><a href="./accessories.html?cat=goi-cao-su" class="header__dropdown-link">Gối cao su</a></li>
+              <li><a href="./accessories.html?cat=long-vu" class="header__dropdown-link">Lông vũ</a></li>
+              <li><a href="./accessories.html?cat=goi-gon" class="header__dropdown-link">Gối gòn</a></li>
+            </ul>
+          </li>
+
+          <li class="header__nav-item"><a href="./contact.html" class="header__nav-link">LIÊN HỆ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Cart Section -->
+  <main class="cart-page">
+    <div class="container">
+      <!-- Thanh tiến trình 3 bước (Breadcrumb không dùng icon) -->
+      <nav class="cart-steps" aria-label="Tiến trình giỏ hàng">
+        <div class="cart-steps__item cart-steps__item--active">SHOPPING CART</div>
+        <span class="cart-steps__separator">&gt;</span>
+        <div class="cart-steps__item"><a href="./checkout.html">CHECKOUT DETAILS</a></div>
+        <span class="cart-steps__separator">&gt;</span>
+        <div class="cart-steps__item">ORDER COMPLETE</div>
+      </nav>
+
+      <!-- Thông báo đầu trang -->
+      <div class="cart-notice">
+        Nệm cao su thiên nhiên TBAY Latex Premium – Siêu đàn hồi, êm ái, nâng đỡ từng đường cong trên cơ thể đang có giá Flash Sale 8.891.000₫ — để lại SĐT tại trang sản phẩm để nhận giá.
+      </div>
+
+      <!-- Trạng thái giỏ hàng trống (Ẩn khi có sản phẩm) -->
+      <div id="cartEmptyBox" class="cart-empty-box" style="display: none;">
+        <p class="cart-empty-text">Chưa có sản phẩm nào trong giỏ hàng của bạn.</p>
+        <a href="./products.html" class="cart-btn-continue">← QUAY LẠI CỬA HÀNG</a>
+      </div>
+
+      <!-- Khung 2 cột Giỏ hàng -->
+      <div id="cartLayout" class="cart-layout">
+        <!-- Cột trái: Bảng sản phẩm -->
+        <div class="cart-main-col">
+          <div class="cart-table-wrapper">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th class="cart-table__th--product">SẢN PHẨM</th>
+                  <th class="cart-table__th--price">GIÁ</th>
+                  <th class="cart-table__th--qty">SỐ LƯỢNG</th>
+                  <th class="cart-table__th--subtotal">TẠM TÍNH</th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody">
+                <!-- Được render tự động từ localStorage qua cart.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cart-actions-row">
+            <a href="./products.html" class="cart-btn-continue">← TIẾP TỤC XEM SẢN PHẨM</a>
+          </div>
+        </div>
+
+        <!-- Cột phải: Tổng cộng giỏ hàng & Mã ưu đãi -->
+        <aside class="cart-sidebar-col">
+          <div class="cart-sidebar-card">
+            <h2 class="cart-sidebar-title">TỔNG CỘNG GIỎ HÀNG</h2>
+
+            <table class="cart-summary-table">
+              <tbody>
+                <tr>
+                  <td class="cart-summary-label">Tạm tính</td>
+                  <td class="cart-summary-val" id="cartSubtotal">9.490.000₫</td>
+                </tr>
+                <tr id="cartDiscountRow" style="display: none;">
+                  <td class="cart-summary-label">Giảm giá</td>
+                  <td class="cart-summary-val" id="cartDiscountVal">-0₫</td>
+                </tr>
+                <tr>
+                  <td class="cart-summary-label">Vận chuyển</td>
+                  <td class="cart-summary-val" style="color: #16a34a; font-size: 13px; font-weight: 500;">Miễn phí toàn quốc</td>
+                </tr>
+                <tr>
+                  <td class="cart-summary-label cart-summary-val--total">Tổng</td>
+                  <td class="cart-summary-val cart-summary-val--total" id="cartTotal">9.490.000₫</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <a href="./checkout.html" class="cart-btn-checkout">TIẾN HÀNH THANH TOÁN</a>
+
+            <!-- Khung mã ưu đãi -->
+            <div class="cart-coupon-box">
+              <label for="cartCouponInput" class="cart-coupon-label">Mã ưu đãi</label>
+              <input type="text" id="cartCouponInput" class="cart-coupon-input" placeholder="Nhập mã giảm giá (ví dụ: TBAY10)">
+              <button type="button" id="cartApplyCouponBtn" class="cart-coupon-btn">Áp dụng</button>
+              <div id="cartCouponMsg" class="cart-coupon-message"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- 3. Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Cột 1: Thông tin thương hiệu -->
+          <div class="footer-col footer-col-brand">
+            <a href="./index.html" class="footer-logo">
+              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer-logo-img">
+              <span class="footer-logo-title">TBAY GROUP</span>
+            </a>
+            <p class="footer-brand-desc">
+              Thương hiệu Nệm TBAY – Tự hào mang đến giải pháp giấc ngủ êm ái, nâng đỡ trọn vẹn cột sống và sức khỏe cho mọi gia đình Việt.
+            </p>
+            <div class="footer-badges">
+              <img src="./assets/images/common/bocongthuong.png" alt="Bộ Công Thương" class="badge-bocongthuong">
+            </div>
+          </div>
+
+          <!-- Cột 2: Chính sách -->
+          <div class="footer-col">
+            <h3 class="footer-heading">CHÍNH SÁCH</h3>
+            <ul class="footer-links">
+              <li><a href="./terms.html">Điều Khoản &amp; Điều Kiện</a></li>
+              <li><a href="./warranty-policy.html">Chính sách bảo hành</a></li>
+              <li><a href="./shipping-policy.html">Chính sách giao hàng</a></li>
+              <li><a href="./return-policy.html">Chính sách đổi trả</a></li>
+              <li><a href="./complaint-policy.html">Chính sách về quy trình xử lý khiếu nại</a></li>
+              <li><a href="./privacy-policy.html">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 3: Thông tin -->
+          <div class="footer-col">
+            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
+            <ul class="footer-links">
+              <li><a href="./about.html">Giới thiệu</a></li>
+              <li><a href="#">Sức khỏe &amp; Giấc ngủ</a></li>
+              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
+              <li><a href="./index.html#press">Tin trong ngành</a></li>
+              <li><a href="./index.html#storeSystem">Hệ thống cửa hàng &amp; đại lý</a></li>
+              <li><a href="./products.html">TEST Nệm Phù Hợp</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Kết nối -->
+          <div class="footer-col">
+            <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-warehouse"></i>
+              <span>Tổng kho: <strong>303/41 Tân Sơn Nhì, Q. Tân Phú, TP. HCM</strong></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Hotline 24/7: <a href="tel:0852080383"><strong>0852.080.383</strong></a></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: <a href="mailto:hotro@tbay.vn"><strong>hotro@tbay.vn</strong></a></span>
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>Website: <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
+            </p>
+
+            <div class="footer-socials">
+              <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon shopee" aria-label="Shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="social-icon tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-zalo">
+              <span>Liên hệ qua Zalo OA</span>
+              <a href="#" class="btn-zalo">
+                <i class="fa-solid fa-comment"></i> Zalo <strong>QUAN TÂM</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 TBAY GROUP. Tất cả các quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Chat -->
+  <div class="floating-chat-btn">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span>Liên hệ</span>
+  </div>
+
+  <script src="./assets/js/products.js"></script>
+  <script src="./assets/js/cart.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
+

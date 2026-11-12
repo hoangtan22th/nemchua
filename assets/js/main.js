@@ -1,294 +1,22 @@
-/* ==================== 1. DATA PRODUCTS & CATEGORIES ==================== */
-const categories = [
-  { id: "nem-cao-su-thien-nhien", name: "Nệm cao su thiên nhiên" },
-  { id: "nem-foam", name: "Nệm Foam" },
-  { id: "nem-lo-xo", name: "Nệm lò xo" },
-  { id: "nem-lam-mat", name: "Nệm làm mát" }
-];
+/* ==========================================================================
+   MAIN JAVASCRIPT LOGIC
+   Dữ liệu sản phẩm & danh mục được quản lý độc lập tại assets/js/products.js
+   ========================================================================== */
 
-const accessoryCategories = [
-  { id: "chan-ga", name: "Chăn ga" },
-  { id: "goi-cao-su", name: "Gối cao su" },
-  { id: "long-vu", name: "Lông vũ" },
-  { id: "goi-gon", name: "Gối gòn" }
-];
-
-const products = [
-  {
-    id: 1,
-    name: "Nệm cao su Thuần Việt Titan Grey – Sạch êm, kháng khuẩn, nâng đỡ vượt trội",
-    category: "Nệm cao su thiên nhiên",
-    categoryId: "nem-cao-su-thien-nhien",
-    image: "./assets/images/product-3.jpg",
-    thumbnails: [
-      "./assets/images/product-3.jpg",
-      "./assets/images/product-1.jpg",
-      "./assets/images/product-2.jpg",
-      "./assets/images/product-4.jpg"
-    ],
-    originalPrice: 23000000,
-    salePrice: 18070000,
-    discount: 21,
-    rating: 5.0,
-    reviews: 32,
-    sold: 2,
-    description: "Nệm cao su thiên nhiên Thuần Việt Titan Grey kết hợp than hoạt tính giúp kháng khuẩn, khử mùi và nâng đỡ trọn vẹn giấc ngủ.",
-    sizes: ["140x200", "160x200", "180x200", "200x200", "220x200"],
-    thickness: ["10cm", "15cm"],
-    gift: "Bộ quà tặng trị giá 1.864.000₫",
-    isBestSeller: true
-  },
-  {
-    id: 2,
-    name: "Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đàn hồi, êm ái từng đường cong",
-    category: "Nệm cao su thiên nhiên",
-    categoryId: "nem-cao-su-thien-nhien",
-    image: "./assets/images/product-1.jpg",
-    thumbnails: ["./assets/images/product-1.jpg"],
-    originalPrice: 11990000,
-    salePrice: 9490000,
-    discount: 21,
-    rating: 5.0,
-    reviews: 48,
-    sold: 15,
-    description: "Nệm cao su thiên nhiên Thuần Việt Latex Premium từ 100% mủ cao su tự nhiên, độ đàn hồi hoàn hảo bảo vệ hệ xương khớp.",
-    sizes: ["140x200", "160x200", "180x200", "200x200"],
-    thickness: ["10cm", "15cm", "20cm"],
-    gift: "Bộ quà tặng trị giá 1.500.000₫",
-    isBestSeller: true
-  },
-  {
-    id: 3,
-    name: "Nệm Foam Latex Thuần Việt Hybrid – Công nghệ đa tầng, nâng niu giấc ngủ",
-    category: "Nệm Foam",
-    categoryId: "nem-foam",
-    image: "./assets/images/product-2.jpg",
-    thumbnails: ["./assets/images/product-2.jpg"],
-    originalPrice: 15840000,
-    salePrice: 11870000,
-    discount: 25,
-    rating: 5.0,
-    reviews: 28,
-    sold: 9,
-    description: "Nệm Foam Latex Hybrid kết hợp lõi Foam chịu lực cao cấp cùng bề mặt cao su thiên nhiên êm ái.",
-    sizes: ["140x200", "160x200", "180x200", "200x200"],
-    thickness: ["12cm", "15cm", "20cm"],
-    gift: "Bộ quà tặng trị giá 1.200.000₫",
-    isBestSeller: true
-  },
-  {
-    id: 4,
-    name: "Nệm cao su thiên nhiên Thuần Việt Legend – Chuyên gia nâng đỡ vùng lưng",
-    category: "Nệm cao su thiên nhiên",
-    categoryId: "nem-cao-su-thien-nhien",
-    image: "./assets/images/product-4.jpg",
-    thumbnails: ["./assets/images/product-4.jpg"],
-    originalPrice: 10300000,
-    salePrice: 7720000,
-    discount: 25,
-    rating: 5.0,
-    reviews: 19,
-    sold: 8,
-    description: "Cấu trúc bọt hở thoáng khí tối đa, tối ưu trọng lực cơ thể giúp ngủ sâu không đau nhức mỏi lưng.",
-    sizes: ["140x200", "160x200", "180x200", "200x200"],
-    thickness: ["10cm", "15cm"],
-    gift: "Bộ quà tặng trị giá 1.000.000₫",
-    isBestSeller: false
-  },
-  {
-    id: 5,
-    name: "Nệm Foam Thuần Việt Original – Êm ái, đàn hồi chuẩn chỉnh",
-    category: "Nệm Foam",
-    categoryId: "nem-foam",
-    image: "./assets/images/product-1.jpg",
-    thumbnails: ["./assets/images/product-1.jpg"],
-    originalPrice: 8500000,
-    salePrice: 6375000,
-    discount: 25,
-    rating: 5.0,
-    reviews: 14,
-    sold: 11,
-    description: "Chất liệu Foam cao cấp tỷ trọng cao chống xẹp lún hiệu quả, nâng niu trọn vẹn từng giấc ngủ êm ái.",
-    sizes: ["140x200", "160x200", "180x200"],
-    thickness: ["10cm", "15cm"],
-    gift: "Bộ quà tặng trị giá 800.000₫",
-    isBestSeller: false
-  },
-  {
-    id: 6,
-    name: "Nệm lò xo túi độc lập Thuần Việt Ruby – Đẳng cấp khách sạn 5 sao",
-    category: "Nệm lò xo",
-    categoryId: "nem-lo-xo",
-    image: "./assets/images/product-3.jpg",
-    thumbnails: ["./assets/images/product-3.jpg"],
-    originalPrice: 14500000,
-    salePrice: 10875000,
-    discount: 25,
-    rating: 5.0,
-    reviews: 22,
-    sold: 6,
-    description: "Hệ thống lò xo túi độc lập không gây rung lắc cho người nằm cạnh, vải gấm cao cấp nhập khẩu sang trọng.",
-    sizes: ["160x200", "180x200", "200x200"],
-    thickness: ["25cm", "30cm"],
-    gift: "Bộ quà tặng trị giá 2.000.000₫",
-    isBestSeller: false
-  },
-  {
-    id: 101,
-    name: "Bộ Ga Giường Mền Thuần Việt ECTC 01 – Lụa Thoáng Mát, Thấm Hút Mồ Hôi Tốt",
-    categoryType: "accessory",
-    category: "Chăn ga",
-    categoryId: "chan-ga",
-    image: "./assets/images/acc-ectc-01.jpg",
-    thumbnails: [
-      "./assets/images/acc-ectc-01.jpg",
-      "./assets/images/acc-ectc-02.jpg"
-    ],
-    originalPrice: 1230000,
-    salePrice: 680000,
-    priceRange: "680.000₫ – 1.420.000₫",
-    discount: 45,
-    rating: 5.0,
-    reviews: 12,
-    sold: 35,
-    description: "Bộ sản phẩm Chăn ga gối Thuần Việt được kết hợp từ vải Cotton và vải lụa mang đến cảm giác êm ái và mát mẻ trong suốt quá trình sử dụng. Công nghệ may thêu hiện đại cho ra những sản phẩm có họa tiết vô cùng sống động.",
-    models: [
-      { name: "Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)", price: 680000, oldPrice: 1230000 },
-      { name: "Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)", price: 730000, oldPrice: 1300000 },
-      { name: "Mền Lẻ - 2m2 x 2m", price: 890000, oldPrice: 1400000 },
-      { name: "Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)", price: 1350000, oldPrice: 2100000 },
-      { name: "Trọn bộ - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)", price: 1420000, oldPrice: 2200000 }
-    ],
-    isBestSeller: true
-  },
-  {
-    id: 102,
-    name: "Bộ Ga Giường Mền Thuần Việt ECTC 02 – Lụa Thoáng Mát, Thấm Hút Mồ Hôi Tốt",
-    categoryType: "accessory",
-    category: "Chăn ga",
-    categoryId: "chan-ga",
-    image: "./assets/images/acc-ectc-02.jpg",
-    thumbnails: [
-      "./assets/images/acc-ectc-02.jpg",
-      "./assets/images/acc-ectc-01.jpg"
-    ],
-    originalPrice: 1230000,
-    salePrice: 680000,
-    priceRange: "680.000₫ – 1.420.000₫",
-    discount: 45,
-    rating: 5.0,
-    reviews: 18,
-    sold: 42,
-    description: "Họa tiết hoa văn dịu nhẹ mang đến không gian phòng ngủ lãng mạn, ngọt ngào và thư giãn tuyệt đối cho giấc ngủ ngon.",
-    models: [
-      { name: "Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)", price: 680000, oldPrice: 1230000 },
-      { name: "Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)", price: 730000, oldPrice: 1300000 },
-      { name: "Mền Lẻ - 2m2 x 2m", price: 890000, oldPrice: 1400000 },
-      { name: "Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)", price: 1350000, oldPrice: 2100000 },
-      { name: "Trọn bộ - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)", price: 1420000, oldPrice: 2200000 }
-    ],
-    isBestSeller: true
-  },
-  {
-    id: 107,
-    name: "Gối cao su thiên nhiên Thuần Việt Oval – Nâng đỡ đốt sống cổ hoàn hảo",
-    categoryType: "accessory",
-    category: "Gối cao su",
-    categoryId: "goi-cao-su",
-    image: "./assets/images/product-1.jpg",
-    thumbnails: ["./assets/images/product-1.jpg"],
-    originalPrice: 650000,
-    salePrice: 450000,
-    priceRange: "450.000₫ – 520.000₫",
-    discount: 30,
-    rating: 5.0,
-    reviews: 38,
-    sold: 120,
-    description: "100% cao su tự nhiên với thiết kế hình oval truyền thống, hàng ngàn lỗ thông khí giúp chống đau mỏi vai gáy.",
-    models: [
-      { name: "Kích thước tiêu chuẩn 40 x 60cm", price: 450000, oldPrice: 650000 },
-      { name: "Kích thước lớn 45 x 65cm", price: 520000, oldPrice: 720000 }
-    ],
-    isBestSeller: false
-  },
-  {
-    id: 108,
-    name: "Gối cao su lượn sóng Thuần Việt Contour – Chống ngáy, trị mỏi vai gáy",
-    categoryType: "accessory",
-    category: "Gối cao su",
-    categoryId: "goi-cao-su",
-    image: "./assets/images/product-3.jpg",
-    thumbnails: ["./assets/images/product-3.jpg"],
-    originalPrice: 750000,
-    salePrice: 550000,
-    priceRange: "550.000₫ – 620.000₫",
-    discount: 26,
-    rating: 5.0,
-    reviews: 52,
-    sold: 145,
-    description: "Thiết kế gợn sóng định hình ôm sát đường cong đốt sống cổ, giúp đường thở thông thoáng và giảm chứng ngủ ngáy.",
-    models: [
-      { name: "Kích thước tiêu chuẩn 38 x 58cm", price: 550000, oldPrice: 750000 },
-      { name: "Kích thước lớn 42 x 62cm", price: 620000, oldPrice: 850000 }
-    ],
-    isBestSeller: false
-  },
-  {
-    id: 109,
-    name: "Gối lông vũ cao cấp Thuần Việt Luxury – Siêu êm ái, bồng bềnh tựa mây",
-    categoryType: "accessory",
-    category: "Lông vũ",
-    categoryId: "long-vu",
-    image: "./assets/images/product-2.jpg",
-    thumbnails: ["./assets/images/product-2.jpg"],
-    originalPrice: 900000,
-    salePrice: 690000,
-    priceRange: "690.000₫ – 890.000₫",
-    discount: 23,
-    rating: 5.0,
-    reviews: 19,
-    sold: 64,
-    description: "Lông vũ nhân tạo Microfiber tinh khiết siêu mềm mại, độ bồng bềnh hoàn hảo như khách sạn 5 sao cao cấp.",
-    models: [
-      { name: "Gối đơn 50 x 70cm (1 cái)", price: 690000, oldPrice: 900000 },
-      { name: "Cặp gối 50 x 70cm (2 cái)", price: 1250000, oldPrice: 1700000 }
-    ],
-    isBestSeller: false
-  },
-  {
-    id: 110,
-    name: "Gối gòn Microfiber Thuần Việt Soft Touch – Êm mềm kháng khuẩn, chống xẹp lún",
-    categoryType: "accessory",
-    category: "Gối gòn",
-    categoryId: "goi-gon",
-    image: "./assets/images/product-4.jpg",
-    thumbnails: ["./assets/images/product-4.jpg"],
-    originalPrice: 350000,
-    salePrice: 220000,
-    priceRange: "220.000₫ – 390.000₫",
-    discount: 37,
-    rating: 5.0,
-    reviews: 45,
-    sold: 210,
-    description: "Sợi gòn bông Microfiber siêu mịn màng, chống bụi bẩn và nấm mốc, giặt máy thoải mái không lo vón cục.",
-    models: [
-      { name: "Gối nằm 45 x 65cm", price: 220000, oldPrice: 350000 },
-      { name: "Gối ôm 35 x 100cm", price: 280000, oldPrice: 420000 },
-      { name: "Combo 2 gối nằm + 1 gối ôm", price: 650000, oldPrice: 1050000 }
-    ],
-    isBestSeller: false
-  }
-];
+const getProductList = () => (typeof products !== 'undefined' ? products : (window.products || []));
+const getCategories = () => (typeof categories !== 'undefined' ? categories : (window.categories || []));
 
 /* ==================== 2. CHỨC NĂNG CHUNG KHI TRANG TẢI XONG ==================== */
 document.addEventListener('DOMContentLoaded', () => {
+  const allProducts = getProductList();
+
   /* --- A. HERO SLIDER (Trang chủ) --- */
-  const heroSlider = document.querySelector('.hero-slider');
+  const heroSlider = document.querySelector('.hero__slider, .hero-slider');
   if (heroSlider) {
-    const slides = heroSlider.querySelectorAll('.slide');
-    const dots = heroSlider.querySelectorAll('.dot');
-    const prevBtn = heroSlider.querySelector('#prevHero');
-    const nextBtn = heroSlider.querySelector('#nextHero');
+    const slides = heroSlider.querySelectorAll('.hero__slide, .slide');
+    const dots = heroSlider.querySelectorAll('.hero__dot, .dot');
+    const prevBtn = heroSlider.querySelector('#prevHero, .hero__btn--prev, .prev-btn');
+    const nextBtn = heroSlider.querySelector('#nextHero, .hero__btn--next, .next-btn');
     let currentIndex = 0;
 
     function changeSlide(index) {
@@ -296,8 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (index < 0) currentIndex = slides.length - 1;
       else currentIndex = index;
 
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === currentIndex));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+        slide.classList.toggle('hero__slide--active', i === currentIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.classList.toggle('hero__dot--active', i === currentIndex);
+      });
     }
 
     nextBtn?.addEventListener('click', () => changeSlide(currentIndex + 1));
@@ -332,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   reviewCards.forEach(card => {
-    const playBtn = card.querySelector('.review-play-btn');
+    const playBtn = card.querySelector('.review-card__play-btn, .review-play-btn');
     const videoUrl = card.dataset.video;
 
     playBtn?.addEventListener('click', (e) => {
@@ -341,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     card.addEventListener('click', (e) => {
-      if (e.target.closest('.review-product-box')) return;
+      if (e.target.closest('.review-card__product, .review-product-box')) return;
       if (videoUrl) openVideo(videoUrl);
     });
   });
@@ -349,10 +83,26 @@ document.addEventListener('DOMContentLoaded', () => {
   videoClose?.addEventListener('click', closeVideo);
   videoBackdrop?.addEventListener('click', closeVideo);
 
+  /* --- B2. REVIEW CAROUSEL ARROWS --- */
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const prevReview = document.getElementById('prevReview');
+  const nextReview = document.getElementById('nextReview');
+
+  if (reviewsTrack) {
+    const scrollCard = (direction) => {
+      const card = reviewsTrack.querySelector('.review-card');
+      const step = card ? card.offsetWidth + 16 : 300;
+      reviewsTrack.scrollBy({ left: direction * step, behavior: 'smooth' });
+    };
+
+    prevReview?.addEventListener('click', () => scrollCard(-1));
+    nextReview?.addEventListener('click', () => scrollCard(1));
+  }
+
   /* --- C. BỘ LỌC DROPDOWN (Trang sản phẩm & Trang phụ kiện) --- */
   const dropdowns = document.querySelectorAll('.filter-dropdown');
   dropdowns.forEach(dropdown => {
-    const btn = dropdown.querySelector('.filter-dropdown-btn');
+    const btn = dropdown.querySelector('.filter-dropdown__btn, .filter-dropdown-btn');
     btn?.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = dropdown.classList.contains('is-open');
@@ -365,14 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdowns.forEach(d => d.classList.remove('is-open'));
   });
 
-  document.querySelectorAll('.filter-dropdown-panel').forEach(panel => {
+  document.querySelectorAll('.filter-dropdown__panel, .filter-dropdown-panel').forEach(panel => {
     panel.addEventListener('click', (e) => e.stopPropagation());
   });
 
   /* --- D. TƯƠNG TÁC CHI TIẾT SẢN PHẨM (Trang chi tiết) --- */
   // 1. Chuyển ảnh Thumbnail
   const mainImg = document.getElementById('mainProductImg');
-  const thumbItems = document.querySelectorAll('.details-thumb-item');
+  const thumbItems = document.querySelectorAll('.details__thumb-item, .details-thumb-item');
 
   thumbItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -384,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. Chọn Mẫu (Phụ kiện)
-  const modelBtns = document.querySelectorAll('.option-chip-btn');
+  const modelBtns = document.querySelectorAll('.details__option-chip-btn, .option-chip-btn');
   const selectedLabel = document.getElementById('selectedModelLabel');
   const activePrice = document.getElementById('modelActivePrice');
   const oldPrice = document.getElementById('modelOldPrice');
@@ -417,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const bindOptionGroup = (containerId, displayId) => {
     const parent = document.getElementById(containerId);
     const display = document.getElementById(displayId);
-    parent?.querySelectorAll('.option-btn').forEach(btn => {
+    parent?.querySelectorAll('.details__option-btn, .option-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+        parent.querySelectorAll('.details__option-btn, .option-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         if (display) display.textContent = btn.dataset.val || btn.textContent.trim();
       });
@@ -443,31 +193,229 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Cập nhật chi tiết theo param ?id= nếu có
   const urlParams = new URLSearchParams(window.location.search);
   const paramId = parseInt(urlParams.get('id'));
-  if (paramId && document.getElementById('productDetailsWrapper')) {
-    const p = products.find(item => item.id === paramId);
-    if (p) {
-      const isPagesDir = window.location.pathname.includes('/pages/');
-      const prefix = isPagesDir ? '../' : './';
-      const resolveSrc = (s) => (s && s.startsWith('./') ? prefix + s.slice(2) : s);
 
-      // Cập nhật tiêu đề
-      const titleEl = document.querySelector('.details-title');
+  if (document.getElementById('productDetailsWrapper')) {
+    // Mặc định lấy theo param ?id=, nếu không có lấy ID 3 (Hybrid Plus) hoặc sản phẩm đầu tiên
+    const targetId = paramId || 3;
+    const p = allProducts.find(item => item.id === targetId) || allProducts[0];
+
+    if (p) {
+      // A. Cập nhật Gallery, Tiêu đề, Mô tả và Giá
+      const titleEl = document.querySelector('.details__title, .details-title');
       if (titleEl) titleEl.textContent = p.name;
 
-      // Cập nhật ảnh chính
-      if (mainImg) mainImg.src = resolveSrc(p.image);
+      if (mainImg) mainImg.src = p.image;
 
-      // Cập nhật mô tả
-      const descEl = document.querySelector('.details-desc');
+      const descEl = document.querySelector('.details__desc, .details-desc');
       if (descEl) descEl.textContent = p.description;
 
-      // Cập nhật giá
+      const priceRangeEl = document.querySelector('.details__price-range');
+      if (priceRangeEl && p.priceRange) {
+        priceRangeEl.textContent = p.priceRange;
+      }
+
       if (activePrice) activePrice.textContent = `${p.salePrice.toLocaleString('vi-VN')}₫`;
-      if (oldPrice && p.originalPrice > p.salePrice) {
-        oldPrice.style.display = 'inline';
-        oldPrice.textContent = `${p.originalPrice.toLocaleString('vi-VN')}₫`;
+      if (oldPrice) {
+        if (p.originalPrice > p.salePrice) {
+          oldPrice.style.display = 'inline';
+          oldPrice.textContent = `${p.originalPrice.toLocaleString('vi-VN')}₫`;
+        } else {
+          oldPrice.style.display = 'none';
+        }
+      }
+
+      // Thumbnails
+      const thumbsContainer = document.querySelector('.details__thumbs');
+      if (thumbsContainer && p.thumbnails && p.thumbnails.length > 0) {
+        thumbsContainer.innerHTML = p.thumbnails.map((t, idx) => `
+          <div class="details__thumb-item details-thumb-item ${idx === 0 ? 'active' : ''}" data-src="${t}">
+            <img src="${t}" alt="${p.name} - Thumbnail ${idx + 1}">
+          </div>
+        `).join('');
+
+        thumbsContainer.querySelectorAll('.details__thumb-item').forEach(item => {
+          item.addEventListener('click', () => {
+            thumbsContainer.querySelectorAll('.details__thumb-item').forEach(t => t.classList.remove('active'));
+            item.classList.add('active');
+            if (mainImg) mainImg.src = item.dataset.src;
+          });
+        });
+      }
+
+      // Render Kích thước & Độ dày nếu là Nệm có sizes
+      const optionContainer = document.querySelector('.details__option-group');
+      if (optionContainer && p.sizes && p.sizes.length > 0) {
+        let optHtml = `<div class="details__option-group-inner">`;
+        optHtml += `
+          <div class="details__option-subgroup" style="margin-bottom: 14px;">
+            <div class="details__option-label-row">
+              <span>Kích thước: <strong id="selectedSize">${p.sizes[0]}</strong></span>
+            </div>
+            <div class="details__option-list" id="sizeOptions">
+              ${p.sizes.map((s, idx) => `
+                <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-val="${s}">${s}</button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        if (p.thickness && p.thickness.length > 0) {
+          optHtml += `
+            <div class="details__option-subgroup" style="margin-bottom: 14px;">
+              <div class="details__option-label-row">
+                <span>Độ dày: <strong id="selectedThickness">${p.thickness[0]}</strong></span>
+              </div>
+              <div class="details__option-list" id="thicknessOptions">
+                ${p.thickness.map((th, idx) => `
+                  <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-val="${th}">${th}</button>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+        if (p.gift) {
+          optHtml += `
+            <div class="details__option-subgroup" style="margin-bottom: 14px;">
+              <div class="details__option-label-row">
+                <span>Quà tặng: <strong>LỰA CHỌN 1</strong></span>
+              </div>
+              <div class="details__option-list" id="giftOptions">
+                <button type="button" class="details__option-btn active" data-val="LỰA CHỌN 1">LỰA CHỌN 1 (${p.gift})</button>
+              </div>
+            </div>
+          `;
+        }
+        optHtml += `</div>`;
+        optionContainer.innerHTML = optHtml;
+
+        bindOptionGroup('sizeOptions', 'selectedSize');
+        bindOptionGroup('thicknessOptions', 'selectedThickness');
+      }
+
+      // B. Cập nhật phần Thông Tin Chi Tiết bên dưới (Details Body)
+      if (p.details) {
+        const d = p.details;
+        const mainTitleEl = document.getElementById('contentMainTitle');
+        if (mainTitleEl && d.targetAudience?.title) mainTitleEl.textContent = d.targetAudience.title;
+
+        const audienceDescEl = document.getElementById('contentAudienceDesc');
+        if (audienceDescEl && d.targetAudience?.description) audienceDescEl.textContent = d.targetAudience.description;
+
+        const audienceImgEl = document.getElementById('contentAudienceImg');
+        if (audienceImgEl && d.targetAudience?.image) audienceImgEl.src = d.targetAudience.image;
+
+        const warrantyDescEl = document.getElementById('contentWarrantyDesc');
+        if (warrantyDescEl && d.warranty?.description) warrantyDescEl.textContent = d.warranty.description;
+
+        const warrantyImgEl = document.getElementById('contentWarrantyImg');
+        if (warrantyImgEl && d.warranty?.image) warrantyImgEl.src = d.warranty.image;
+
+        const featuresSubEl = document.getElementById('contentFeaturesSub');
+        if (featuresSubEl && d.features?.subtitle) featuresSubEl.textContent = d.features.subtitle;
+
+        const featuresDescEl = document.getElementById('contentFeaturesDesc');
+        if (featuresDescEl && d.features?.description) featuresDescEl.textContent = d.features.description;
+
+        const certImgEl = document.getElementById('contentCertImg');
+        if (certImgEl && d.certifications?.certImage) certImgEl.src = d.certifications.certImage;
+
+        const reasonImgEl = document.getElementById('contentReasonImg');
+        if (reasonImgEl && d.certifications?.reasonImage) reasonImgEl.src = d.certifications.reasonImage;
+      }
+
+      // C. Render Sản phẩm tương tự / liên quan
+      const relatedGrid = document.getElementById('detailsRelatedGrid');
+      if (relatedGrid) {
+        let relatedList = [];
+        if (p.relatedIds && p.relatedIds.length > 0) {
+          relatedList = p.relatedIds.map(rid => allProducts.find(item => item.id === rid)).filter(Boolean);
+        }
+        if (relatedList.length === 0) {
+          relatedList = allProducts.filter(item => item.id !== p.id).slice(0, 4);
+        }
+
+        relatedGrid.innerHTML = relatedList.slice(0, 4).map(r => `
+          <div class="details__related-card">
+            <div class="details__related-thumb">
+              ${r.discount ? `<span class="details__related-badge">-${r.discount}%</span>` : ''}
+              <a href="./details.html?id=${r.id}">
+                <img src="${r.image}" alt="${r.name}">
+              </a>
+              ${r.hasFlashSale ? `
+                <div class="details__flash-sale-badge">
+                  <span class="badge-tag">11.11</span> FLASH SALE
+                </div>` : ''}
+            </div>
+            <div class="details__related-info">
+              <h3 class="details__related-name">
+                <a href="./details.html?id=${r.id}">${r.name}</a>
+              </h3>
+              <div class="details__related-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="details__related-price">
+                ${r.priceRange || (r.salePrice ? `${r.salePrice.toLocaleString('vi-VN')}₫` : '')}
+              </div>
+            </div>
+          </div>
+        `).join('');
       }
     }
   }
-});
 
+  /* --- E. TÌM KIẾM SẢN PHẨM --- */
+  const searchBoxes = document.querySelectorAll('.header__search, .header-search-box');
+  searchBoxes.forEach(box => {
+    const input = box.querySelector('.header__search-input, .header-search-input');
+    const btn = box.querySelector('.header__search-btn, .header-search-btn');
+
+    const handleSearch = () => {
+      const query = input?.value.trim().toLowerCase();
+      if (!query) return;
+
+      const productCards = document.querySelectorAll('.shop-product-card, .product-card');
+      const isShopPage = document.getElementById('shopProductGrid') !== null;
+      if (isShopPage) {
+        let matchCount = 0;
+        productCards.forEach(card => {
+          const title = card.querySelector('.shop__product-name, .shop-product-name, .product-card__title, .product-title')?.textContent.toLowerCase() || '';
+          if (title.includes(query)) {
+            card.style.display = '';
+            matchCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        const countEl = document.getElementById('shopResultCount');
+        if (countEl) countEl.textContent = `Tìm thấy ${matchCount} kết quả cho "${query}"`;
+      } else {
+        window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
+      }
+    };
+
+    btn?.addEventListener('click', handleSearch);
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleSearch();
+    });
+  });
+
+  const searchQuery = urlParams.get('search');
+  if (searchQuery) {
+    const searchInput = document.querySelector('.header__search-input, .header-search-input');
+    if (searchInput) searchInput.value = searchQuery;
+    const cards = document.querySelectorAll('.shop-product-card, .product-card');
+    if (cards.length > 0) {
+      let count = 0;
+      cards.forEach(card => {
+        const title = card.querySelector('.shop__product-name, .shop-product-name, .product-card__title, .product-title')?.textContent.toLowerCase() || '';
+        if (title.includes(searchQuery.toLowerCase())) {
+          card.style.display = '';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      const countEl = document.getElementById('shopResultCount');
+      if (countEl) countEl.textContent = `Tìm thấy ${count} kết quả cho "${searchQuery}"`;
+    }
+  }
+});

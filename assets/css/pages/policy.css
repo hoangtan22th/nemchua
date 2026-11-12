@@ -1,0 +1,240 @@
+/* ==========================================================================
+   POLICY PAGES CSS (Trang nội dung chính sách riêng biệt, chuẩn giao diện)
+   ========================================================================== */
+
+/* Breadcrumb */
+.policy-breadcrumb {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.policy-breadcrumb a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.policy-breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+.policy-breadcrumb span.divider {
+  margin: 0 8px;
+  color: #cbd5e1;
+}
+
+.policy-breadcrumb span.current {
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+/* Policy Section & Card */
+.policy-section {
+  padding: 30px 0 60px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 400px);
+}
+
+.policy-card {
+  max-width: 920px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 40px 48px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.policy-content__header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.policy-content__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-primary-light);
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.policy-content__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.35;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.policy-content__updated {
+  font-size: 12.5px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Content Body Typography */
+.policy-content__body h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 28px 0 12px;
+  padding-left: 12px;
+  border-left: 3.5px solid var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.policy-content__body h3 {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #334155;
+  margin: 20px 0 10px;
+}
+
+.policy-content__body p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0 0 14px;
+}
+
+.policy-content__body ul,
+.policy-content__body ol {
+  margin: 10px 0 18px 24px;
+  padding: 0;
+  color: #475569;
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+
+.policy-content__body ul {
+  list-style-type: disc;
+}
+
+.policy-content__body ol {
+  list-style-type: decimal;
+}
+
+.policy-content__body li {
+  margin-bottom: 8px;
+}
+
+.policy-content__body strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Callout Note Box */
+.policy-callout {
+  background-color: var(--color-primary-light);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+.policy-callout p {
+  margin: 0;
+  color: #831843;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.policy-callout p strong {
+  color: var(--primary-color);
+}
+
+/* Contact Footer Box inside Policy */
+.policy-contact-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 36px;
+}
+
+.policy-contact-box__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.policy-contact-box__title i {
+  color: var(--primary-color);
+}
+
+.policy-contact-box__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.policy-contact-box__list p {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.policy-contact-box__list i {
+  color: var(--primary-color);
+  font-size: 13px;
+  width: 16px;
+  text-align: center;
+}
+
+.policy-contact-box__list a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.policy-contact-box__list a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .policy-card {
+    padding: 30px 24px;
+    margin: 0 12px;
+  }
+
+  .policy-content__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .policy-card {
+    padding: 24px 16px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .policy-content__title {
+    font-size: 18px;
+  }
+}
