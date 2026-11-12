@@ -171,6 +171,83 @@
   font-weight: 600;
 }
 
+.option-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-model-btn {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.option-model-btn.active,
+.option-model-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  background-color: #f0f7ff;
+}
+
+.option-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.btn-clear-model {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-clear-model:hover {
+  color: var(--primary-color);
+}
+
+.option-model-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-chip-btn {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.option-chip-btn.active,
+.option-chip-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: #f0f7ff;
+  font-weight: 600;
+}
+
 /* Price Box */
 .details-selected-price {
   display: flex;

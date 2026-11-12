@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
@@ -9,22 +9,304 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
   <!-- Header -->
-  <header class="header-section" id="header"></header>
+  <header class="header-section" id="header">
+    <div class="header-advertisement">
+      <div class="container">
+        <ul>
+          <li>Giảm đến 25%</li>
+          <li>101 đêm ngủ thử</li>
+          <li>Freeship mọi đơn hàng</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="wrapper">
+        <a href="./index.html" class="header-logo">
+          <img src="./assets/images/logo.jpg" alt="Logo Nệm Chúa">
+          <span>Nệm Chúa</span>
+        </a>
+        <div class="header-nav">
+          <ul class="nav-list">
+            <li class="has-dropdown">
+              <a href="./products.html">Nệm</a>
+              <ul class="dropdown-menu">
+                <li><a href="./products.html?cat=nem-cao-su-thien-nhien">Nệm cao su thiên nhiên</a></li>
+                <li><a href="./products.html?cat=nem-foam">Nệm Foam</a></li>
+                <li><a href="./products.html?cat=nem-lo-xo">Nệm lò xo</a></li>
+                <li><a href="./products.html?cat=nem-lam-mat">Nệm làm mát</a></li>
+              </ul>
+            </li>
+
+            <li class="has-dropdown">
+              <a href="./accessories.html">Phụ kiện</a>
+              <ul class="dropdown-menu">
+                <li><a href="./accessories.html?cat=chan-ga">Chăn ga</a></li>
+                <li><a href="./accessories.html?cat=goi-cao-su">Gối cao su</a></li>
+                <li><a href="./accessories.html?cat=long-vu">Lông vũ</a></li>
+                <li><a href="./accessories.html?cat=goi-gon">Gối gòn</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">101 Đêm Ngủ Thử</a></li>
+          </ul>
+        </div>
+        <div class="header-actions">
+          <div class="btn-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="btn-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <!-- Product Details -->
-  <main id="productDetails"></main>
+  <main id="productDetailsWrapper">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+      <div class="container">
+        <a href="./index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="./accessories.html">Phụ kiện</a>
+        <span>/</span>
+        <span>Chăn ga</span>
+      </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <section class="details-section">
+      <div class="container">
+        <div class="details-wrapper">
+          <!-- Gallery (Left) -->
+          <div class="details-gallery">
+            <div class="details-main-img">
+              <span class="details-badge">-45%</span>
+              <img id="mainProductImg" src="./assets/images/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền Thuần Việt ECTC 01">
+            </div>
+            <div class="details-thumbs">
+              <div class="details-thumb-item active" data-src="./assets/images/acc-ectc-01.jpg">
+                <img src="./assets/images/acc-ectc-01.jpg" alt="Thumbnail 1">
+              </div>
+              <div class="details-thumb-item" data-src="./assets/images/acc-ectc-02.jpg">
+                <img src="./assets/images/acc-ectc-02.jpg" alt="Thumbnail 2">
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary & Options (Right) -->
+          <div class="details-info">
+            <h1 class="details-title">Bộ Ga Giường Mền Thuần Việt ECTC 01 – Lụa Thoáng Mát, Thấm Hút Mồ Hôi Tốt</h1>
+
+            <div class="details-rating-row">
+              <span class="details-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </span>
+              <span>(đánh giá)</span>
+              <span>|</span>
+              <span>Đã bán 35</span>
+            </div>
+
+            <div class="details-price-range">
+              680.000₫ – 1.420.000₫
+            </div>
+
+            <p class="details-desc">
+              Bộ sản phẩm Chăn ga gối Thuần Việt được kết hợp từ vải Cotton và vải lụa mang đến cảm giác êm ái và mát mẻ trong suốt quá trình sử dụng. Công nghệ may thêu hiện đại cho ra những sản phẩm có họa tiết vô cùng sống động.
+            </p>
+
+            <!-- Chọn mẫu (Accessories) -->
+            <div class="option-group">
+              <div class="option-label-row">
+                <span>Chọn mẫu: <strong id="selectedModelLabel">Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)</strong></span>
+                <a href="javascript:void(0)" class="btn-clear-model" id="clearModelBtn">XÓA</a>
+              </div>
+              <div class="option-model-chips" id="modelOptions">
+                <button type="button" class="option-chip-btn active" 
+                  data-idx="0" 
+                  data-price="680000" 
+                  data-oldprice="1230000" 
+                  data-name="Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)">
+                  Bộ ga - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)
+                </button>
+                <button type="button" class="option-chip-btn" 
+                  data-idx="1" 
+                  data-price="730000" 
+                  data-oldprice="1300000" 
+                  data-name="Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)">
+                  Bộ ga - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga)
+                </button>
+                <button type="button" class="option-chip-btn" 
+                  data-idx="2" 
+                  data-price="890000" 
+                  data-oldprice="1400000" 
+                  data-name="Mền Lẻ - 2m2 x 2m">
+                  Mền Lẻ - 2m2 x 2m
+                </button>
+                <button type="button" class="option-chip-btn" 
+                  data-idx="3" 
+                  data-price="1350000" 
+                  data-oldprice="2100000" 
+                  data-name="Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)">
+                  Trọn bộ - 1m6 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)
+                </button>
+                <button type="button" class="option-chip-btn" 
+                  data-idx="4" 
+                  data-price="1420000" 
+                  data-oldprice="2200000" 
+                  data-name="Trọn bộ - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)">
+                  Trọn bộ - 1m8 x 2m (Gồm 2 vỏ gối nằm + 1 vỏ gối ôm + 1 ga + 1 mền)
+                </button>
+              </div>
+            </div>
+
+            <!-- Giá của phân loại mẫu -->
+            <div class="details-selected-price">
+              <span class="details-old-price" id="modelOldPrice">1.230.000₫</span>
+              <span class="details-current-price" id="modelActivePrice">680.000₫</span>
+            </div>
+
+            <!-- Quantity & Add to Cart -->
+            <div class="details-actions-row">
+              <div class="quantity-control">
+                <button class="qty-btn" id="qtyMinus">-</button>
+                <input type="text" class="qty-input" id="qtyInput" value="1" readonly>
+                <button class="qty-btn" id="qtyPlus">+</button>
+              </div>
+              <button class="btn-add-cart">Thêm Vào Giỏ Hàng</button>
+            </div>
+
+            <!-- Đặt hàng nhanh -->
+            <button class="btn-buy-now">
+              ĐẶT HÀNG NHANH
+              <span>Gọi điện xác nhận và giao hàng tận nơi</span>
+            </button>
+
+            <!-- Hotline -->
+            <div class="hotline-box">
+              Gọi tư vấn ngay <strong>1800.646.809</strong>
+            </div>
+
+            <!-- Khuyến mãi & Timer -->
+            <div class="details-promo-row">
+              <div class="gift-text">
+                <strong>Bộ quà tặng trị giá 1.864.000₫</strong>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-item">00</div>
+                <span>:</span>
+                <div class="countdown-item">18</div>
+                <span>:</span>
+                <div class="countdown-item">29</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="site-footer" id="footer"></footer>
+  <footer class="site-footer" id="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Cột 1: Thông tin công ty -->
+          <div class="footer-col">
+            <div class="footer-brand">
+              <img src="./assets/images/logo.jpg" alt="Logo" class="footer-logo">
+              <span class="footer-brand-name">NỆM THUẦN VIỆT</span>
+            </div>
+            <div class="footer-company-name">CÔNG TY CP THUẦN VIỆT GLOBAL</div>
+            <p class="footer-text">Địa chỉ: H76-H77, Đường Thị Giang, P. Đông Hưng Thuận, TP.HCM.</p>
+            <p class="footer-text">Giấy CNĐKDN: <strong>0318692955</strong></p>
+            <p class="footer-text">Ngày cấp: 2024-10-01 – Sở KH&ĐT TP.HCM</p>
 
-  <!-- Scripts -->
-  <script type="module" src="./js/pages/details.js"></script>
+            <div class="footer-badges">
+              <img src="./assets/images/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+            </div>
+            <div class="footer-payment">
+              <div class="payment-title">Phương thức thanh toán</div>
+              <img src="./assets/images/payments.png" alt="Phương thức thanh toán" class="payment-img">
+              <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
+            </div>
+          </div>
+
+          <!-- Cột 2: Chính sách -->
+          <div class="footer-col">
+            <h3 class="footer-heading">CHÍNH SÁCH</h3>
+            <ul class="footer-links">
+              <li><a href="#">Điều Khoản & Điều Kiện</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Chính sách về quy trình xử lý khiếu nại</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 3: Thông tin -->
+          <div class="footer-col">
+            <h3 class="footer-heading">THÔNG TIN NỆM THUẦN VIỆT</h3>
+            <ul class="footer-links">
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
+              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
+              <li><a href="#">Tin trong ngành</a></li>
+              <li><a href="#">Hệ thống cửa hàng & đại lý</a></li>
+              <li><a href="#">TEST Nệm Phù Hợp</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Kết nối -->
+          <div class="footer-col">
+            <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              Hotline: <strong>1800.646.809</strong> (miễn phí cước gọi)
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              Email: <strong>nemthuanviet@gmail.com</strong>
+            </p>
+
+            <div class="footer-socials">
+              <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-zalo">
+              <span>Liên hệ qua Zalo OA</span>
+              <a href="#" class="btn-zalo">
+                <i class="fa-solid fa-comment"></i> Zalo <strong>QUAN TÂM</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>Copyright 2026 © Nệm Thuần Việt</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single Consolidated Script -->
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
-

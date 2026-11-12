@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cửa Hàng Nệm - Nệm Chúa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header-section" id="header">
+    <div class="header-advertisement">
+      <div class="container">
+        <ul>
+          <li>Giảm đến 25%</li>
+          <li>101 đêm ngủ thử</li>
+          <li>Freeship mọi đơn hàng</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="wrapper">
+        <a href="./index.html" class="header-logo">
+          <img src="./assets/images/logo.jpg" alt="Logo Nệm Chúa">
+          <span>Nệm Chúa</span>
+        </a>
+        <div class="header-nav">
+          <ul class="nav-list">
+            <li class="has-dropdown">
+              <a href="./products.html">Nệm</a>
+              <ul class="dropdown-menu">
+                <li><a href="./products.html?cat=nem-cao-su-thien-nhien">Nệm cao su thiên nhiên</a></li>
+                <li><a href="./products.html?cat=nem-foam">Nệm Foam</a></li>
+                <li><a href="./products.html?cat=nem-lo-xo">Nệm lò xo</a></li>
+                <li><a href="./products.html?cat=nem-lam-mat">Nệm làm mát</a></li>
+              </ul>
+            </li>
+
+            <li class="has-dropdown">
+              <a href="./accessories.html">Phụ kiện</a>
+              <ul class="dropdown-menu">
+                <li><a href="./accessories.html?cat=chan-ga">Chăn ga</a></li>
+                <li><a href="./accessories.html?cat=goi-cao-su">Gối cao su</a></li>
+                <li><a href="./accessories.html?cat=long-vu">Lông vũ</a></li>
+                <li><a href="./accessories.html?cat=goi-gon">Gối gòn</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">101 Đêm Ngủ Thử</a></li>
+          </ul>
+        </div>
+        <div class="header-actions">
+          <div class="btn-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="btn-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shop Main Content -->
+  <main class="shop-main">
+    <div class="container">
+      <!-- Breadcrumb & Top Bar -->
+      <section class="shop-header-section">
+        <div class="shop-top-row">
+          <p class="shop-breadcrumb">
+            <a href="./index.html">Trang chủ</a>
+            <span class="divider">/</span>
+            <a href="./products.html">Nệm</a>
+            <span class="divider">/</span>
+            <span class="current" id="breadcrumbCategory">Tất cả sản phẩm</span>
+          </p>
+
+          <div class="shop-actions">
+            <p class="shop-result-count" id="shopResultCount">Hiển thị tất cả 6 kết quả</p>
+            <select class="shop-ordering-select" id="shopSortSelect">
+              <option value="default">Sắp xếp theo mới nhất</option>
+              <option value="price-asc">Thứ tự theo giá: thấp đến cao</option>
+              <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+              <option value="rating">Thứ tự theo đánh giá cao</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Thanh lọc sản phẩm rút gọn nằm ở trên -->
+        <div class="shop-filter-bar">
+          <span class="filter-bar-label">
+            <i class="fa-solid fa-filter"></i> Bộ lọc:
+          </span>
+
+          <!-- Dropdown 1: Loại nệm -->
+          <div class="filter-dropdown" id="dropdownCategory">
+            <button class="filter-dropdown-btn" type="button">
+              <span id="labelCategory">Loại nệm</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="filter-dropdown-panel">
+              <label class="filter-option-item">
+                <input type="radio" name="filter-cat" value="all" checked> Tất cả loại nệm
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-cat" value="nem-cao-su-thien-nhien"> Nệm cao su thiên nhiên
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-cat" value="nem-foam"> Nệm Foam
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-cat" value="nem-lo-xo"> Nệm lò xo
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-cat" value="nem-lam-mat"> Nệm làm mát
+              </label>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Độ dày -->
+          <div class="filter-dropdown" id="dropdownThickness">
+            <button class="filter-dropdown-btn" type="button">
+              <span id="labelThickness">Độ dày</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="filter-dropdown-panel">
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="all" checked> Tất cả độ dày
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="10cm"> 10 cm
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="12cm"> 12 cm
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="15cm"> 15 cm
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="20cm"> 20 cm
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-thick" value="25cm"> 25 cm trở lên
+              </label>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Khoảng giá -->
+          <div class="filter-dropdown" id="dropdownPrice">
+            <button class="filter-dropdown-btn" type="button">
+              <span id="labelPrice">Khoảng giá</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="filter-dropdown-panel">
+              <label class="filter-option-item">
+                <input type="radio" name="filter-price" value="all" checked> Tất cả mức giá
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-price" value="under-5m"> Dưới 5 triệu
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-price" value="5m-10m"> Từ 5 triệu – 10 triệu
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-price" value="10m-20m"> Từ 10 triệu – 20 triệu
+              </label>
+              <label class="filter-option-item">
+                <input type="radio" name="filter-price" value="over-20m"> Trên 20 triệu
+              </label>
+            </div>
+          </div>
+
+          <button class="filter-reset-btn" id="btnResetFilter" type="button">
+            Xóa bộ lọc
+          </button>
+        </div>
+
+        <!-- Banner Danh Mục -->
+        <div class="shop-banner">
+          <img src="./assets/images/category-banner.jpg" alt="Nệm cao su nâng đỡ cho người đau lưng">
+        </div>
+      </section>
+
+      <!-- Grid Sản phẩm -->
+      <section class="shop-products-section">
+        <div class="shop-grid" id="shopProductGrid">
+          <!-- Item 1 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-21%</span>
+              <a href="./details.html?id=1">
+                <img src="./assets/images/product-3.jpg" alt="Nệm cao su Thuần Việt Titan Grey">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=1">Nệm cao su Thuần Việt Titan Grey – Sạch êm, kháng khuẩn, nâng đỡ vượt trội</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">23.000.000₫</span>
+                <span class="shop-sale-price">18.070.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>4.930.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-21%</span>
+              <a href="./details.html?id=2">
+                <img src="./assets/images/product-1.jpg" alt="Nệm cao su Latex Premium">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=2">Nệm cao su thiên nhiên Thuần Việt Latex Premium – Siêu đàn hồi, êm ái</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">11.990.000₫</span>
+                <span class="shop-sale-price">9.490.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>2.500.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-25%</span>
+              <a href="./details.html?id=3">
+                <img src="./assets/images/product-2.jpg" alt="Nệm Foam Latex Hybrid">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=3">Nệm Foam Latex Thuần Việt Hybrid – Công nghệ đa tầng, nâng niu giấc ngủ</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">15.840.000₫</span>
+                <span class="shop-sale-price">11.870.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>3.970.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-25%</span>
+              <a href="./details.html?id=4">
+                <img src="./assets/images/product-4.jpg" alt="Nệm cao su Legend">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=4">Nệm cao su thiên nhiên Thuần Việt Legend – Chuyên gia nâng đỡ vùng lưng</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">10.300.000₫</span>
+                <span class="shop-sale-price">7.720.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>2.580.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-25%</span>
+              <a href="./details.html?id=5">
+                <img src="./assets/images/product-1.jpg" alt="Nệm Foam Original">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=5">Nệm Foam Thuần Việt Original – Êm ái, đàn hồi chuẩn chỉnh</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">8.500.000₫</span>
+                <span class="shop-sale-price">6.375.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>2.125.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="shop-product-card">
+            <div class="shop-product-thumb">
+              <span class="shop-badge-discount">-25%</span>
+              <a href="./details.html?id=6">
+                <img src="./assets/images/product-3.jpg" alt="Nệm lò xo Ruby">
+              </a>
+            </div>
+            <div class="shop-product-info">
+              <h3 class="shop-product-name">
+                <a href="./details.html?id=6">Nệm lò xo túi độc lập Thuần Việt Ruby – Đẳng cấp khách sạn 5 sao</a>
+              </h3>
+              <div class="shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop-product-price">
+                <span class="shop-old-price">14.500.000₫</span>
+                <span class="shop-sale-price">10.875.000₫</span>
+              </div>
+              <div class="shop-saving-text">
+                Tiết kiệm: <strong>3.625.000₫</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="shop-pagination">
+          <button class="active">1</button>
+          <button>2</button>
+          <button><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Cột 1: Thông tin công ty -->
+          <div class="footer-col">
+            <div class="footer-brand">
+              <img src="./assets/images/logo.jpg" alt="Logo" class="footer-logo">
+              <span class="footer-brand-name">NỆM THUẦN VIỆT</span>
+            </div>
+            <div class="footer-company-name">CÔNG TY CP THUẦN VIỆT GLOBAL</div>
+            <p class="footer-text">Địa chỉ: H76-H77, Đường Thị Giang, P. Đông Hưng Thuận, TP.HCM.</p>
+            <p class="footer-text">Giấy CNĐKDN: <strong>0318692955</strong></p>
+            <p class="footer-text">Ngày cấp: 2024-10-01 – Sở KH&ĐT TP.HCM</p>
+
+            <div class="footer-badges">
+              <img src="./assets/images/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+            </div>
+            <div class="footer-payment">
+              <div class="payment-title">Phương thức thanh toán</div>
+              <img src="./assets/images/payments.png" alt="Phương thức thanh toán" class="payment-img">
+              <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
+            </div>
+          </div>
+
+          <!-- Cột 2: Chính sách -->
+          <div class="footer-col">
+            <h3 class="footer-heading">CHÍNH SÁCH</h3>
+            <ul class="footer-links">
+              <li><a href="#">Điều Khoản & Điều Kiện</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Chính sách về quy trình xử lý khiếu nại</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 3: Thông tin -->
+          <div class="footer-col">
+            <h3 class="footer-heading">THÔNG TIN NỆM THUẦN VIỆT</h3>
+            <ul class="footer-links">
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
+              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
+              <li><a href="#">Tin trong ngành</a></li>
+              <li><a href="#">Hệ thống cửa hàng & đại lý</a></li>
+              <li><a href="#">TEST Nệm Phù Hợp</a></li>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Kết nối -->
+          <div class="footer-col">
+            <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              Hotline: <strong>1800.646.809</strong> (miễn phí cước gọi)
+            </p>
+            <p class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              Email: <strong>nemthuanviet@gmail.com</strong>
+            </p>
+
+            <div class="footer-socials">
+              <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-zalo">
+              <span>Liên hệ qua Zalo OA</span>
+              <a href="#" class="btn-zalo">
+                <i class="fa-solid fa-comment"></i> Zalo <strong>QUAN TÂM</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>Copyright 2026 © Nệm Thuần Việt</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single Consolidated Script -->
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

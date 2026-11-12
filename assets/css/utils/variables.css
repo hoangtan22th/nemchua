@@ -1,19 +1,23 @@
 :root {
   /* Colors */
-  --color-primary: #1e3a8a;       /* Xanh dương hoàng gia */
-  --color-primary-hover: #1d4ed8;
-  --color-secondary: #d97706;     /* Vàng đồng sang trọng */
-  --color-secondary-hover: #b45309;
+  --primary-color: #418FDE;
+  --secondary-color: #256cb7;
+  --color-primary: #418FDE;
+  --color-primary-hover: #256cb7;
+  --color-secondary: #256cb7;
+  --color-secondary-hover: #1e5692;
   --color-accent: #f59e0b;
   
+  --text-white: #ffffff;
+  --text-gray: #6b7280;
   --color-text-main: #1f2937;
   --color-text-muted: #6b7280;
   --color-text-light: #9ca3af;
   --color-white: #ffffff;
-  --color-bg-body: #f9fafb;
+  --color-bg-body: #ffffff;
   --color-bg-card: #ffffff;
   --color-border: #e5e7eb;
-  --color-border-focus: #3b82f6;
+  --color-border-focus: #418FDE;
 
   /* Typography */
   --font-family-base: "Questrial", sans-serif;
