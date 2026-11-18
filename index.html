@@ -5,24 +5,158 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nệm TBAY - Đẳng Cấp Giấc Ngủ Việt</title>
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/common/favicon-32x32.png">
+  <link rel="icon" type="image/png" href="./assets/images/common/logo.png">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/images/common/logo.png">
+
+  <!-- Meta Open Graph Image & Social Media -->
+  <meta property="og:image" content="./assets/images/common/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="165">
+  <meta property="og:image:height" content="177">
+  <meta property="og:image:alt" content="TBAY GROUP Logo">
+  <meta name="twitter:image" content="./assets/images/common/logo.png">
+  <meta name="msapplication-TileImage" content="./assets/images/common/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Hiệu ứng chuyển động mượt mà (êm ái, chậm rãi, sang trọng) được tích hợp trực tiếp trong main.css -->
   <link rel="stylesheet" href="./assets/css/main.css">
+  <!-- Critical Topbar CSS (Ngăn chặn delay / chớp giật thanh quảng cáo khi chuyển trang) -->
+  <style>
+    .header__advertisement,
+    .header-advertisement {
+      background: linear-gradient(90deg, #f0507a 0%, #eb2365 50%, #d81b60 100%);
+      padding: 8px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      min-height: 35px;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      z-index: 50;
+    }
+
+    .header__advertisement-marquee {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .header__advertisement-track {
+      display: flex;
+      width: max-content;
+      animation: tickerMarquee 32s linear infinite;
+      will-change: transform;
+    }
+
+    .header__advertisement:hover .header__advertisement-track {
+      animation-play-state: paused;
+    }
+
+    .header__advertisement-group {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .header__advertisement-item {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 18px;
+      white-space: nowrap;
+    }
+
+    .header__advertisement-item i {
+      color: #fde047;
+      font-size: 12.5px;
+    }
+
+    .header__advertisement-sep {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 10px;
+      user-select: none;
+    }
+
+    @keyframes tickerMarquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+  </style>
 </head>
 
 <body>
   <!-- 1. Header -->
-    <!-- 1. Header -->
   <header class="header" id="header">
+    <!-- 1. Advertisement Topbar (Marquee chạy liên tục) -->
     <div class="header__advertisement">
-      <div class="container">
-        <ul class="header__advertisement-list">
-          <li class="header__advertisement-item">Giảm đến 25%</li>
-          <li class="header__advertisement-item">101 đêm ngủ thử</li>
-          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
-        </ul>
+      <div class="header__advertisement-marquee">
+        <div class="header__advertisement-track">
+          <!-- Nhóm 1 -->
+          <div class="header__advertisement-group">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến
+                25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong>
+              miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong>
+              mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính
+                hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao
+                cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0%
+                lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm
+                mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+          <!-- Nhóm 2 (Nhân đôi để tạo vòng lặp vô tận liền mạch) -->
+          <div class="header__advertisement-group" aria-hidden="true">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến
+                25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong>
+              miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong>
+              mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính
+                hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao
+                cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0%
+                lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm
+                mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -78,7 +212,8 @@
           <li class="header__nav-item header__nav-item--has-dropdown">
             <a href="./products.html" class="header__nav-link">NỆM <i class="fa-solid fa-chevron-down"></i></a>
             <ul class="header__dropdown">
-              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên nhiên</a></li>
+              <li><a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__dropdown-link">Nệm cao su thiên
+                  nhiên</a></li>
               <li><a href="./products.html?cat=nem-foam" class="header__dropdown-link">Nệm Foam</a></li>
               <li><a href="./products.html?cat=nem-lo-xo" class="header__dropdown-link">Nệm lò xo</a></li>
               <li><a href="./products.html?cat=nem-lam-mat" class="header__dropdown-link">Nệm làm mát</a></li>
@@ -105,6 +240,15 @@
   <section class="hero" id="heroSlider">
     <div class="container">
       <div class="hero__slider">
+        <!-- Luxury Floating Badge -->
+        <div class="hero__badge">
+          <span class="hero__badge-icon"><i class="fa-solid fa-crown"></i></span>
+          <span class="hero__badge-text">TBAY CHÍNH HÃNG • ĐẲNG CẤP GIẤC NGỦ VIỆT</span>
+        </div>
+
+        <!-- Floating Dream Particles -->
+        <div id="heroParticles" class="hero__particles"></div>
+
         <div class="hero__track">
           <div class="hero__slide active">
             <img src="./assets/images/banners/hero1.webp" alt="Hero Banner 1" class="hero__img">
@@ -126,12 +270,17 @@
           </div>
         </div>
 
-        <button class="hero__btn hero__btn--prev" id="prevHero">
+        <button class="hero__btn hero__btn--prev" id="prevHero" aria-label="Slide trước">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button class="hero__btn hero__btn--next" id="nextHero">
+        <button class="hero__btn hero__btn--next" id="nextHero" aria-label="Slide kế tiếp">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
+
+        <!-- Progress Bar Indicator -->
+        <div class="hero__progress">
+          <div class="hero__progress-bar" id="heroProgressBar"></div>
+        </div>
 
         <div class="hero__dots" id="heroDots">
           <span class="hero__dot active" data-index="0"></span>
@@ -148,15 +297,20 @@
   <!-- 3. Best Seller Section -->
   <section class="best-seller">
     <div class="container">
-      <h2 class="section-title">Sản phẩm bán chạy</h2>
+      <h2 class="section-title wow fadeInUp">Sản phẩm bán chạy</h2>
       <div class="product-grid" id="bestSellerGrid">
         <!-- Card 1 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-21%</span>
-            <a href="./details.html?id=1">
-              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey">
+            <a href="./details.html?id=1" class="product-card__img-link">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su TBAY Titan Grey" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=1" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=1" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title">
@@ -180,12 +334,17 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-21%</span>
-            <a href="./details.html?id=2">
-              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium">
+            <a href="./details.html?id=2" class="product-card__img-link">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm cao su Latex Premium" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=2" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=2" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title">
@@ -209,12 +368,17 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-25%</span>
-            <a href="./details.html?id=3">
-              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid">
+            <a href="./details.html?id=3" class="product-card__img-link">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam Latex TBAY Hybrid" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=3" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=3" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title">
@@ -238,12 +402,17 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.4s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-45%</span>
-            <a href="./details.html?id=101">
-              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01">
+            <a href="./details.html?id=101" class="product-card__img-link">
+              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=101" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=101" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title">
@@ -272,7 +441,7 @@
   <!-- 4. Middle Banner -->
   <section class="banner-middle" id="bannerMiddle">
     <div class="container">
-      <div class="banner-middle__img">
+      <div class="banner-middle__img wow fadeInUp">
         <img src="./assets/images/banners/middle.png" alt="Middle Banner">
       </div>
     </div>
@@ -281,15 +450,20 @@
   <!-- 5. All Products Section -->
   <section class="products-all">
     <div class="container">
-      <h2 class="section-title">Tất cả sản phẩm</h2>
+      <h2 class="section-title wow fadeInUp">Tất cả sản phẩm</h2>
       <div class="product-grid" id="allProductsGrid">
         <!-- 1 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-21%</span>
-            <a href="./details.html?id=1">
-              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey">
+            <a href="./details.html?id=1" class="product-card__img-link">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su TBAY Titan Grey" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su TBAY Titan Grey" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=1" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=1" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=1">Nệm cao su TBAY Titan Grey</a></h3>
@@ -306,12 +480,17 @@
         </div>
 
         <!-- 2 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-21%</span>
-            <a href="./details.html?id=2">
-              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium">
+            <a href="./details.html?id=2" class="product-card__img-link">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm cao su Latex Premium" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=2" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=2" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=2">Nệm cao su thiên nhiên TBAY Latex Premium</a>
@@ -329,12 +508,17 @@
         </div>
 
         <!-- 3 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-25%</span>
-            <a href="./details.html?id=3">
-              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Hybrid">
+            <a href="./details.html?id=3" class="product-card__img-link">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Hybrid" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam Hybrid" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=3" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=3" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=3">Nệm Foam Latex TBAY Hybrid</a></h3>
@@ -351,12 +535,17 @@
         </div>
 
         <!-- 4 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.4s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-25%</span>
-            <a href="./details.html?id=4">
-              <img src="./assets/images/products/product-4.jpg" alt="Nệm cao su Legend">
+            <a href="./details.html?id=4" class="product-card__img-link">
+              <img src="./assets/images/products/product-4.jpg" alt="Nệm cao su Legend" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su Legend" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=4" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=4" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=4">Nệm cao su thiên nhiên TBAY Legend</a></h3>
@@ -373,12 +562,17 @@
         </div>
 
         <!-- 5 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-25%</span>
-            <a href="./details.html?id=5">
-              <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam Original">
+            <a href="./details.html?id=5" class="product-card__img-link">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm Foam Original" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-4.jpg" alt="Nệm Foam Original" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=5" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=5" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=5">Nệm Foam TBAY Original</a></h3>
@@ -395,12 +589,17 @@
         </div>
 
         <!-- 6 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-25%</span>
-            <a href="./details.html?id=6">
-              <img src="./assets/images/products/product-3.jpg" alt="Nệm lò xo Ruby">
+            <a href="./details.html?id=6" class="product-card__img-link">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm lò xo Ruby" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm lò xo Ruby" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=6" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=6" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=6">Nệm lò xo túi độc lập TBAY Ruby</a></h3>
@@ -417,12 +616,17 @@
         </div>
 
         <!-- 7 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-45%</span>
-            <a href="./details.html?id=101">
-              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường ECTC 01">
+            <a href="./details.html?id=101" class="product-card__img-link">
+              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường ECTC 01" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường ECTC 01" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=101" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=101" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=101">Bộ Ga Giường Mền TBAY ECTC 01</a></h3>
@@ -439,12 +643,17 @@
         </div>
 
         <!-- 8 -->
-        <div class="product-card">
+        <div class="product-card wow fadeInUp" data-wow-delay="0.4s">
           <div class="product-card__thumb">
             <span class="product-card__badge">-45%</span>
-            <a href="./details.html?id=102">
-              <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường ECTC 02">
+            <a href="./details.html?id=102" class="product-card__img-link">
+              <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường ECTC 02" class="product-card__img product-card__img--primary">
+              <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường ECTC 02" class="product-card__img product-card__img--secondary" loading="lazy">
             </a>
+            <a href="./details.html?id=102" class="product-card__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+            <a href="./details.html?id=102" class="product-card__quickview-btn">QUICK VIEW</a>
           </div>
           <div class="product-card__info">
             <h3 class="product-card__title"><a href="./details.html?id=102">Bộ Ga Giường Mền TBAY ECTC 02</a></h3>
@@ -463,11 +672,71 @@
     </div>
   </section>
 
-  <!-- 6. Banner Intro -->
-  <section class="banner-intro">
+  <!-- 6. Banner Intro / Về Chúng Tôi & Thống Kê Số Liệu -->
+  <section class="banner-intro" id="bannerIntro">
     <div class="container">
-      <div class="banner-intro__img">
-        <img src="./assets/images/banners/BANER-GIOI-THIEU-DESKTOP.webp" alt="Banner Giới Thiệu">
+      <div class="banner-intro__card wow fadeInUp">
+        <!-- Thân Banner: Nội dung giới thiệu & Ảnh nhà máy -->
+        <div class="banner-intro__body">
+          <div class="banner-intro__content">
+            <span class="banner-intro__tag">TBAY GROUP</span>
+            <h2 class="banner-intro__title">VỀ CHÚNG TÔI</h2>
+            <p class="banner-intro__desc">
+              Tại <strong>Nệm TBAY</strong>, chúng tôi tin rằng một giấc ngủ ngon không phải là điều xa xỉ, mà là khởi
+              đầu cho một cuộc sống trọn vẹn. Mỗi thiết kế và chất liệu đều được nghiên cứu, cải tiến từng chi tiết để
+              sản phẩm nhằm mang đến giải pháp chăm sóc giấc ngủ chuẩn mực, chất lượng cao với mức giá dễ dàng tiếp cận
+              cho mọi gia đình Việt.
+            </p>
+          </div>
+          <div class="banner-intro__visual">
+            <img src="./assets/images/banners/factory-wide.png" alt="Quy mô nhà máy sản xuất nệm TBAY"
+              class="banner-intro__factory-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Khối 4 Thống kê số liệu với hiệu ứng tăng số (Counter) -->
+        <div class="banner-intro__stats" id="counterStats">
+          <div class="banner-intro__stat-item">
+            <div class="banner-intro__stat-icon">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <div class="banner-intro__stat-val">
+              <span class="counter-num" data-target="6000">0</span><span class="counter-unit">M²</span>
+            </div>
+            <div class="banner-intro__stat-label">Diện tích nhà máy</div>
+          </div>
+
+          <div class="banner-intro__stat-item">
+            <div class="banner-intro__stat-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="banner-intro__stat-val">
+              <span class="counter-num" data-target="10000">0</span><span class="counter-unit">&nbsp;TẤM NỆM</span>
+            </div>
+            <div class="banner-intro__stat-label">Quy mô sản xuất</div>
+          </div>
+
+          <div class="banner-intro__stat-item">
+            <div class="banner-intro__stat-icon">
+              <i class="fa-regular fa-calendar-days"></i>
+            </div>
+            <div class="banner-intro__stat-val">
+              <span class="counter-num" data-target="2018" data-type="year">0</span>
+            </div>
+            <div class="banner-intro__stat-label">Năm thành lập</div>
+          </div>
+
+          <div class="banner-intro__stat-item">
+            <div class="banner-intro__stat-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="banner-intro__stat-val">
+              <span class="counter-num" data-target="1" data-type="decimal">0</span><span
+                class="counter-unit">&nbsp;TRIỆU</span>
+            </div>
+            <div class="banner-intro__stat-label">Khách hàng tin dùng</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -475,7 +744,7 @@
   <!-- 7. Video Reviews Section (Chia sẻ cảm nhận từ khách hàng) -->
   <section class="video-reviews" id="videoReviews">
     <div class="container">
-      <div class="video-reviews__header">
+      <div class="video-reviews__header wow fadeInUp">
         <h2 class="video-reviews__title">Chia sẻ cảm nhận từ khách hàng</h2>
         <div class="video-reviews__arrows">
           <button class="video-reviews__arrow-btn" id="prevReview" aria-label="Previous">
@@ -487,10 +756,9 @@
         </div>
       </div>
 
-      <div class="video-reviews__slider" id="reviewsTrack">
+      <div class="video-reviews__slider wow fadeInUp" id="reviewsTrack" data-wow-delay="0.15s">
         <!-- Review 1 -->
-        <div class="review-card"
-          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
+        <div class="review-card" data-video="./assets/images/reviews/Son-Beo-Duoi-30mb.mp4">
           <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-1.jpg');"></div>
           <div class="review-card__overlay"></div>
           <button class="review-card__play-btn" aria-label="Xem video">
@@ -501,7 +769,8 @@
             <h3 class="review-card__title">ÊM ÁI TỰA MÂY<br>NGỦ NGON TRÒN GIẤC</h3>
             <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
             <a href="./details.html?id=3" class="review-card__product">
-              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid" class="review-card__product-img">
+              <img src="./assets/images/products/product-2.jpg" alt="Nệm Foam Latex TBAY Hybrid"
+                class="review-card__product-img">
               <div class="review-card__product-meta">
                 <div class="review-card__product-top">
                   <span class="review-card__old-price">15.840.000₫</span>
@@ -515,19 +784,19 @@
         </div>
 
         <!-- Review 2 -->
-        <div class="review-card"
-          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+        <div class="review-card" data-video="./assets/images/reviews/Gia-Dinh-Dona.mp4">
           <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-2.jpg');"></div>
           <div class="review-card__overlay"></div>
           <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
           <div class="review-card__content">
-            <div class="review-card__tag">KHÁCH HÀNG</div>
-            <h3 class="review-card__title">NỖI NIỀM NẰM NỆM<br>LỚN TUỔI KHÓ TÍNH</h3>
+            <div class="review-card__tag">GIA ĐÌNH DONA</div>
+            <h3 class="review-card__title">TRẢI NGHIỆM NỆM ÊM<br>CẢ NHÀ SAY GIẤC</h3>
             <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
             <a href="./details.html?id=2" class="review-card__product">
-              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="review-card__product-img">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium"
+                class="review-card__product-img">
               <div class="review-card__product-meta">
                 <div class="review-card__product-top">
                   <span class="review-card__old-price">6.390.000₫</span>
@@ -541,19 +810,19 @@
         </div>
 
         <!-- Review 3 -->
-        <div class="review-card"
-          data-video="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4">
+        <div class="review-card" data-video="./assets/images/reviews/ME-BUN-GAO-VU-HAI-YEN.mp4">
           <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-3.jpg');"></div>
           <div class="review-card__overlay"></div>
           <button class="review-card__play-btn" aria-label="Xem video">
             <i class="fa-solid fa-play"></i>
           </button>
           <div class="review-card__content">
-            <div class="review-card__tag">REVIEW</div>
-            <h3 class="review-card__title">NỆM TITAN GREY<br>ÊM SANG, GIẤC VÀNG</h3>
+            <div class="review-card__tag">MẸ BÚN GẠO VŨ HẢI YẾN</div>
+            <h3 class="review-card__title">BẢO VỆ CỘT SỐNG<br>ÊM ÁI CHO MẸ &amp; BÉ</h3>
             <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
             <a href="./details.html?id=1" class="review-card__product">
-              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su Titan Grey" class="review-card__product-img">
+              <img src="./assets/images/products/product-3.jpg" alt="Nệm cao su Titan Grey"
+                class="review-card__product-img">
               <div class="review-card__product-meta">
                 <div class="review-card__product-top">
                   <span class="review-card__old-price">15.800.000₫</span>
@@ -567,7 +836,7 @@
         </div>
 
         <!-- Review 4 -->
-        <div class="review-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4">
+        <div class="review-card" data-video="./assets/images/reviews/Minh-Trang.mp4">
           <div class="review-card__bg" style="background-image: url('./assets/images/reviews/review-4.jpg');"></div>
           <div class="review-card__overlay"></div>
           <button class="review-card__play-btn" aria-label="Xem video">
@@ -578,7 +847,8 @@
             <h3 class="review-card__title">NỖI NIỀM NẰM NỆM<br>TRẺ NHƯNG LƯNG KHÔNG KHOẺ?</h3>
             <p class="review-card__subtitle">Nệm TBAY<br>Ngủ đủ sống sâu - Hạnh phúc bền lâu</p>
             <a href="./details.html?id=2" class="review-card__product">
-              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium" class="review-card__product-img">
+              <img src="./assets/images/products/product-1.jpg" alt="Nệm cao su Latex Premium"
+                class="review-card__product-img">
               <div class="review-card__product-meta">
                 <div class="review-card__product-top">
                   <span class="review-card__old-price">6.390.000₫</span>
@@ -610,8 +880,8 @@
   <!-- 8. Press Section (Báo chí nói gì) -->
   <section class="press" id="pressSection">
     <div class="container">
-      <h2 class="press__title">Báo chí nói gì về Nệm TBAY?</h2>
-      <div class="press__logos">
+      <h2 class="press__title wow fadeInUp">Báo chí nói gì về Nệm TBAY?</h2>
+      <div class="press__logos wow fadeInUp" data-wow-delay="0.15s">
         <div class="press__item">
           <img src="./assets/images/press/press-vnexpress.png" alt="VnExpress">
         </div>
@@ -628,17 +898,102 @@
     </div>
   </section>
 
-  <!-- 9. Store System Section (Hệ thống cửa hàng) -->
-  <section class="store-system" id="storeSystem">
+  <!-- 9. Store System Section (Hệ thống 21+ Premium Showrooms) -->
+  <section class="store-system showroom-section" id="storeSystem">
     <div class="container">
-      <div class="store-system__box">
-        <div class="store-system__info">
-          <h2 class="store-system__title">Hệ Thống Cửa Hàng Nệm TBAY</h2>
-          <p class="store-system__subtitle">Trải nghiệm không gian mua sắm hiện đại để tìm kiếm giấc ngủ trọn vẹn</p>
+      <h2 class="showroom-section__title wow fadeInUp"><span class="highlight"><span id="showroomCounter">21</span>+
+          Premium</span> Showrooms</h2>
+
+      <div class="showroom-section__grid">
+        <!-- Cột trái: Bộ sưu tập hình ảnh Showroom tương tác -->
+        <div class="showroom-gallery wow fadeInUp">
+          <div class="showroom-gallery__main">
+            <img src="./assets/images/showrooms/showroom-main.jpg" alt="21+ Premium Showrooms Nệm Thuần Việt"
+              id="showroomMainImage" class="showroom-gallery__main-img">
+          </div>
+          <div class="showroom-gallery__thumbs" id="showroomThumbs">
+            <div class="showroom-gallery__thumb" data-src="./assets/images/showrooms/showroom-1.jpg"
+              title="Không gian trưng bày đạt chuẩn">
+              <img src="./assets/images/showrooms/showroom-thumb-1.jpg" alt="Không gian trưng bày đạt chuẩn">
+            </div>
+            <div class="showroom-gallery__thumb" data-src="./assets/images/showrooms/showroom-2.jpg"
+              title="Khu vực tư vấn sản phẩm">
+              <img src="./assets/images/showrooms/showroom-thumb-2.jpg" alt="Khu vực tư vấn sản phẩm">
+            </div>
+            <div class="showroom-gallery__thumb" data-src="./assets/images/showrooms/showroom-3.jpg"
+              title="Mặt tiền showroom Nệm Thuần Việt">
+              <img src="./assets/images/showrooms/showroom-thumb-3.jpg" alt="Mặt tiền showroom Nệm Thuần Việt">
+            </div>
+            <div class="showroom-gallery__thumb" data-src="./assets/images/showrooms/showroom-4.jpg"
+              title="Trải nghiệm nệm êm ái">
+              <img src="./assets/images/showrooms/showroom-thumb-4.jpg" alt="Trải nghiệm nệm êm ái">
+            </div>
+            <div class="showroom-gallery__thumb active" data-src="./assets/images/showrooms/showroom-main.jpg"
+              title="Tư vấn trực tiếp tận tâm">
+              <img src="./assets/images/showrooms/showroom-thumb-5.jpg" alt="Tư vấn trực tiếp tận tâm">
+            </div>
+          </div>
         </div>
-        <a href="#he-thong-cua-hang" class="store-system__btn">
-          CLICK XEM CỬA HÀNG GẦN NHẤT <i class="fa-solid fa-location-dot"></i>
-        </a>
+
+        <!-- Cột phải: Tìm kiếm & Danh sách showroom theo tỉnh thành -->
+        <div class="showroom-finder wow fadeInUp" data-wow-delay="0.15s">
+          <h3 class="showroom-finder__heading">Tìm theo tỉnh thành</h3>
+
+          <div class="showroom-finder__filters">
+            <div class="showroom-finder__select-wrap">
+              <select id="showroomProvinceSelect" class="showroom-finder__select" aria-label="Chọn Tỉnh Thành">
+                <option value="all">Chọn Tỉnh Thành</option>
+              </select>
+              <i class="fa-solid fa-chevron-down showroom-finder__select-arrow"></i>
+            </div>
+            <div class="showroom-finder__select-wrap">
+              <select id="showroomDistrictSelect" class="showroom-finder__select" aria-label="Chọn Quận Huyện">
+                <option value="all">Chọn Quận Huyện</option>
+              </select>
+              <i class="fa-solid fa-chevron-down showroom-finder__select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Danh sách showroom có thanh cuộn mượt -->
+          <div class="showroom-list" id="showroomList">
+            <!-- Item 1: Vinh, Nghệ An -->
+            <div class="showroom-item">
+              <div class="showroom-item__header">
+                <i class="fa-solid fa-location-dot showroom-item__icon"></i>
+                <h4 class="showroom-item__name">Nệm Thuần Việt Showroom Vinh và Nghệ An (đại lý)</h4>
+              </div>
+              <p class="showroom-item__address">26 Tô Hiến Thành, Khối 5 Quang Trung, Phường Thành Vinh, tỉnh Nghệ An
+              </p>
+              <p class="showroom-item__hours"><strong>Mở cửa:</strong> 7h30 - 21h30 (Thứ 2 - Chủ Nhật)</p>
+              <a href="https://maps.google.com/?q=26+Tô+Hiến+Thành,+Quang+Trung,+Thành+phố+Vinh,+Nghệ+An"
+                target="_blank" rel="noopener noreferrer" class="showroom-item__link">Xem dẫn đường</a>
+            </div>
+
+            <!-- Item 2: Võ Cường, Bắc Ninh -->
+            <div class="showroom-item">
+              <div class="showroom-item__header">
+                <i class="fa-solid fa-location-dot showroom-item__icon"></i>
+                <h4 class="showroom-item__name">Nệm Thuần Việt Showroom Võ Cường, Bắc Ninh (Đại lý Ngọc Anh)</h4>
+              </div>
+              <p class="showroom-item__address">358 Nguyễn Trãi, Võ Cường, Bắc Ninh</p>
+              <p class="showroom-item__hours"><strong>Mở cửa:</strong> 7h30 - 21h30 (Thứ 2 - Chủ Nhật)</p>
+              <a href="https://maps.google.com/?q=358+Nguyễn+Trãi,+Võ+Cường,+Bắc+Ninh" target="_blank"
+                rel="noopener noreferrer" class="showroom-item__link">Xem dẫn đường</a>
+            </div>
+
+            <!-- Item 3: Quận 10, Hồ Chí Minh -->
+            <div class="showroom-item">
+              <div class="showroom-item__header">
+                <i class="fa-solid fa-location-dot showroom-item__icon"></i>
+                <h4 class="showroom-item__name">Nệm Thuần Việt Showroom Quận 10, Hồ Chí Minh</h4>
+              </div>
+              <p class="showroom-item__address">562 3 Tháng 2, Diên Hồng, Hồ Chí Minh, Việt Nam</p>
+              <p class="showroom-item__hours"><strong>Mở cửa:</strong> 7h30 - 21h30 (Thứ 2 - Chủ Nhật)</p>
+              <a href="https://maps.google.com/?q=562+Ba+Thang+Hai,+Quan+10,+Ho+Chi+Minh" target="_blank"
+                rel="noopener noreferrer" class="showroom-item__link">Xem dẫn đường</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -660,7 +1015,9 @@
             <div class="footer-company-name">CÔNG TY CỔ PHẦN TBAY GROUP</div>
             <p class="footer-text"><strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
             <p class="footer-text"><strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
-            <p class="footer-text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> | <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
+            <p class="footer-text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> |
+              <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank"
+                rel="noopener noreferrer">wpshare247.com</a></p>
 
             <div class="footer-badges">
               <img src="./assets/images/common/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
@@ -685,20 +1042,7 @@
             </ul>
           </div>
 
-          <!-- Cột 3: Thông tin -->
-          <div class="footer-col">
-            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
-            <ul class="footer-links">
-              <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
-              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
-              <li><a href="#">Tin trong ngành</a></li>
-              <li><a href="#">Hệ thống cửa hàng & đại lý</a></li>
-              <li><a href="#">TEST Nệm Phù Hợp</a></li>
-            </ul>
-          </div>
-
-          <!-- Cột 4: Kết nối -->
+          <!-- Cột 3: Kết nối -->
           <div class="footer-col">
             <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
             <p class="footer-contact-item">
@@ -715,7 +1059,8 @@
             </p>
             <p class="footer-contact-item">
               <i class="fa-solid fa-globe"></i>
-              <span>Website: <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
+              <span>Website: <a href="https://wpshare247.com/" target="_blank"
+                  rel="noopener noreferrer"><strong>wpshare247.com</strong></a></span>
             </p>
 
             <div class="footer-socials">
@@ -744,13 +1089,41 @@
     </div>
   </footer>
 
-  <!-- Floating Chat -->
-  <div class="floating-chat-btn">
-    <i class="fa-solid fa-comment-dots"></i>
-    <span>Liên hệ</span>
+  <!-- Floating Contact Widget (Cục Zalo + Cục Điện Thoại 0852.080.383) -->
+  <div class="floating-contact">
+        <a href="https://facebook.com/nemtbay" target="_blank" rel="noopener noreferrer" class="floating-contact__fb"
+      title="Chat Facebook Messenger" aria-label="Facebook">
+      <span class="floating-contact__fb-circle">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </span>
+    </a>
+    <a href="https://zalo.me/0852080383" target="_blank" rel="noopener noreferrer" class="floating-contact__zalo"
+      title="Chat Zalo 0852.080.383" aria-label="Zalo">
+      <span class="floating-contact__zalo-circle">
+        <span class="floating-contact__zalo-text">Zalo</span>
+      </span>
+    </a>
+    <a href="tel:0852080383" class="floating-contact__phone-wrap" title="Gọi Hotline 0852.080.383"
+      aria-label="Gọi hotline">
+      <span class="floating-contact__phone-pill">0852.080.383</span>
+      <span class="floating-contact__phone-circle">
+        <i class="fa-solid fa-phone"></i>
+      </span>
+    </a>
   </div>
 
-  <!-- Single Consolidated Script -->
+  <!-- Nút cuộn lên đầu trang (Scroll To Top) -->
+  <button class="scroll-to-top" id="scrollTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+
+  <!-- Thư viện hiệu ứng hoạt ảnh cao cấp (Chỉ kích hoạt tại trang index) -->
+  <script src="./assets/js/gsap.min.js"></script>
+  <script src="./assets/js/tsparticles.bundle.min.js"></script>
+  <script src="./assets/js/wow.min.js"></script>
+
+  <!-- Script chính của website -->
   <script src="./assets/js/products.js"></script>
   <script src="./assets/js/cart.js"></script>
   <script src="./assets/js/main.js"></script>

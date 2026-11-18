@@ -16,8 +16,8 @@
 .footer__grid,
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 32px;
+  grid-template-columns: 1.4fr 1fr 1.3fr;
+  gap: 36px;
 }
 
 /* ==================== FOOTER COL 1 ==================== */
@@ -245,7 +245,7 @@
   padding: 6px 12px;
   background-color: var(--primary-color);
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 12px;
   text-decoration: none;
   width: fit-content;
@@ -272,29 +272,181 @@
   margin: 0;
 }
 
-/* ==================== FLOATING CHAT WIDGET ==================== */
-.floating-chat-btn {
+/* ==================== FLOATING CONTACT WIDGET (FB, ZALO & PHONE HOTLINE) ==================== */
+.floating-contact {
   position: fixed;
-  bottom: 24px;
+  bottom: 82px;
   right: 24px;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--primary-color);
-  color: #ffffff;
-  padding: 10px 18px;
-  border-radius: 30px;
-  box-shadow: 0 4px 16px rgba(235, 35, 101, 0.35);
-  cursor: pointer;
-  z-index: 999;
-  font-size: 13px;
-  font-weight: 500;
-  transition: transform 0.2s, background-color 0.2s;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 9999;
 }
 
-.floating-chat-btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-3px);
+/* Nút Tròn Facebook Messenger */
+.floating-contact__fb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0084ff;
+  box-shadow: 0 4px 16px rgba(0, 132, 255, 0.45);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-contact__fb:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 132, 255, 0.6);
+}
+
+.floating-contact__fb-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 21px;
+}
+
+/* Nút Tròn Zalo Xanh */
+.floating-contact__zalo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-contact__zalo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.55);
+}
+
+.floating-contact__zalo-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  background: transparent;
+}
+
+.floating-contact__zalo-text {
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  font-family: var(--font-family-base);
+  text-transform: none;
+}
+
+/* Nút Điện Thoại Đỏ + Viên Thuốc Hotline */
+.floating-contact__phone-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.floating-contact__phone-wrap:hover {
+  transform: scale(1.03);
+}
+
+.floating-contact__phone-pill {
+  background: #ffffff;
+  color: #dc2626;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.08);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  font-family: var(--font-family-base);
+}
+
+.floating-contact__phone-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.45);
+  flex-shrink: 0;
+  animation: phone-wiggle 3s infinite ease-in-out;
+}
+
+@keyframes phone-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(-14deg); }
+  20%, 40% { transform: rotate(14deg); }
+  50% { transform: rotate(0deg); }
+}
+
+/* ==================== SCROLL TO TOP BUTTON ==================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #1e293b;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.scroll-to-top.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 18px rgba(235, 35, 101, 0.45);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Fallback cũ */
+.floating-chat-btn {
+  display: none !important;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -311,5 +463,35 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .floating-contact {
+    bottom: 74px;
+    right: 14px;
+    gap: 10px;
+  }
+
+  .floating-contact__zalo,
+  .floating-contact__fb,
+  .floating-contact__phone-circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .floating-contact__fb-circle {
+    font-size: 18px;
+  }
+
+  .floating-contact__phone-pill {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
   }
 }

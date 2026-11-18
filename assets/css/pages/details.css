@@ -51,7 +51,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: hidden;
   background-color: #f8f8f8;
 }
@@ -74,7 +74,7 @@
   font-size: 13px;
   font-weight: 600;
   padding: 4px 10px;
-  border-radius: 14px;
+  border-radius: 4px;
 }
 
 .details__thumbs,
@@ -88,7 +88,7 @@
 .details-thumb-item {
   width: 70px;
   height: 70px;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   border: 2px solid transparent;
   cursor: pointer;
@@ -182,7 +182,7 @@
 .option-btn {
   padding: 6px 14px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #ffffff;
   color: #374151;
   font-size: 13px;
@@ -323,7 +323,7 @@
   display: flex;
   align-items: center;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -353,7 +353,7 @@
   background-color: var(--primary-color);
   color: var(--text-white);
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -372,7 +372,7 @@
   background-color: var(--secondary-color);
   color: var(--text-white);
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 12px;
   font-size: 15px;
   font-weight: 600;
@@ -418,7 +418,7 @@
   align-items: center;
   background-color: var(--color-primary-light);
   border: 1px dashed var(--primary-color);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 12px 16px;
   margin-top: 10px;
 }
@@ -512,7 +512,7 @@
   max-width: 880px;
   margin: 16px auto 26px;
   display: block;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .details__layer-box {
@@ -558,7 +558,7 @@
 
 .details__related-card {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -601,7 +601,7 @@
   font-size: 11px;
   font-weight: 600;
   padding: 2px 7px;
-  border-radius: 12px;
+  border-radius: 4px;
   z-index: 2;
 }
 

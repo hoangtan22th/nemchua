@@ -108,7 +108,7 @@
 .cart-table-wrapper {
   overflow-x: auto;
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #ffffff;
 }
 
@@ -173,7 +173,7 @@
 .cart-item-thumb {
   width: 68px;
   height: 68px;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1px solid #e2e8f0;
   overflow: hidden;
   flex-shrink: 0;
@@ -310,7 +310,7 @@
 /* Sidebar Tổng cộng giỏ hàng & Mã ưu đãi */
 .cart-sidebar-card {
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #ffffff;
   padding: 22px 20px;
 }
@@ -458,7 +458,7 @@
   text-align: center;
   padding: 60px 20px;
   border: 1px dashed #cbd5e1;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #f8fafc;
 }
 
@@ -543,7 +543,7 @@
 /* Card Đơn hàng của bạn bên phải */
 .checkout-order-card {
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #ffffff;
   padding: 22px 20px;
 }
@@ -789,7 +789,7 @@
 .complete-address-box {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 18px 20px;
   line-height: 1.6;
   font-size: 14px;
@@ -806,7 +806,7 @@
 /* Card xác nhận đơn hàng bên phải */
 .complete-card {
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #ffffff;
   padding: 24px 22px;
 }
@@ -907,7 +907,7 @@
   background-color: #1e293b;
   color: #ffffff;
   padding: 14px 20px;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;

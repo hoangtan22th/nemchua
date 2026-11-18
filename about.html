@@ -6,27 +6,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Giới thiệu về thương hiệu TBAY GROUP – Chuyên gia giải pháp giấc ngủ và nệm cao cấp hàng đầu Việt Nam. Say giấc cùng TBAY.">
   <title>Giới Thiệu Về TBAY GROUP - Say Giấc Cùng TBAY</title>
-  <link rel="icon" type="image/x-icon" href="./assets/images/common/logo.jpg">
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/common/favicon-32x32.png">
+  <link rel="icon" type="image/png" href="./assets/images/common/logo.png">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/images/common/logo.png">
+
+  <!-- Meta Open Graph Image & Social Media -->
+  <meta property="og:image" content="./assets/images/common/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="165">
+  <meta property="og:image:height" content="177">
+  <meta property="og:image:alt" content="TBAY GROUP Logo">
+  <meta name="twitter:image" content="./assets/images/common/logo.png">
+  <meta name="msapplication-TileImage" content="./assets/images/common/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/main.css">
+    <!-- Critical Topbar CSS (Ngăn chặn delay / chớp giật thanh quảng cáo khi chuyển trang) -->
+  <style>
+    .header__advertisement, .header-advertisement { background: linear-gradient(90deg, #f0507a 0%, #eb2365 50%, #d81b60 100%); padding: 8px 0; font-size: 13px; line-height: 1.5; min-height: 35px; box-sizing: border-box; overflow: hidden; position: relative; z-index: 50; }
+    .header__advertisement-marquee { width: 100%; overflow: hidden; display: flex; }
+    .header__advertisement-track { display: flex; width: max-content; animation: tickerMarquee 32s linear infinite; will-change: transform; }
+    .header__advertisement:hover .header__advertisement-track { animation-play-state: paused; }
+    .header__advertisement-group { display: flex; align-items: center; flex-shrink: 0; }
+    .header__advertisement-item { color: #ffffff; font-weight: 500; font-size: 13px; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; white-space: nowrap; }
+    .header__advertisement-item i { color: #fde047; font-size: 12.5px; }
+    .header__advertisement-sep { color: rgba(255, 255, 255, 0.45); font-size: 10px; user-select: none; }
+    @keyframes tickerMarquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+  </style>
 </head>
 
 <body>
   <!-- 1. Header -->
   <header class="header" id="header">
+        <!-- 1. Advertisement Topbar (Marquee chạy liên tục) -->
     <div class="header__advertisement">
-      <div class="container">
-        <ul class="header__advertisement-list">
-          <li class="header__advertisement-item">Giảm đến 25%</li>
-          <li class="header__advertisement-item">101 đêm ngủ thử</li>
-          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
-        </ul>
+      <div class="header__advertisement-marquee">
+        <div class="header__advertisement-track">
+          <!-- Nhóm 1 -->
+          <div class="header__advertisement-group">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến 25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong> miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong> mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0% lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+          <!-- Nhóm 2 (Nhân đôi để tạo vòng lặp vô tận liền mạch) -->
+          <div class="header__advertisement-group" aria-hidden="true">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến 25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong> miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong> mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0% lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Header Middle -->
+    <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
     <div class="header__middle">
       <div class="container">
         <div class="header__middle-wrapper">
@@ -67,6 +125,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- Main Navigation Bar -->
     <nav class="header__navbar">
@@ -147,7 +207,7 @@
           </div>
 
           <div class="about-story-image-wrap">
-            <img src="./assets/images/banners/BANER-GIOI-THIEU-DESKTOP.webp" alt="Về thương hiệu nệm TBAY GROUP">
+            <img src="./assets/images/banners/factory-wide.webp" alt="Quy mô nhà máy sản xuất TBAY GROUP">
           </div>
         </div>
       </div>
@@ -292,22 +352,32 @@
     </section>
   </main>
 
-  <!-- 3. Footer -->
-  <footer class="footer" id="footer">
-    <div class="footer-top">
+  <!-- 10. Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-main">
       <div class="container">
         <div class="footer-grid">
-          <!-- Cột 1: Thông tin thương hiệu -->
-          <div class="footer-col footer-col-brand">
-            <a href="./index.html" class="footer-logo">
-              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer-logo-img">
-              <span class="footer-logo-title">TBAY GROUP</span>
-            </a>
-            <p class="footer-brand-desc">
-              Thương hiệu Nệm TBAY – Tự hào mang đến giải pháp giấc ngủ êm ái, nâng đỡ trọn vẹn cột sống và sức khỏe cho mọi gia đình Việt.
-            </p>
+          <!-- Cột 1: Thông tin công ty -->
+          <div class="footer-col">
+            <div class="footer-brand">
+              <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="footer-logo">
+              <div class="footer__brand-text-group">
+                <span class="footer-brand-name">TBAY GROUP</span>
+                <span class="footer__brand-slogan">Say giấc cùng TBAY</span>
+              </div>
+            </div>
+            <div class="footer-company-name">CÔNG TY CỔ PHẦN TBAY GROUP</div>
+            <p class="footer-text"><strong>Tổng kho:</strong> 303/41 Tân Sơn Nhì, Quận Tân Phú, TP. HCM</p>
+            <p class="footer-text"><strong>Hotline tư vấn 24/7:</strong> <a href="tel:0852080383">0852.080.383</a></p>
+            <p class="footer-text"><strong>Email:</strong> <a href="mailto:hotro@tbay.vn">hotro@tbay.vn</a> | <strong>Website:</strong> <a href="https://wpshare247.com/" target="_blank" rel="noopener noreferrer">wpshare247.com</a></p>
+
             <div class="footer-badges">
-              <img src="./assets/images/common/bocongthuong.png" alt="Bộ Công Thương" class="badge-bocongthuong">
+              <img src="./assets/images/common/bocongthuong.png" alt="Đã thông báo Bộ Công Thương" class="bct-badge">
+            </div>
+            <div class="footer-payment">
+              <div class="payment-title">Phương thức thanh toán</div>
+              <img src="./assets/images/common/payments.png" alt="Phương thức thanh toán" class="payment-img">
+              <span class="payment-note">(*) Bao gồm một số ngân hàng khác</span>
             </div>
           </div>
 
@@ -324,20 +394,7 @@
             </ul>
           </div>
 
-          <!-- Cột 3: Thông tin -->
-          <div class="footer-col">
-            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
-            <ul class="footer-links">
-              <li><a href="./about.html">Giới thiệu</a></li>
-              <li><a href="#">Sức khỏe &amp; Giấc ngủ</a></li>
-              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
-              <li><a href="./index.html#press">Tin trong ngành</a></li>
-              <li><a href="./index.html#storeSystem">Hệ thống cửa hàng &amp; đại lý</a></li>
-              <li><a href="./products.html">TEST Nệm Phù Hợp</a></li>
-            </ul>
-          </div>
-
-          <!-- Cột 4: Kết nối -->
+          <!-- Cột 3: Kết nối -->
           <div class="footer-col">
             <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
             <p class="footer-contact-item">
@@ -358,10 +415,10 @@
             </p>
 
             <div class="footer-socials">
-              <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#" class="social-icon shopee" aria-label="Shopee"><i class="fa-solid fa-bag-shopping"></i></a>
-              <a href="#" class="social-icon tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon shopee"><i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i></a>
             </div>
 
             <div class="footer-zalo">
@@ -378,16 +435,37 @@
     <!-- Copyright -->
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2026 TBAY GROUP. Tất cả các quyền được bảo lưu.</p>
+        <p>Copyright 2026 © NỆM TBAY</p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Chat -->
-  <div class="floating-chat-btn">
-    <i class="fa-solid fa-comment-dots"></i>
-    <span>Liên hệ</span>
+  <!-- Floating Contact Widget (Cục Zalo + Cục Điện Thoại 0852.080.383) -->
+  <div class="floating-contact">
+        <a href="https://facebook.com/nemtbay" target="_blank" rel="noopener noreferrer" class="floating-contact__fb"
+      title="Chat Facebook Messenger" aria-label="Facebook">
+      <span class="floating-contact__fb-circle">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </span>
+    </a>
+    <a href="https://zalo.me/0852080383" target="_blank" rel="noopener noreferrer" class="floating-contact__zalo" title="Chat Zalo 0852.080.383" aria-label="Zalo">
+      <span class="floating-contact__zalo-circle">
+        <span class="floating-contact__zalo-text">Zalo</span>
+      </span>
+    </a>
+    <a href="tel:0852080383" class="floating-contact__phone-wrap" title="Gọi Hotline 0852.080.383" aria-label="Gọi hotline">
+      <span class="floating-contact__phone-pill">0852.080.383</span>
+      <span class="floating-contact__phone-circle">
+        <i class="fa-solid fa-phone"></i>
+      </span>
+    </a>
   </div>
+
+  <!-- Nút cuộn lên đầu trang (Scroll To Top) -->
+  <button class="scroll-to-top" id="scrollTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
 
   <script src="./assets/js/products.js"></script>
   <script src="./assets/js/cart.js"></script>

@@ -10,38 +10,254 @@ const getCategories = () => (typeof categories !== 'undefined' ? categories : (w
 document.addEventListener('DOMContentLoaded', () => {
   const allProducts = getProductList();
 
-  /* --- A. HERO SLIDER (Trang chủ) --- */
+  /* --- A. HERO SLIDER (GSAP CINEMATIC MOTION & TIẾN TRÌNH THỜI GIAN) --- */
   const heroSlider = document.querySelector('.hero__slider, .hero-slider');
   if (heroSlider) {
     const slides = heroSlider.querySelectorAll('.hero__slide, .slide');
     const dots = heroSlider.querySelectorAll('.hero__dot, .dot');
     const prevBtn = heroSlider.querySelector('#prevHero, .hero__btn--prev, .prev-btn');
     const nextBtn = heroSlider.querySelector('#nextHero, .hero__btn--next, .next-btn');
+    const progressBar = heroSlider.querySelector('#heroProgressBar, .hero__progress-bar');
     let currentIndex = 0;
+    let isAnimating = false;
+    let progressTween = null;
 
-    function changeSlide(index) {
-      if (index >= slides.length) currentIndex = 0;
-      else if (index < 0) currentIndex = slides.length - 1;
-      else currentIndex = index;
-
+    if (typeof gsap !== 'undefined') {
+      // 1. Khởi tạo trạng thái ban đầu của slide
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentIndex);
-        slide.classList.toggle('hero__slide--active', i === currentIndex);
+        if (i === 0) {
+          gsap.set(slide, { opacity: 1, visibility: 'visible', zIndex: 2 });
+          const img = slide.querySelector('.hero__img');
+          if (img) gsap.fromTo(img, { scale: 1.06 }, { scale: 1, duration: 4.5, ease: 'sine.out' });
+        } else {
+          gsap.set(slide, { opacity: 0, visibility: 'hidden', zIndex: 1 });
+        }
       });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-        dot.classList.toggle('hero__dot--active', i === currentIndex);
+
+      // 2. Hiệu ứng lơ lửng cho huy hiệu (Floating Luxury Badge)
+      const badge = heroSlider.querySelector('.hero__badge');
+      if (badge) {
+        gsap.to(badge, { y: -5, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      }
+
+      // 3. Hiệu ứng tương tác nảy nhẹ cho nút điều hướng (Micro-interactions)
+      [prevBtn, nextBtn].forEach(btn => {
+        if (!btn) return;
+        btn.addEventListener('mouseenter', () => gsap.to(btn, { scale: 1.15, duration: 0.2, ease: 'back.out(2)' }));
+        btn.addEventListener('mouseleave', () => gsap.to(btn, { scale: 1, duration: 0.2, ease: 'power1.out' }));
+        btn.addEventListener('mousedown', () => gsap.to(btn, { scale: 0.92, duration: 0.1 }));
+        btn.addEventListener('mouseup', () => gsap.to(btn, { scale: 1.15, duration: 0.15 }));
       });
+
+      // 4. Hàm chuyển slide cao cấp với Parallax hướng trượt & Ken Burns Zoom
+      function goToSlideGSAP(nextIndex, direction = 1) {
+        if (isAnimating || nextIndex === currentIndex) return;
+        isAnimating = true;
+
+        const currentSlide = slides[currentIndex];
+        const nextSlide = slides[nextIndex];
+        const currentImg = currentSlide ? currentSlide.querySelector('.hero__img') : null;
+        const nextImg = nextSlide ? nextSlide.querySelector('.hero__img') : null;
+
+        // Chuẩn bị vị trí cho slide mới
+        gsap.set(nextSlide, {
+          visibility: 'visible',
+          opacity: 0,
+          xPercent: direction * 6,
+          zIndex: 3
+        });
+        if (nextImg) gsap.set(nextImg, { scale: 1.07 });
+
+        // Slide hiện tại mờ dần và trượt nhẹ ra ngoài
+        if (currentSlide) {
+          gsap.to(currentSlide, {
+            opacity: 0,
+            xPercent: -direction * 6,
+            duration: 0.85,
+            ease: 'power2.inOut',
+            onComplete: () => {
+              currentSlide.classList.remove('active');
+              gsap.set(currentSlide, { visibility: 'hidden', zIndex: 1, xPercent: 0 });
+            }
+          });
+        }
+
+        // Slide mới hiện rõ và trượt vào tâm
+        gsap.to(nextSlide, {
+          opacity: 1,
+          xPercent: 0,
+          duration: 0.85,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            nextSlide.classList.add('active');
+            isAnimating = false;
+          }
+        });
+
+        // Hiệu ứng Ken Burns thu phóng mượt mà
+        if (nextImg) {
+          gsap.to(nextImg, {
+            scale: 1,
+            duration: 5,
+            ease: 'sine.out'
+          });
+        }
+
+        // Cập nhật dots
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+        currentIndex = nextIndex;
+
+        // Reset thanh tiến trình
+        startProgress();
+      }
+
+      // 5. Thanh tiến trình tự động chạy (Progress Bar)
+      function startProgress() {
+        if (!progressBar) return;
+        if (progressTween) progressTween.kill();
+        gsap.set(progressBar, { scaleX: 0 });
+        progressTween = gsap.to(progressBar, {
+          scaleX: 1,
+          duration: 4.8,
+          ease: 'none',
+          onComplete: () => {
+            goToSlideGSAP((currentIndex + 1) % slides.length, 1);
+          }
+        });
+      }
+
+      // Tạm dừng khi rê chuột và tiếp tục khi rê ra
+      heroSlider.addEventListener('mouseenter', () => progressTween?.pause());
+      heroSlider.addEventListener('mouseleave', () => progressTween?.resume());
+
+      // Bắt sự kiện Click nút Next/Prev
+      nextBtn?.addEventListener('click', () => {
+        goToSlideGSAP((currentIndex + 1) % slides.length, 1);
+      });
+      prevBtn?.addEventListener('click', () => {
+        goToSlideGSAP((currentIndex - 1 + slides.length) % slides.length, -1);
+      });
+
+      // Bắt sự kiện Click Dots
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          const targetIndex = Number(e.currentTarget.dataset.index);
+          if (targetIndex !== currentIndex) {
+            goToSlideGSAP(targetIndex, targetIndex > currentIndex ? 1 : -1);
+          }
+        });
+      });
+
+      // Bắt đầu chạy tiến trình
+      startProgress();
+    } else {
+      // Fallback chuẩn nếu không có GSAP
+      function changeSlide(index) {
+        if (index >= slides.length) currentIndex = 0;
+        else if (index < 0) currentIndex = slides.length - 1;
+        else currentIndex = index;
+
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === currentIndex));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+      }
+      nextBtn?.addEventListener('click', () => changeSlide(currentIndex + 1));
+      prevBtn?.addEventListener('click', () => changeSlide(currentIndex - 1));
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => changeSlide(Number(e.target.dataset.index)));
+      });
+      setInterval(() => changeSlide(currentIndex + 1), 4000);
     }
+  }
 
-    nextBtn?.addEventListener('click', () => changeSlide(currentIndex + 1));
-    prevBtn?.addEventListener('click', () => changeSlide(currentIndex - 1));
+  /* --- A2. TSPARTICLES: HIỆU ỨNG HẠT PHÁT SÁNG NGHỆ THUẬT (TRANG CHỦ) --- */
+  const particlesContainer = document.getElementById('heroParticles');
+  if (particlesContainer && typeof tsParticles !== 'undefined') {
+    tsParticles.load('heroParticles', {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 22,
+          density: { enable: true, value_area: 800 }
+        },
+        color: {
+          value: ["#ffffff", "#fbcfe8", "#EB2365", "#fbbf24"]
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          animation: {
+            enable: true,
+            speed: 0.8,
+            minimumValue: 0.2,
+            sync: false
+          }
+        },
+        size: {
+          value: 3.5,
+          random: { enable: true, minimumValue: 1.2 },
+          animation: {
+            enable: true,
+            speed: 1.5,
+            minimumValue: 1,
+            sync: false
+          }
+        },
+        move: {
+          enable: true,
+          speed: 0.9,
+          direction: "top-right",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "bubble" },
+          resize: true
+        },
+        modes: {
+          bubble: { distance: 130, size: 5, duration: 2, opacity: 0.85 }
+        }
+      },
+      detectRetina: true
+    }).catch(err => console.log('tsParticles info:', err));
+  }
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', (e) => changeSlide(Number(e.target.dataset.index)));
-    });
+  /* --- A3. WOW.JS: CUỘN TRANG KÍCH HOẠT HIỆU ỨNG (TRANG CHỦ) --- */
+  if (typeof WOW !== 'undefined') {
+    new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 60,
+      mobile: true,
+      live: true
+    }).init();
+  }
 
-    setInterval(() => changeSlide(currentIndex + 1), 4000);
+  /* --- A4. GSAP: SỐ ĐẾM SHOWROOM (SHOWROOM COUNTER ANIMATION) --- */
+  const showroomCounterEl = document.getElementById('showroomCounter');
+  if (showroomCounterEl && typeof gsap !== 'undefined') {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counterObj = { val: 0 };
+          gsap.to(counterObj, {
+            val: 21,
+            duration: 1.8,
+            ease: "power2.out",
+            onUpdate: () => {
+              showroomCounterEl.textContent = Math.floor(counterObj.val);
+            }
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(showroomCounterEl);
   }
 
   /* --- B. VIDEO MODAL (Trang chủ) --- */
@@ -359,10 +575,309 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `).join('');
       }
+
+      // D. Cập nhật Breadcrumb trang Chi Tiết
+      const detailBreadcrumb = document.querySelector('.details__breadcrumb, .breadcrumb-section');
+      if (detailBreadcrumb) {
+        const isAcc = p.categoryType === 'accessory' || p.id >= 100;
+        const parentLink = isAcc ? './accessories.html' : './products.html';
+        const parentText = isAcc ? 'Phụ kiện' : 'Nệm';
+        detailBreadcrumb.innerHTML = `
+          <div class="container">
+            <a href="./index.html">Trang chủ</a>
+            <span>/</span>
+            <a href="${parentLink}">${parentText}</a>
+            <span>/</span>
+            <span>${p.category || parentText}</span>
+            <span>/</span>
+            <span style="color: #1e293b; font-weight: 500;">${p.name}</span>
+          </div>
+        `;
+      }
     }
   }
 
-  /* --- E. TÌM KIẾM SẢN PHẨM --- */
+  /* --- E. QUẢN LÝ CỬA HÀNG (BỘ LỌC, TÌM KIẾM, ĐẾM SỐ LƯỢNG & PHÂN TRANG) --- */
+  const shopGrid = document.getElementById('shopProductGrid');
+  if (shopGrid) {
+    const isAccessoryPage = window.location.pathname.includes('accessories.html') || document.querySelector('.shop__breadcrumb a[href*="accessories"]') !== null;
+    const baseCategoryTitle = isAccessoryPage ? 'Tất cả phụ kiện' : 'Tất cả sản phẩm';
+    const baseScopeList = allProducts.filter(p => isAccessoryPage ? (p.categoryType === 'accessory' || p.id >= 100) : (!p.categoryType && p.id < 100));
+
+    let currentFilterCat = urlParams.get('cat') || 'all';
+    let currentFilterPrice = 'all';
+    let currentSort = 'default';
+    let currentSearch = urlParams.get('search') ? urlParams.get('search').trim().toLowerCase() : '';
+    let currentPage = parseInt(urlParams.get('page')) || 1;
+    const ITEMS_PER_PAGE = 8;
+
+    const breadcrumbCatEl = document.getElementById('breadcrumbCategory');
+    const resultCountEl = document.getElementById('shopResultCount');
+    const paginationContainer = document.querySelector('.shop__pagination, .shop-pagination');
+    const sortSelect = document.getElementById('shopSortSelect');
+    const labelCategory = document.getElementById('labelCategory');
+    const labelPrice = document.getElementById('labelPrice');
+    const resetFilterBtn = document.getElementById('btnResetFilter');
+
+    // 1. Hàm tính toán danh sách sản phẩm sau lọc, tìm kiếm và sắp xếp
+    function getFilteredProducts() {
+      let list = [...baseScopeList];
+
+      // Lọc theo danh mục
+      if (currentFilterCat && currentFilterCat !== 'all') {
+        list = list.filter(p => p.categoryId === currentFilterCat);
+      }
+
+      // Lọc theo mức giá
+      if (currentFilterPrice === 'under-5m') {
+        list = list.filter(p => p.salePrice < 5000000);
+      } else if (currentFilterPrice === '5m-10m') {
+        list = list.filter(p => p.salePrice >= 5000000 && p.salePrice <= 10000000);
+      } else if (currentFilterPrice === '10m-20m') {
+        list = list.filter(p => p.salePrice > 10000000 && p.salePrice <= 20000000);
+      } else if (currentFilterPrice === 'over-20m') {
+        list = list.filter(p => p.salePrice > 20000000);
+      }
+
+      // Lọc theo từ khóa tìm kiếm
+      if (currentSearch) {
+        list = list.filter(p => {
+          const name = (p.name || '').toLowerCase();
+          const desc = (p.description || '').toLowerCase();
+          const cat = (p.category || '').toLowerCase();
+          return name.includes(currentSearch) || desc.includes(currentSearch) || cat.includes(currentSearch);
+        });
+      }
+
+      // Sắp xếp
+      if (currentSort === 'price-asc') {
+        list.sort((a, b) => a.salePrice - b.salePrice);
+      } else if (currentSort === 'price-desc') {
+        list.sort((a, b) => b.salePrice - a.salePrice);
+      } else if (currentSort === 'rating') {
+        list.sort((a, b) => (b.reviews || 0) - (a.reviews || 0));
+      }
+
+      return list;
+    }
+
+    // 2. Render sản phẩm và phân trang
+    function renderShop() {
+      const filtered = getFilteredProducts();
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
+
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      // A. Cập nhật Breadcrumb chuẩn xác
+      if (breadcrumbCatEl) {
+        if (currentSearch) {
+          breadcrumbCatEl.textContent = `Tìm kiếm: "${currentSearch}"`;
+        } else if (currentFilterCat && currentFilterCat !== 'all') {
+          const catList = isAccessoryPage ? getCategories() : getCategories();
+          const allCats = [...categories, ...(typeof accessoryCategories !== 'undefined' ? accessoryCategories : [])];
+          const found = allCats.find(c => c.id === currentFilterCat);
+          breadcrumbCatEl.textContent = found ? found.name : currentFilterCat;
+        } else {
+          breadcrumbCatEl.textContent = baseCategoryTitle;
+        }
+      }
+
+      // B. Cập nhật số lượng tìm kiếm / kết quả
+      if (resultCountEl) {
+        if (currentSearch) {
+          if (totalItems > 0) {
+            resultCountEl.textContent = `Tìm thấy ${totalItems} sản phẩm cho từ khóa "${currentSearch}"`;
+          } else {
+            resultCountEl.textContent = `Không tìm thấy sản phẩm nào phù hợp với từ khóa "${currentSearch}"`;
+          }
+        } else {
+          if (totalItems === 0) {
+            resultCountEl.textContent = `Không có sản phẩm nào phù hợp`;
+          } else if (totalItems <= ITEMS_PER_PAGE) {
+            resultCountEl.textContent = `Hiển thị tất cả ${totalItems} kết quả`;
+          } else {
+            const start = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+            const end = Math.min(currentPage * ITEMS_PER_PAGE, totalItems);
+            resultCountEl.textContent = `Hiển thị ${start}–${end} của ${totalItems} kết quả`;
+          }
+        }
+      }
+
+      // C. Cắt trang hiện tại
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const pageItems = filtered.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+      if (pageItems.length === 0) {
+        shopGrid.innerHTML = `
+          <div class="shop__empty" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #64748b;">
+            <p style="font-size: 16px; margin-bottom: 14px;">Không tìm thấy sản phẩm nào phù hợp yêu cầu.</p>
+            <button type="button" id="btnShopResetAll" style="padding: 10px 20px; background: var(--color-primary); color: #fff; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">
+              Xem tất cả sản phẩm
+            </button>
+          </div>
+        `;
+        document.getElementById('btnShopResetAll')?.addEventListener('click', () => {
+          currentFilterCat = 'all';
+          currentFilterPrice = 'all';
+          currentSearch = '';
+          currentSort = 'default';
+          currentPage = 1;
+          const searchInput = document.querySelector('.header__search-input');
+          if (searchInput) searchInput.value = '';
+          renderShop();
+        });
+      } else {
+        shopGrid.innerHTML = pageItems.map(p => {
+          const hoverImg = p.hoverImage || (p.thumbnails && p.thumbnails.length > 1 ? p.thumbnails[1] : p.image);
+          return `
+          <div class="shop__product-card shop-product-card" data-id="${p.id}">
+            <div class="shop__product-thumb shop-product-thumb">
+              ${p.discount ? `<span class="shop__badge-discount shop-badge-discount">-${p.discount}%</span>` : ''}
+              <a href="./details.html?id=${p.id}" class="shop__img-link">
+                <img src="${p.image}" alt="${p.name}" class="shop__img shop__img--primary">
+                <img src="${hoverImg}" alt="${p.name}" class="shop__img shop__img--secondary" loading="lazy">
+              </a>
+              <!-- Nút giỏ hàng dẫn tới details -->
+              <a href="./details.html?id=${p.id}" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <!-- Thanh QUICK VIEW dẫn tới details -->
+              <a href="./details.html?id=${p.id}" class="shop__quickview-btn">
+                QUICK VIEW
+              </a>
+              ${p.hasFlashSale ? `
+                <div class="shop__flash-sale-badge" style="position: absolute; top: 10px; right: 10px; background: #e11d48; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 3px; z-index: 3;">
+                  FLASH SALE
+                </div>` : ''}
+            </div>
+            <div class="shop__product-info shop-product-info">
+              <h3 class="shop__product-name shop-product-name">
+                <a href="./details.html?id=${p.id}">${p.name}</a>
+              </h3>
+              <div class="shop__product-stars shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop__product-price shop-product-price">
+                ${p.originalPrice > p.salePrice ? `<span class="shop__old-price shop-old-price">${p.originalPrice.toLocaleString('vi-VN')}₫</span>` : ''}
+                <span class="shop__sale-price shop-sale-price">${p.salePrice.toLocaleString('vi-VN')}₫</span>
+              </div>
+              ${p.originalPrice > p.salePrice ? `
+                <div class="shop__saving-text shop-saving-text">
+                  Tiết kiệm: <strong>${(p.originalPrice - p.salePrice).toLocaleString('vi-VN')}₫</strong>
+                </div>` : ''}
+            </div>
+          </div>
+        `;
+        }).join('');
+      }
+
+      // D. Render và xử lý Phân Trang Hoạt Động (Pagination)
+      if (paginationContainer) {
+        if (totalPages <= 1) {
+          paginationContainer.innerHTML = '';
+          paginationContainer.style.display = 'none';
+        } else {
+          paginationContainer.style.display = 'flex';
+          let pagHtml = '';
+
+          // Nút Previous
+          if (currentPage > 1) {
+            pagHtml += `<button type="button" class="shop-pag-btn" data-page="${currentPage - 1}" title="Trang trước"><i class="fa-solid fa-chevron-left"></i></button>`;
+          }
+
+          // Các nút trang 1, 2, 3...
+          for (let i = 1; i <= totalPages; i++) {
+            pagHtml += `<button type="button" class="shop-pag-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+          }
+
+          // Nút Next
+          if (currentPage < totalPages) {
+            pagHtml += `<button type="button" class="shop-pag-btn" data-page="${currentPage + 1}" title="Trang kế tiếp"><i class="fa-solid fa-chevron-right"></i></button>`;
+          }
+
+          paginationContainer.innerHTML = pagHtml;
+
+          // Gắn sự kiện click chuyển trang
+          paginationContainer.querySelectorAll('.shop-pag-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const targetPage = parseInt(btn.dataset.page);
+              if (targetPage && targetPage !== currentPage) {
+                currentPage = targetPage;
+                renderShop();
+                shopGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            });
+          });
+        }
+      }
+    }
+
+    // Gắn sự kiện Radio Loại sản phẩm
+    document.querySelectorAll('input[name="filter-cat"]').forEach(radio => {
+      if (radio.value === currentFilterCat) radio.checked = true;
+      radio.addEventListener('change', (e) => {
+        currentFilterCat = e.target.value;
+        currentSearch = ''; // Xóa search khi chọn lọc danh mục
+        currentPage = 1;
+        if (labelCategory) {
+          labelCategory.textContent = e.target.value === 'all' ? (isAccessoryPage ? 'Loại phụ kiện' : 'Loại nệm') : e.target.parentElement.textContent.trim();
+        }
+        document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.remove('is-open'));
+        renderShop();
+      });
+    });
+
+    // Gắn sự kiện Radio Khoảng giá
+    document.querySelectorAll('input[name="filter-price"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        currentFilterPrice = e.target.value;
+        currentPage = 1;
+        if (labelPrice) {
+          labelPrice.textContent = e.target.value === 'all' ? 'Khoảng giá' : e.target.parentElement.textContent.trim();
+        }
+        document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.remove('is-open'));
+        renderShop();
+      });
+    });
+
+    // Nút Xóa bộ lọc
+    resetFilterBtn?.addEventListener('click', () => {
+      currentFilterCat = 'all';
+      currentFilterPrice = 'all';
+      currentSearch = '';
+      currentSort = 'default';
+      currentPage = 1;
+      document.querySelectorAll('input[name="filter-cat"]').forEach(r => r.checked = (r.value === 'all'));
+      document.querySelectorAll('input[name="filter-price"]').forEach(r => r.checked = (r.value === 'all'));
+      if (labelCategory) labelCategory.textContent = isAccessoryPage ? 'Loại phụ kiện' : 'Loại nệm';
+      if (labelPrice) labelPrice.textContent = 'Khoảng giá';
+      if (sortSelect) sortSelect.value = 'default';
+      const searchInput = document.querySelector('.header__search-input');
+      if (searchInput) searchInput.value = '';
+      renderShop();
+    });
+
+    // Select sắp xếp
+    sortSelect?.addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      currentPage = 1;
+      renderShop();
+    });
+
+    // Xuất hàm tìm kiếm cho shop
+    window._triggerShopSearch = (q) => {
+      currentSearch = q.trim().toLowerCase();
+      currentPage = 1;
+      renderShop();
+    };
+
+    // Khởi tạo render lần đầu
+    renderShop();
+  }
+
+  /* --- F. THANH TÌM KIẾM TOÀN TRANG (HEADER SEARCH) --- */
   const searchBoxes = document.querySelectorAll('.header__search, .header-search-box');
   searchBoxes.forEach(box => {
     const input = box.querySelector('.header__search-input, .header-search-input');
@@ -372,21 +887,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = input?.value.trim().toLowerCase();
       if (!query) return;
 
-      const productCards = document.querySelectorAll('.shop-product-card, .product-card');
-      const isShopPage = document.getElementById('shopProductGrid') !== null;
-      if (isShopPage) {
-        let matchCount = 0;
-        productCards.forEach(card => {
-          const title = card.querySelector('.shop__product-name, .shop-product-name, .product-card__title, .product-title')?.textContent.toLowerCase() || '';
-          if (title.includes(query)) {
-            card.style.display = '';
-            matchCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-        const countEl = document.getElementById('shopResultCount');
-        if (countEl) countEl.textContent = `Tìm thấy ${matchCount} kết quả cho "${query}"`;
+      if (document.getElementById('shopProductGrid') && typeof window._triggerShopSearch === 'function') {
+        window._triggerShopSearch(query);
       } else {
         window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
       }
@@ -398,24 +900,316 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const searchQuery = urlParams.get('search');
-  if (searchQuery) {
-    const searchInput = document.querySelector('.header__search-input, .header-search-input');
-    if (searchInput) searchInput.value = searchQuery;
-    const cards = document.querySelectorAll('.shop-product-card, .product-card');
-    if (cards.length > 0) {
-      let count = 0;
-      cards.forEach(card => {
-        const title = card.querySelector('.shop__product-name, .shop-product-name, .product-card__title, .product-title')?.textContent.toLowerCase() || '';
-        if (title.includes(searchQuery.toLowerCase())) {
-          card.style.display = '';
-          count++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      const countEl = document.getElementById('shopResultCount');
-      if (countEl) countEl.textContent = `Tìm thấy ${count} kết quả cho "${searchQuery}"`;
+  // Nếu truy cập từ trang khác có param ?search=
+  const initSearchParam = urlParams.get('search');
+  if (initSearchParam) {
+    const searchInputs = document.querySelectorAll('.header__search-input, .header-search-input');
+    searchInputs.forEach(inp => inp.value = initSearchParam);
+  }
+
+  /* --- G. 21+ PREMIUM SHOWROOMS (Gallery & Bộ lọc Tìm theo tỉnh thành) --- */
+  const showroomMainImg = document.getElementById('showroomMainImage');
+  const showroomThumbs = document.querySelectorAll('.showroom-gallery__thumb');
+
+  // 1. Chuyển ảnh Showroom khi bấm Thumbnail
+  showroomThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      showroomThumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      const newSrc = thumb.dataset.src;
+      if (showroomMainImg && newSrc) {
+        showroomMainImg.style.opacity = '0.4';
+        setTimeout(() => {
+          showroomMainImg.src = newSrc;
+          showroomMainImg.style.opacity = '1';
+        }, 120);
+      }
+    });
+  });
+
+  // 2. Dữ liệu hệ thống 21+ Showroom thực tế
+  const SHOWROOMS_DATA = [
+    {
+      name: "Nệm Thuần Việt Showroom Vinh và Nghệ An (đại lý)",
+      address: "26 Tô Hiến Thành, Khối 5 Quang Trung, Phường Thành Vinh, tỉnh Nghệ An",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Nghệ An",
+      district: "Thành phố Vinh",
+      mapUrl: "https://maps.google.com/?q=26+Tô+Hiến+Thành,+Quang+Trung,+Thành+phố+Vinh,+Nghệ+An"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Võ Cường, Bắc Ninh (Đại lý Ngọc Anh)",
+      address: "358 Nguyễn Trãi, Võ Cường, Bắc Ninh",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Bắc Ninh",
+      district: "Thành phố Bắc Ninh",
+      mapUrl: "https://maps.google.com/?q=358+Nguyễn+Trãi,+Võ+Cường,+Bắc+Ninh"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Quận 10, Hồ Chí Minh",
+      address: "562 3 Tháng 2, Diên Hồng, Hồ Chí Minh, Việt Nam",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "TP. Hồ Chí Minh",
+      district: "Quận 10",
+      mapUrl: "https://maps.google.com/?q=562+Ba+Thang+Hai,+Quan+10,+Ho+Chi+Minh"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Tân Phú, Hồ Chí Minh",
+      address: "303/41 Tân Sơn Nhì, Phường Tân Sơn Nhì, Quận Tân Phú, TP. HCM",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "TP. Hồ Chí Minh",
+      district: "Quận Tân Phú",
+      mapUrl: "https://maps.google.com/?q=303/41+Tân+Sơn+Nhì,+Tân+Phú,+TP.+HCM"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Gò Vấp, Hồ Chí Minh",
+      address: "1116 Quang Trung, Phường 8, Quận Gò Vấp, TP. HCM",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "TP. Hồ Chí Minh",
+      district: "Quận Gò Vấp",
+      mapUrl: "https://maps.google.com/?q=1116+Quang+Trung,+Go+Vap,+TP.+HCM"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Bình Thạnh, Hồ Chí Minh",
+      address: "150 Bạch Đằng, Phường 24, Quận Bình Thạnh, TP. HCM",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "TP. Hồ Chí Minh",
+      district: "Quận Bình Thạnh",
+      mapUrl: "https://maps.google.com/?q=150+Bạch+Đằng,+Bình+Thạnh,+TP.+HCM"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Cầu Giấy, Hà Nội",
+      address: "102 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Hà Nội",
+      district: "Quận Cầu Giấy",
+      mapUrl: "https://maps.google.com/?q=102+Cầu+Giấy,+Hà+Nội"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Đống Đa, Hà Nội",
+      address: "204 Xã Đàn, Phường Phương Liên, Quận Đống Đa, Hà Nội",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Hà Nội",
+      district: "Quận Đống Đa",
+      mapUrl: "https://maps.google.com/?q=204+Xã+Đàn,+Đống+Đa,+Hà+Nội"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Thanh Khê, Đà Nẵng",
+      address: "452 Điện Biên Phủ, Phường Thanh Khê Đông, Quận Thanh Khê, Đà Nẵng",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Đà Nẵng",
+      district: "Quận Thanh Khê",
+      mapUrl: "https://maps.google.com/?q=452+Điện+Biên+Phủ,+Thanh+Khê,+Đà+Nẵng"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Ninh Kiều, Cần Thơ",
+      address: "124 Đường 30 Tháng 4, Phường An Phú, Quận Ninh Kiều, Cần Thơ",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Cần Thơ",
+      district: "Quận Ninh Kiều",
+      mapUrl: "https://maps.google.com/?q=124+Đường+30+Tháng+4,+Ninh+Kiều,+Cần+Thơ"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Biên Hòa, Đồng Nai",
+      address: "240 Phạm Văn Thuận, Phường Tam Hiệp, TP. Biên Hòa, Đồng Nai",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Đồng Nai",
+      district: "TP. Biên Hòa",
+      mapUrl: "https://maps.google.com/?q=240+Phạm+Văn+Thuận,+Biên+Hòa,+Đồng+Nai"
+    },
+    {
+      name: "Nệm Thuần Việt Showroom Thủ Dầu Một, Bình Dương",
+      address: "378 Đại Lộ Bình Dương, Phường Phú Lợi, TP. Thủ Dầu Một, Bình Dương",
+      hours: "7h30 - 21h30 (Thứ 2 - Chủ Nhật)",
+      province: "Bình Dương",
+      district: "TP. Thủ Dầu Một",
+      mapUrl: "https://maps.google.com/?q=378+Đại+Lộ+Bình+Dương,+Bình+Dương"
     }
+  ];
+
+  const provinceSelect = document.getElementById('showroomProvinceSelect');
+  const districtSelect = document.getElementById('showroomDistrictSelect');
+  const showroomListEl = document.getElementById('showroomList');
+
+  if (provinceSelect && districtSelect && showroomListEl) {
+    // Lấy danh sách Tỉnh/Thành duy nhất
+    const uniqueProvinces = [...new Set(SHOWROOMS_DATA.map(s => s.province))];
+    uniqueProvinces.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p;
+      opt.textContent = p;
+      provinceSelect.appendChild(opt);
+    });
+
+    function renderShowrooms() {
+      const selProv = provinceSelect.value;
+      const selDist = districtSelect.value;
+
+      let filtered = SHOWROOMS_DATA;
+      if (selProv && selProv !== 'all') {
+        filtered = filtered.filter(s => s.province === selProv);
+      }
+      if (selDist && selDist !== 'all') {
+        filtered = filtered.filter(s => s.district === selDist);
+      }
+
+      if (filtered.length === 0) {
+        showroomListEl.innerHTML = `
+          <div class="showroom-list__empty">
+            <p>Không tìm thấy showroom tại khu vực đã chọn.</p>
+            <button type="button" class="showroom-list__empty-btn" id="btnResetShowrooms">Xem tất cả showroom</button>
+          </div>
+        `;
+        document.getElementById('btnResetShowrooms')?.addEventListener('click', () => {
+          provinceSelect.value = 'all';
+          updateDistricts();
+          renderShowrooms();
+        });
+        return;
+      }
+
+      showroomListEl.innerHTML = filtered.map(item => `
+        <div class="showroom-item">
+          <div class="showroom-item__header">
+            <i class="fa-solid fa-location-dot showroom-item__icon"></i>
+            <h4 class="showroom-item__name">${item.name}</h4>
+          </div>
+          <p class="showroom-item__address">${item.address}</p>
+          <p class="showroom-item__hours"><strong>Mở cửa:</strong> ${item.hours}</p>
+          <a href="${item.mapUrl}" target="_blank" rel="noopener noreferrer" class="showroom-item__link">Xem dẫn đường</a>
+        </div>
+      `).join('');
+    }
+
+    function updateDistricts() {
+      const selProv = provinceSelect.value;
+      districtSelect.innerHTML = '<option value="all">Chọn Quận Huyện</option>';
+
+      if (!selProv || selProv === 'all') {
+        districtSelect.disabled = true;
+      } else {
+        districtSelect.disabled = false;
+        const districts = [...new Set(SHOWROOMS_DATA.filter(s => s.province === selProv).map(s => s.district))];
+        districts.forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d;
+          opt.textContent = d;
+          districtSelect.appendChild(opt);
+        });
+      }
+    }
+
+    provinceSelect.addEventListener('change', () => {
+      updateDistricts();
+      renderShowrooms();
+    });
+
+    districtSelect.addEventListener('change', () => {
+      renderShowrooms();
+    });
+
+    updateDistricts();
+    renderShowrooms();
+  }
+
+  /* --- H. HIỆU ỨNG TĂNG SỐ THỐNG KÊ (ANIMATED STATS COUNTER) --- */
+  const statsContainer = document.querySelector('.banner-intro__stats, #counterStats');
+  if (statsContainer) {
+    const counterElements = statsContainer.querySelectorAll('.counter-num');
+    let hasAnimated = false;
+
+    const startCounters = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+
+      counterElements.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target')) || 0;
+        const isYear = counter.getAttribute('data-type') === 'year';
+        const isDecimal = counter.getAttribute('data-type') === 'decimal';
+        const startVal = isYear ? Math.max(target - 35, 0) : 0;
+        const duration = 2000; // 2 giây mượt mà
+        const startTime = performance.now();
+
+        const updateCounter = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Easing mượt mà: easeOutExpo (nhanh lúc đầu, giảm tốc êm ái về sau)
+          const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const current = startVal + (target - startVal) * ease;
+
+          if (isYear) {
+            counter.textContent = Math.round(current);
+          } else if (isDecimal) {
+            counter.textContent = progress === 1 ? target : current.toFixed(1);
+          } else {
+            const format = counter.getAttribute('data-format');
+            if (format === 'dot') {
+              counter.textContent = Math.round(current).toLocaleString('vi-VN');
+            } else {
+              counter.textContent = Math.round(current);
+            }
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            const finalFormat = counter.getAttribute('data-format');
+            if (finalFormat === 'dot') {
+              counter.textContent = target.toLocaleString('vi-VN');
+            } else {
+              counter.textContent = target;
+            }
+          }
+        };
+
+        requestAnimationFrame(updateCounter);
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(statsContainer);
+    } else {
+      startCounters();
+    }
+  }
+
+  /* --- H. STICKY HEADER & SCROLL TO TOP --- */
+  const siteHeader = document.querySelector('.header, header');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (siteHeader) {
+      if (scrollY > 20) {
+        siteHeader.classList.add('header--scrolled', 'is-pinned');
+      } else {
+        siteHeader.classList.remove('header--scrolled', 'is-pinned');
+      }
+    }
+    if (scrollTopBtn) {
+      if (scrollY > 300) {
+        scrollTopBtn.classList.add('active');
+      } else {
+        scrollTopBtn.classList.remove('active');
+      }
+    }
+  }, { passive: true });
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 });

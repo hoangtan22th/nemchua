@@ -20,7 +20,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 5px 16px;
-  border-radius: 999px;
+  border-radius: 4px;
   margin-bottom: 14px;
 }
 
@@ -137,7 +137,7 @@
 
 .about-story-image-wrap {
   position: relative;
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
@@ -166,7 +166,7 @@
 .about-vision-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 32px 28px;
   transition: all 0.25s ease;
 }
@@ -216,7 +216,7 @@
 .about-stat-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 28px 20px;
   text-align: center;
   transition: all 0.2s ease;
@@ -263,7 +263,7 @@
 .about-value-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 26px 22px;
   transition: all 0.2s ease;
 }
@@ -298,7 +298,7 @@
 .about-cert-box {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   text-align: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
@@ -313,7 +313,7 @@
 /* CTA Banner cuối trang */
 .about-cta-banner {
   background: linear-gradient(135deg, var(--color-primary) 0%, #b8144b 100%);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 44px 32px;
   color: #ffffff;
   text-align: center;
@@ -404,7 +404,7 @@
 .contact-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 24px 20px;
   transition: all 0.2s ease;
 }
@@ -465,7 +465,7 @@
 .contact-form-box {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 32px 28px;
 }
 
@@ -583,7 +583,7 @@
 .contact-showroom-box {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
@@ -636,7 +636,7 @@
 /* Khung bản đồ */
 .contact-map-wrapper {
   margin-top: 10px;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
   border: 1px solid #e2e8f0;
   height: 220px;
@@ -666,7 +666,7 @@
 .contact-faq-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 24px 20px;
 }
 

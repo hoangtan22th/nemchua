@@ -1,0 +1,137 @@
+/* ==========================================================================
+   ANIMATE.CSS (HIỆU ỨNG CUỘN TRANG MỀM MẠI, CHẬM RÃI & SANG TRỌNG)
+   Thiết kế chuẩn: Ẩn sẵn và hiện dần dần lên (Fade In & Slide Up êm dịu),
+   tốc độ chậm vừa phải, tinh tế, không giật gấp, tương thích tuyệt đối WOW.js.
+   ========================================================================== */
+
+.animated {
+  animation-duration: 1.25s !important;
+  animation-fill-mode: both !important;
+  will-change: opacity, transform;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+/* --- 1. FADE IN UP (CHUẨN CHÍNH TOÀN TRANG: ẨN RỒI HIỆN TỪ TỪ RA) --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- 2. FADE IN (HIỆN MỜ DẦN ÊM ÁI) --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- 3. FADE IN DOWN --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -26px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- 4. FADE IN LEFT (ĐƯA VỀ BIÊN ĐỘ NHẸ NHÀNG, KHÔNG BAY QUÁ XA) --- */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- 5. FADE IN RIGHT (ĐƯA VỀ BIÊN ĐỘ NHẸ NHÀNG) --- */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- 6. ZOOM IN (CO GIÃN CỰC NHẸ 0.96 KẾT HỢP FADE-IN ÊM DỊU) --- */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.96, 0.96, 0.96) translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --- HIỆU ỨNG THẺ SẢN PHẨM & BADGE GIẢM GIÁ (CHẠY HOẠT ẢNH SỐNG ĐỘNG) --- */
+
+/* 1. Nhịp đập phát sáng cho nhãn giảm giá (Pulsing Badge) */
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 6px rgba(235, 35, 101, 0.25);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 4px 14px rgba(235, 35, 101, 0.5);
+  }
+}
+
+.product-card__badge,
+.product-badge {
+  animation: badgePulse 2.4s infinite ease-in-out;
+}
+
+/* 2. Hiệu ứng thẻ sản phẩm được định nghĩa mượt mà, đồng bộ tại home.css & products.css */
+

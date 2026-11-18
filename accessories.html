@@ -5,24 +5,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phụ Kiện Giường Ngủ - Nệm TBAY</title>
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/common/favicon-32x32.png">
+  <link rel="icon" type="image/png" href="./assets/images/common/logo.png">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/images/common/logo.png">
+
+  <!-- Meta Open Graph Image & Social Media -->
+  <meta property="og:image" content="./assets/images/common/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="165">
+  <meta property="og:image:height" content="177">
+  <meta property="og:image:alt" content="TBAY GROUP Logo">
+  <meta name="twitter:image" content="./assets/images/common/logo.png">
+  <meta name="msapplication-TileImage" content="./assets/images/common/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/main.css">
+    <!-- Critical Topbar CSS (Ngăn chặn delay / chớp giật thanh quảng cáo khi chuyển trang) -->
+  <style>
+    .header__advertisement, .header-advertisement { background: linear-gradient(90deg, #f0507a 0%, #eb2365 50%, #d81b60 100%); padding: 8px 0; font-size: 13px; line-height: 1.5; min-height: 35px; box-sizing: border-box; overflow: hidden; position: relative; z-index: 50; }
+    .header__advertisement-marquee { width: 100%; overflow: hidden; display: flex; }
+    .header__advertisement-track { display: flex; width: max-content; animation: tickerMarquee 32s linear infinite; will-change: transform; }
+    .header__advertisement:hover .header__advertisement-track { animation-play-state: paused; }
+    .header__advertisement-group { display: flex; align-items: center; flex-shrink: 0; }
+    .header__advertisement-item { color: #ffffff; font-weight: 500; font-size: 13px; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; white-space: nowrap; }
+    .header__advertisement-item i { color: #fde047; font-size: 12.5px; }
+    .header__advertisement-sep { color: rgba(255, 255, 255, 0.45); font-size: 10px; user-select: none; }
+    @keyframes tickerMarquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+  </style>
 </head>
 
 <body>
   <!-- Header -->
     <!-- 1. Header -->
   <header class="header" id="header">
+        <!-- 1. Advertisement Topbar (Marquee chạy liên tục) -->
     <div class="header__advertisement">
-      <div class="container">
-        <ul class="header__advertisement-list">
-          <li class="header__advertisement-item">Giảm đến 25%</li>
-          <li class="header__advertisement-item">101 đêm ngủ thử</li>
-          <li class="header__advertisement-item">Freeship mọi đơn hàng</li>
-        </ul>
+      <div class="header__advertisement-marquee">
+        <div class="header__advertisement-track">
+          <!-- Nhóm 1 -->
+          <div class="header__advertisement-group">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến 25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong> miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong> mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0% lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+          <!-- Nhóm 2 (Nhân đôi để tạo vòng lặp vô tận liền mạch) -->
+          <div class="header__advertisement-group" aria-hidden="true">
+            <span class="header__advertisement-item"><i class="fa-solid fa-fire-flame-curved"></i> <strong>Giảm đến 25%</strong> – Ưu đãi tháng vàng</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-bed"></i> <strong>101 đêm ngủ thử</strong> miễn phí tại nhà</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-truck-fast"></i> <strong>Freeship</strong> mọi đơn hàng toàn quốc</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-shield-halved"></i> <strong>Bảo hành chính hãng 15 năm</strong> tận tâm</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-gift"></i> Tặng <strong>Combo gối cao cấp</strong> trị giá 1.864.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-credit-card"></i> Hỗ trợ <strong>Trả góp 0% lãi suất</strong></span>
+            <span class="header__advertisement-sep">✦</span>
+            <span class="header__advertisement-item"><i class="fa-solid fa-rotate"></i> <strong>Thu nệm cũ đổi nệm mới</strong> trợ giá 1.000.000₫</span>
+            <span class="header__advertisement-sep">✦</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -116,7 +175,7 @@
           </p>
 
           <div class="shop__actions">
-            <p class="shop__result-count" id="shopResultCount">Hiển thị tất cả 6 kết quả</p>
+            <p class="shop__result-count" id="shopResultCount">Hiển thị 1–8 của 12 kết quả</p>
             <select class="shop__ordering-select" id="shopSortSelect">
               <option value="default">Sắp xếp theo mới nhất</option>
               <option value="price-asc">Thứ tự theo giá: thấp đến cao</option>
@@ -192,9 +251,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-45%</span>
-              <a href="./details.html?id=101">
-                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01">
+              <a href="./details.html?id=101" class="shop__img-link">
+                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01" class="shop__img shop__img--primary">
+                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 01" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=101" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=101" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -217,9 +281,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-45%</span>
-              <a href="./details.html?id=102">
-                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 02">
+              <a href="./details.html?id=102" class="shop__img-link">
+                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 02" class="shop__img shop__img--primary">
+                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Giường Mền TBAY ECTC 02" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=102" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=102" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -242,9 +311,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-30%</span>
-              <a href="./details.html?id=107">
-                <img src="./assets/images/products/product-1.jpg" alt="Gối cao su thiên nhiên TBAY Oval">
+              <a href="./details.html?id=107" class="shop__img-link">
+                <img src="./assets/images/products/product-1.jpg" alt="Gối cao su thiên nhiên TBAY Oval" class="shop__img shop__img--primary">
+                <img src="./assets/images/products/product-2.jpg" alt="Gối cao su thiên nhiên TBAY Oval" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=107" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=107" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -267,9 +341,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-26%</span>
-              <a href="./details.html?id=108">
-                <img src="./assets/images/products/product-3.jpg" alt="Gối cao su lượn sóng TBAY Contour">
+              <a href="./details.html?id=108" class="shop__img-link">
+                <img src="./assets/images/products/product-3.jpg" alt="Gối cao su lượn sóng TBAY Contour" class="shop__img shop__img--primary">
+                <img src="./assets/images/products/product-4.jpg" alt="Gối cao su lượn sóng TBAY Contour" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=108" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=108" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -292,9 +371,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-23%</span>
-              <a href="./details.html?id=109">
-                <img src="./assets/images/products/product-2.jpg" alt="Gối lông vũ cao cấp TBAY Luxury">
+              <a href="./details.html?id=109" class="shop__img-link">
+                <img src="./assets/images/products/product-2.jpg" alt="Gối lông vũ cao cấp TBAY Luxury" class="shop__img shop__img--primary">
+                <img src="./assets/images/products/product-1.jpg" alt="Gối lông vũ cao cấp TBAY Luxury" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=109" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=109" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -317,9 +401,14 @@
           <div class="shop__product-card shop-product-card">
             <div class="shop__product-thumb shop-product-thumb">
               <span class="shop__badge-discount shop-badge-discount">-37%</span>
-              <a href="./details.html?id=110">
-                <img src="./assets/images/products/product-4.jpg" alt="Gối gòn Microfiber TBAY Soft Touch">
+              <a href="./details.html?id=110" class="shop__img-link">
+                <img src="./assets/images/products/product-4.jpg" alt="Gối gòn Microfiber TBAY Soft Touch" class="shop__img shop__img--primary">
+                <img src="./assets/images/products/product-3.jpg" alt="Gối gòn Microfiber TBAY Soft Touch" class="shop__img shop__img--secondary" loading="lazy">
               </a>
+              <a href="./details.html?id=110" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=110" class="shop__quickview-btn">QUICK VIEW</a>
             </div>
             <div class="shop__product-info shop-product-info">
               <h3 class="shop__product-name shop-product-name">
@@ -334,6 +423,66 @@
               </div>
               <div class="shop__saving-text shop-saving-text">
                 Tiết kiệm: <strong>130.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Silk 03 -->
+          <div class="shop__product-card shop-product-card">
+            <div class="shop__product-thumb shop-product-thumb">
+              <span class="shop__badge-discount shop-badge-discount">-31%</span>
+              <a href="./details.html?id=103" class="shop__img-link">
+                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Ga Chun Cotton Tencel TBAY Silk 03" class="shop__img shop__img--primary">
+                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Ga Chun Cotton Tencel TBAY Silk 03" class="shop__img shop__img--secondary" loading="lazy">
+              </a>
+              <a href="./details.html?id=103" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=103" class="shop__quickview-btn">QUICK VIEW</a>
+            </div>
+            <div class="shop__product-info shop-product-info">
+              <h3 class="shop__product-name shop-product-name">
+                <a href="./details.html?id=103">Bộ Ga Chun Cotton Tencel TBAY Silk 03 – Mát Lạnh Mùa Hè</a>
+              </h3>
+              <div class="shop__product-stars shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop__product-price shop-product-price">
+                <span class="shop__old-price shop-old-price">1.150.000₫</span>
+                <span class="shop__sale-price shop-sale-price">790.000₫</span>
+              </div>
+              <div class="shop__saving-text shop-saving-text">
+                Tiết kiệm: <strong>360.000₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Royal 04 -->
+          <div class="shop__product-card shop-product-card">
+            <div class="shop__product-thumb shop-product-thumb">
+              <span class="shop__badge-discount shop-badge-discount">-32%</span>
+              <a href="./details.html?id=104" class="shop__img-link">
+                <img src="./assets/images/accessories/acc-ectc-02.jpg" alt="Bộ Drap Cotton Satin TBAY Royal 04" class="shop__img shop__img--primary">
+                <img src="./assets/images/accessories/acc-ectc-01.jpg" alt="Bộ Drap Cotton Satin TBAY Royal 04" class="shop__img shop__img--secondary" loading="lazy">
+              </a>
+              <a href="./details.html?id=104" class="shop__cart-btn" title="Xem chi tiết & Mua hàng" aria-label="Xem chi tiết">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </a>
+              <a href="./details.html?id=104" class="shop__quickview-btn">QUICK VIEW</a>
+            </div>
+            <div class="shop__product-info shop-product-info">
+              <h3 class="shop__product-name shop-product-name">
+                <a href="./details.html?id=104">Bộ Drap Cotton Satin TBAY Royal 04 – Đẳng Cấp Hoàng Gia</a>
+              </h3>
+              <div class="shop__product-stars shop-product-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="shop__product-price shop-product-price">
+                <span class="shop__old-price shop-old-price">1.350.000₫</span>
+                <span class="shop__sale-price shop-sale-price">920.000₫</span>
+              </div>
+              <div class="shop__saving-text shop-saving-text">
+                Tiết kiệm: <strong>430.000₫</strong>
               </div>
             </div>
           </div>
@@ -391,20 +540,7 @@
             </ul>
           </div>
 
-          <!-- Cột 3: Thông tin -->
-          <div class="footer-col">
-            <h3 class="footer-heading">THÔNG TIN NỆM TBAY</h3>
-            <ul class="footer-links">
-              <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Sức khỏe & Giấc ngủ</a></li>
-              <li><a href="#">Tư Vấn – Kinh Nghiệm Mua Hàng</a></li>
-              <li><a href="#">Tin trong ngành</a></li>
-              <li><a href="#">Hệ thống cửa hàng & đại lý</a></li>
-              <li><a href="#">TEST Nệm Phù Hợp</a></li>
-            </ul>
-          </div>
-
-          <!-- Cột 4: Kết nối -->
+          <!-- Cột 3: Kết nối -->
           <div class="footer-col">
             <h3 class="footer-heading">KẾT NỐI VỚI CHÚNG TÔI</h3>
             <p class="footer-contact-item">
@@ -454,6 +590,32 @@
   <script src="./assets/js/products.js"></script>
   <script src="./assets/js/cart.js"></script>
   <script src="./assets/js/main.js"></script>
+  <!-- Floating Contact Widget (Cục Zalo + Cục Điện Thoại 0852.080.383) -->
+  <div class="floating-contact">
+        <a href="https://facebook.com/nemtbay" target="_blank" rel="noopener noreferrer" class="floating-contact__fb"
+      title="Chat Facebook Messenger" aria-label="Facebook">
+      <span class="floating-contact__fb-circle">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </span>
+    </a>
+    <a href="https://zalo.me/0852080383" target="_blank" rel="noopener noreferrer" class="floating-contact__zalo" title="Chat Zalo 0852.080.383" aria-label="Zalo">
+      <span class="floating-contact__zalo-circle">
+        <span class="floating-contact__zalo-text">Zalo</span>
+      </span>
+    </a>
+    <a href="tel:0852080383" class="floating-contact__phone-wrap" title="Gọi Hotline 0852.080.383" aria-label="Gọi hotline">
+      <span class="floating-contact__phone-pill">0852.080.383</span>
+      <span class="floating-contact__phone-circle">
+        <i class="fa-solid fa-phone"></i>
+      </span>
+    </a>
+  </div>
+
+  <!-- Nút cuộn lên đầu trang (Scroll To Top) -->
+  <button class="scroll-to-top" id="scrollTopBtn" title="Lên đầu trang" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
 </body>
 
 </html>

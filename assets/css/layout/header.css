@@ -1,26 +1,93 @@
-/* ==================== 1. HEADER ADVERTISEMENT (TOPBAR) ==================== */
+/* ==================== 0. HEADER MAIN CONTAINER (FIXED / STICKY) ==================== */
+.header,
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.header.header--scrolled,
+.header.is-pinned {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ==================== 1. HEADER ADVERTISEMENT (MARQUEE TOPBAR) ==================== */
 .header__advertisement,
 .header-advertisement {
-  background-color: var(--secondary-color);
-  padding: 6px 0;
+  background: linear-gradient(90deg, #f0507a 0%, #eb2365 50%, #d81b60 100%);
+  padding: 8px 0;
   font-size: 13px;
+  line-height: 1.5;
+  min-height: 35px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 50;
+  cursor: default;
 }
 
-.header__advertisement-list,
-.header-advertisement ul {
+.header__advertisement-marquee {
+  width: 100%;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
-.header__advertisement-item,
-.header-advertisement ul li {
-  color: var(--text-white);
+.header__advertisement-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMarquee 32s linear infinite;
+  will-change: transform;
+}
+
+.header__advertisement:hover .header__advertisement-track {
+  animation-play-state: paused;
+}
+
+.header__advertisement-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__advertisement-item {
+  color: #ffffff;
   font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  white-space: nowrap;
+}
+
+.header__advertisement-item i {
+  color: #fde047;
+  font-size: 12.5px;
+}
+
+.header__advertisement-item strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.header__advertisement-sep {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+  user-select: none;
+}
+
+@keyframes tickerMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 /* ==================== 2. HEADER MIDDLE ==================== */

@@ -42,7 +42,7 @@
   max-width: 920px;
   margin: 0 auto;
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: 4px;
   border: 1px solid #e2e8f0;
   padding: 40px 48px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
@@ -63,7 +63,7 @@
   font-size: 12px;
   font-weight: 500;
   padding: 4px 12px;
-  border-radius: 20px;
+  border-radius: 4px;
   margin-bottom: 12px;
 }
 
@@ -142,7 +142,7 @@
 .policy-callout {
   background-color: var(--color-primary-light);
   border-left: 4px solid var(--primary-color);
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 4px 4px 0;
   padding: 16px 20px;
   margin: 20px 0;
 }
@@ -162,7 +162,7 @@
 .policy-contact-box {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 24px 28px;
   margin-top: 36px;
 }
@@ -231,7 +231,7 @@
   .policy-card {
     padding: 24px 16px;
     margin: 0;
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .policy-content__title {
