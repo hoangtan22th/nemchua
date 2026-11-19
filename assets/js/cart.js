@@ -204,6 +204,8 @@
     const totalEl = document.getElementById('cartTotal');
     const discountRow = document.getElementById('cartDiscountRow');
     const discountVal = document.getElementById('cartDiscountVal');
+    const mobileStickyBar = document.getElementById('cartMobileStickyBar');
+    const mobileStickyTotal = document.getElementById('cartMobileStickyTotal');
 
     if (!tbody) return;
 
@@ -212,11 +214,13 @@
     if (cart.length === 0) {
       if (layout) layout.style.display = 'none';
       if (emptyBox) emptyBox.style.display = 'block';
+      if (mobileStickyBar) mobileStickyBar.style.display = 'none';
       return;
     }
 
     if (layout) layout.style.display = 'grid';
     if (emptyBox) emptyBox.style.display = 'none';
+    if (mobileStickyBar) mobileStickyBar.style.display = '';
 
     tbody.innerHTML = cart.map((item, idx) => {
       const itemSubtotal = (item.price || 0) * (item.quantity || 1);
@@ -280,6 +284,7 @@
     const totals = calculateTotals();
     if (subtotalEl) subtotalEl.textContent = formatVND(totals.subtotal);
     if (totalEl) totalEl.textContent = formatVND(totals.total);
+    if (mobileStickyTotal) mobileStickyTotal.textContent = formatVND(totals.total);
 
     if (discountRow && discountVal) {
       if (totals.discount > 0) {
@@ -531,6 +536,11 @@
       if (activePriceEl) {
         const textVal = activePriceEl.textContent.replace(/[^\d]/g, '');
         if (textVal) price = parseInt(textVal);
+      }
+      const oldPriceEl = document.getElementById('modelOldPrice');
+      if (oldPriceEl && oldPriceEl.style.display !== 'none') {
+        const textOld = oldPriceEl.textContent.replace(/[^\d]/g, '');
+        if (textOld) originalPrice = parseInt(textOld);
       }
 
       // Kích thước / Mẫu

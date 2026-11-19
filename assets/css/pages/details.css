@@ -366,6 +366,30 @@
   background-color: var(--secondary-color);
 }
 
+/* Tổng tạm tính theo biến thể & số lượng */
+.details__total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.details__total-label {
+  font-size: 13.5px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.details__total-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color, #eb2365);
+}
+
 .details__btn-buy-now,
 .btn-buy-now {
   width: 100%;
@@ -692,7 +716,26 @@
 
 @media (max-width: 576px) {
   .details__related-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .details__related-info {
+    padding: 8px 10px 10px;
+  }
+
+  .details__related-name {
+    font-size: 12px;
+    line-height: 1.35;
+    height: 33px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .details__related-price {
+    font-size: 13.5px;
+    font-weight: 700;
   }
 }

@@ -349,63 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Chọn Mẫu (Phụ kiện)
-  const modelBtns = document.querySelectorAll('.details__option-chip-btn, .option-chip-btn');
-  const selectedLabel = document.getElementById('selectedModelLabel');
-  const activePrice = document.getElementById('modelActivePrice');
-  const oldPrice = document.getElementById('modelOldPrice');
-  const clearBtn = document.getElementById('clearModelBtn');
-
-  modelBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      modelBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (selectedLabel) selectedLabel.textContent = btn.dataset.name || btn.textContent.trim();
-      const price = parseInt(btn.dataset.price);
-      const old = parseInt(btn.dataset.oldprice);
-      if (activePrice && price) activePrice.textContent = `${price.toLocaleString('vi-VN')}₫`;
-      if (oldPrice) {
-        if (old && old > price) {
-          oldPrice.style.display = 'inline';
-          oldPrice.textContent = `${old.toLocaleString('vi-VN')}₫`;
-        } else {
-          oldPrice.style.display = 'none';
-        }
-      }
-    });
-  });
-
-  clearBtn?.addEventListener('click', () => {
-    if (modelBtns[0]) modelBtns[0].click();
-  });
-
-  // 3. Chọn Kích thước & Độ dày (Nệm)
-  const bindOptionGroup = (containerId, displayId) => {
-    const parent = document.getElementById(containerId);
-    const display = document.getElementById(displayId);
-    parent?.querySelectorAll('.details__option-btn, .option-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        parent.querySelectorAll('.details__option-btn, .option-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if (display) display.textContent = btn.dataset.val || btn.textContent.trim();
-      });
-    });
-  };
-
-  bindOptionGroup('sizeOptions', 'selectedSize');
-  bindOptionGroup('thicknessOptions', 'selectedThickness');
-
-  // 4. Tăng / Giảm số lượng
-  const qtyInput = document.getElementById('qtyInput');
-  document.getElementById('qtyMinus')?.addEventListener('click', () => {
-    let val = parseInt(qtyInput.value) || 1;
-    if (val > 1) qtyInput.value = val - 1;
-  });
-  document.getElementById('qtyPlus')?.addEventListener('click', () => {
-    let val = parseInt(qtyInput.value) || 1;
-    qtyInput.value = val + 1;
-  });
-
   // 5. Cập nhật chi tiết theo param ?id= nếu có
   const urlParams = new URLSearchParams(window.location.search);
   const paramId = parseInt(urlParams.get('id'));
@@ -430,15 +373,107 @@ document.addEventListener('DOMContentLoaded', () => {
         priceRangeEl.textContent = p.priceRange;
       }
 
-      if (activePrice) activePrice.textContent = `${p.salePrice.toLocaleString('vi-VN')}₫`;
-      if (oldPrice) {
-        if (p.originalPrice > p.salePrice) {
-          oldPrice.style.display = 'inline';
-          oldPrice.textContent = `${p.originalPrice.toLocaleString('vi-VN')}₫`;
-        } else {
-          oldPrice.style.display = 'none';
+      const activePrice = document.getElementById('modelActivePrice');
+      const oldPrice = document.getElementById('modelOldPrice');
+      const qtyInput = document.getElementById('qtyInput');
+      const totalEl = document.getElementById('detailsTotalPrice');
+      const totalQtyEl = document.getElementById('detailsTotalQty');
+
+      // Hàm tính toán giá theo biến thể đang được chọn
+      const calculateVariantUnitPrices = () => {
+        // 1. Nếu là Nệm (có kích thước và/hoặc độ dày)
+        if (p.sizes && p.sizes.length > 0) {
+          const activeSizeBtn = document.querySelector('#sizeOptions .details__option-btn.active');
+          const sizeIdx = activeSizeBtn ? parseInt(activeSizeBtn.dataset.idx || 0) : 0;
+
+          const activeThickBtn = document.querySelector('#thicknessOptions .details__option-btn.active');
+          const thickIdx = activeThickBtn ? parseInt(activeThickBtn.dataset.idx || 0) : 0;
+
+          let minPrice = p.salePrice || 0;
+          let maxPrice = p.originalPrice || p.salePrice || 0;
+          if (p.priceRange) {
+            const nums = p.priceRange.match(/[\d\.]+/g);
+            if (nums && nums.length >= 2) {
+              const p1 = parseInt(nums[0].replace(/\./g, ''));
+              const p2 = parseInt(nums[1].replace(/\./g, ''));
+              if (p1 && p2) {
+                minPrice = Math.min(p1, p2);
+                maxPrice = Math.max(p1, p2);
+              }
+            }
+          }
+          if (maxPrice <= minPrice) {
+            maxPrice = Math.round((minPrice * 1.3) / 10000) * 10000;
+          }
+
+          const diff = maxPrice - minPrice;
+          const sLen = Math.max((p.sizes.length - 1), 1);
+          const tLen = p.thickness && p.thickness.length > 1 ? p.thickness.length - 1 : 1;
+
+          let unitSale = minPrice;
+          if (p.thickness && p.thickness.length > 1) {
+            const sizePart = (sizeIdx / sLen) * (diff * 0.55);
+            const thickPart = (thickIdx / tLen) * (diff * 0.45);
+            unitSale = minPrice + sizePart + thickPart;
+          } else if (p.sizes.length > 1) {
+            unitSale = minPrice + (sizeIdx / sLen) * diff;
+          }
+          unitSale = Math.round(unitSale / 10000) * 10000;
+
+          const discountRatio = (p.originalPrice && p.salePrice && p.originalPrice > p.salePrice)
+            ? (p.originalPrice / p.salePrice)
+            : (1 / (1 - (p.discount || 20) / 100));
+          let unitOld = Math.round((unitSale * discountRatio) / 10000) * 10000;
+
+          return { salePrice: unitSale, oldPrice: unitOld };
         }
-      }
+
+        // 2. Nếu là Phụ kiện (có models)
+        if (p.models && p.models.length > 0) {
+          const activeModelBtn = document.querySelector('#modelOptions .details__option-chip-btn.active');
+          const modelIdx = activeModelBtn ? parseInt(activeModelBtn.dataset.idx || 0) : 0;
+          const m = p.models[modelIdx] || p.models[0];
+          return {
+            salePrice: m.price,
+            oldPrice: m.oldPrice || Math.round((m.price * 1.3) / 10000) * 10000
+          };
+        }
+
+        // 3. Sản phẩm đơn lẻ không có biến thể
+        return {
+          salePrice: p.salePrice || 0,
+          oldPrice: p.originalPrice || 0
+        };
+      };
+
+      // Hàm cập nhật hiển thị Đơn giá và Giá tổng
+      const refreshPriceAndTotal = () => {
+        const { salePrice, oldPrice: vOldPrice } = calculateVariantUnitPrices();
+
+        // Cập nhật đơn giá biến thể
+        if (activePrice && salePrice) {
+          activePrice.textContent = `${salePrice.toLocaleString('vi-VN')}₫`;
+        }
+
+        if (oldPrice) {
+          if (vOldPrice && vOldPrice > salePrice) {
+            oldPrice.style.display = 'inline';
+            oldPrice.textContent = `${vOldPrice.toLocaleString('vi-VN')}₫`;
+          } else {
+            oldPrice.style.display = 'none';
+          }
+        }
+
+        // Cập nhật giá tổng
+        const qty = Math.max(1, parseInt(qtyInput?.value) || 1);
+        if (qtyInput) qtyInput.value = qty;
+        if (totalQtyEl) totalQtyEl.textContent = qty;
+
+        const subtotal = salePrice * qty;
+        if (totalEl) {
+          totalEl.textContent = `${subtotal.toLocaleString('vi-VN')}₫`;
+        }
+      };
 
       // Thumbnails
       const thumbsContainer = document.querySelector('.details__thumbs');
@@ -458,54 +493,145 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Render Kích thước & Độ dày nếu là Nệm có sizes
+      // Render Nhóm biến thể (Sizes & Thickness cho Nệm, Models cho Phụ kiện)
       const optionContainer = document.querySelector('.details__option-group');
-      if (optionContainer && p.sizes && p.sizes.length > 0) {
-        let optHtml = `<div class="details__option-group-inner">`;
-        optHtml += `
-          <div class="details__option-subgroup" style="margin-bottom: 14px;">
-            <div class="details__option-label-row">
-              <span>Kích thước: <strong id="selectedSize">${p.sizes[0]}</strong></span>
-            </div>
-            <div class="details__option-list" id="sizeOptions">
-              ${p.sizes.map((s, idx) => `
-                <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-val="${s}">${s}</button>
-              `).join('')}
-            </div>
-          </div>
-        `;
-        if (p.thickness && p.thickness.length > 0) {
+      if (optionContainer) {
+        // TH 1: Nệm có kích thước & độ dày
+        if (p.sizes && p.sizes.length > 0) {
+          let optHtml = `<div class="details__option-group-inner">`;
           optHtml += `
             <div class="details__option-subgroup" style="margin-bottom: 14px;">
               <div class="details__option-label-row">
-                <span>Độ dày: <strong id="selectedThickness">${p.thickness[0]}</strong></span>
+                <span>Kích thước: <strong id="selectedSize">${p.sizes[0]}</strong></span>
               </div>
-              <div class="details__option-list" id="thicknessOptions">
-                ${p.thickness.map((th, idx) => `
-                  <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-val="${th}">${th}</button>
+              <div class="details__option-list" id="sizeOptions">
+                ${p.sizes.map((s, idx) => `
+                  <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-idx="${idx}" data-val="${s}">${s}</button>
                 `).join('')}
               </div>
             </div>
           `;
-        }
-        if (p.gift) {
-          optHtml += `
-            <div class="details__option-subgroup" style="margin-bottom: 14px;">
-              <div class="details__option-label-row">
-                <span>Quà tặng: <strong>LỰA CHỌN 1</strong></span>
+          if (p.thickness && p.thickness.length > 0) {
+            optHtml += `
+              <div class="details__option-subgroup" style="margin-bottom: 14px;">
+                <div class="details__option-label-row">
+                  <span>Độ dày: <strong id="selectedThickness">${p.thickness[0]}</strong></span>
+                </div>
+                <div class="details__option-list" id="thicknessOptions">
+                  ${p.thickness.map((th, idx) => `
+                    <button type="button" class="details__option-btn ${idx === 0 ? 'active' : ''}" data-idx="${idx}" data-val="${th}">${th}</button>
+                  `).join('')}
+                </div>
               </div>
-              <div class="details__option-list" id="giftOptions">
-                <button type="button" class="details__option-btn active" data-val="LỰA CHỌN 1">LỰA CHỌN 1 (${p.gift})</button>
+            `;
+          }
+          if (p.gift) {
+            optHtml += `
+              <div class="details__option-subgroup" style="margin-bottom: 14px;">
+                <div class="details__option-label-row">
+                  <span>Quà tặng: <strong>LỰA CHỌN 1</strong></span>
+                </div>
+                <div class="details__option-list" id="giftOptions">
+                  <button type="button" class="details__option-btn active" data-val="LỰA CHỌN 1">LỰA CHỌN 1 (${p.gift})</button>
+                </div>
+              </div>
+            `;
+          }
+          optHtml += `</div>`;
+          optionContainer.innerHTML = optHtml;
+
+          // Sự kiện click Kích thước
+          const sizeList = document.getElementById('sizeOptions');
+          const sizeDisplay = document.getElementById('selectedSize');
+          sizeList?.querySelectorAll('.details__option-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              sizeList.querySelectorAll('.details__option-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              if (sizeDisplay) sizeDisplay.textContent = btn.dataset.val || btn.textContent.trim();
+              refreshPriceAndTotal();
+            });
+          });
+
+          // Sự kiện click Độ dày
+          const thickList = document.getElementById('thicknessOptions');
+          const thickDisplay = document.getElementById('selectedThickness');
+          thickList?.querySelectorAll('.details__option-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              thickList.querySelectorAll('.details__option-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              if (thickDisplay) thickDisplay.textContent = btn.dataset.val || btn.textContent.trim();
+              refreshPriceAndTotal();
+            });
+          });
+        }
+        // TH 2: Phụ kiện có danh sách models
+        else if (p.models && p.models.length > 0) {
+          let optHtml = `
+            <div class="details__option-group-inner">
+              <div class="details__option-label-row option-label-row">
+                <span>Chọn mẫu: <strong id="selectedModelLabel">${p.models[0].name}</strong></span>
+                <a href="javascript:void(0)" class="details__btn-clear-model btn-clear-model" id="clearModelBtn">XÓA</a>
+              </div>
+              <div class="details__option-model-chips option-model-chips" id="modelOptions">
+                ${p.models.map((m, idx) => `
+                  <button type="button" class="details__option-chip-btn option-chip-btn ${idx === 0 ? 'active' : ''}" 
+                    data-idx="${idx}" 
+                    data-price="${m.price}" 
+                    data-oldprice="${m.oldPrice || ''}" 
+                    data-name="${m.name}">
+                    ${m.name}
+                  </button>
+                `).join('')}
               </div>
             </div>
           `;
-        }
-        optHtml += `</div>`;
-        optionContainer.innerHTML = optHtml;
+          optionContainer.innerHTML = optHtml;
 
-        bindOptionGroup('sizeOptions', 'selectedSize');
-        bindOptionGroup('thicknessOptions', 'selectedThickness');
+          const modelChips = optionContainer.querySelectorAll('.details__option-chip-btn');
+          const modelDisplay = document.getElementById('selectedModelLabel');
+          modelChips.forEach(btn => {
+            btn.addEventListener('click', () => {
+              modelChips.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              if (modelDisplay) modelDisplay.textContent = btn.dataset.name || btn.textContent.trim();
+              refreshPriceAndTotal();
+            });
+          });
+
+          document.getElementById('clearModelBtn')?.addEventListener('click', () => {
+            if (modelChips[0]) modelChips[0].click();
+          });
+        }
+        // TH 3: Không có biến thể
+        else {
+          optionContainer.innerHTML = '';
+        }
       }
+
+      // Tăng / Giảm số lượng & Cập nhật giá tổng
+      document.getElementById('qtyMinus')?.addEventListener('click', () => {
+        let val = parseInt(qtyInput?.value) || 1;
+        if (val > 1) {
+          if (qtyInput) qtyInput.value = val - 1;
+          refreshPriceAndTotal();
+        }
+      });
+
+      document.getElementById('qtyPlus')?.addEventListener('click', () => {
+        let val = parseInt(qtyInput?.value) || 1;
+        if (qtyInput) qtyInput.value = val + 1;
+        refreshPriceAndTotal();
+      });
+
+      qtyInput?.addEventListener('input', () => {
+        let val = parseInt(qtyInput.value);
+        if (isNaN(val) || val < 1) val = 1;
+        qtyInput.value = val;
+        refreshPriceAndTotal();
+      });
+
+      // Khởi tạo tính giá ban đầu khi vào trang
+      refreshPriceAndTotal();
 
       // B. Cập nhật phần Thông Tin Chi Tiết bên dưới (Details Body)
       if (p.details) {
@@ -1183,7 +1309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- H. STICKY HEADER & SCROLL TO TOP --- */
-  const siteHeader = document.querySelector('.header, header');
+  const siteHeader = document.getElementById('header') || document.querySelector('header.header');
   const scrollTopBtn = document.getElementById('scrollTopBtn');
 
   window.addEventListener('scroll', () => {
@@ -1212,4 +1338,160 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* --- I. MOBILE MENU, DRAWER ACCORDION & SEARCH (NO BLOCKING OVERLAY) --- */
+  const initMobileMenu = () => {
+    const navbar = document.querySelector('.header__navbar');
+    if (!navbar) return;
+
+    // Loại bỏ hoàn toàn mobileMenuOverlay khỏi DOM để không bao giờ che chặn website
+    document.getElementById('mobileMenuOverlay')?.remove();
+
+    // 1. Khối đầu Drawer: Brand + Nút X
+    if (!navbar.querySelector('.header__mobile-drawer-head')) {
+      const drawerHead = document.createElement('div');
+      drawerHead.className = 'header__mobile-drawer-head';
+      drawerHead.innerHTML = `
+        <span class="header__mobile-drawer-brand">TBAY GROUP</span>
+        <button type="button" class="header__mobile-drawer-close" id="mobileDrawerClose" aria-label="Đóng menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      `;
+      navbar.insertBefore(drawerHead, navbar.firstChild);
+    }
+
+    // 2. Khối tìm kiếm dạng viên thuốc (Pill Search Bar - Reference Image 2)
+    if (!navbar.querySelector('.header__mobile-drawer-search')) {
+      const drawerSearch = document.createElement('div');
+      drawerSearch.className = 'header__mobile-drawer-search';
+      drawerSearch.innerHTML = `
+        <input type="text" class="header__mobile-drawer-search-input" id="drawerSearchInput" placeholder="Bạn đang cần tìm gì?">
+        <button type="button" class="header__mobile-drawer-search-btn" id="drawerSearchBtn" aria-label="Tìm kiếm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      `;
+      const drawerHead = navbar.querySelector('.header__mobile-drawer-head');
+      if (drawerHead && drawerHead.nextSibling) {
+        navbar.insertBefore(drawerSearch, drawerHead.nextSibling);
+      } else {
+        navbar.insertBefore(drawerSearch, navbar.children[1] || null);
+      }
+    }
+
+    // 3. Khối chân Drawer (Hotline)
+    if (!navbar.querySelector('.header__mobile-drawer-footer')) {
+      const drawerFooter = document.createElement('div');
+      drawerFooter.className = 'header__mobile-drawer-footer';
+      drawerFooter.innerHTML = `
+        <a href="tel:0852080383" class="header__mobile-drawer-hotline">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>0852.080.383</span>
+        </a>
+        <p class="header__mobile-drawer-note">Hotline tư vấn giấc ngủ 24/7 (Miễn cước)</p>
+      `;
+      navbar.appendChild(drawerFooter);
+    }
+
+    const menuBtn = document.getElementById('mobileMenuToggle');
+    const searchToggleBtn = document.getElementById('mobileSearchToggle');
+    const drawerCloseBtn = document.getElementById('mobileDrawerClose');
+    const drawerInput = document.getElementById('drawerSearchInput');
+    const drawerSearchBtn = document.getElementById('drawerSearchBtn');
+
+    const openMenu = (focusSearch = false) => {
+      navbar.classList.add('is-active');
+      if (focusSearch && drawerInput) {
+        setTimeout(() => drawerInput.focus(), 250);
+      }
+    };
+
+    const closeMenu = () => {
+      navbar.classList.remove('is-active');
+    };
+
+    menuBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navbar.classList.contains('is-active')) {
+        closeMenu();
+      } else {
+        openMenu(false);
+      }
+    });
+
+    searchToggleBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openMenu(true);
+    });
+
+    drawerCloseBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+
+    // Đóng drawer khi click ra ngoài menu
+    document.addEventListener('click', (e) => {
+      if (navbar.classList.contains('is-active')) {
+        if (!navbar.contains(e.target) && !menuBtn?.contains(e.target) && !searchToggleBtn?.contains(e.target)) {
+          closeMenu();
+        }
+      }
+    });
+
+    // Accordion cho danh mục có dropdown trên mobile (Reference Image 2)
+    navbar.querySelectorAll('.header__nav-item--has-dropdown').forEach(item => {
+      const link = item.querySelector('.header__nav-link');
+      link?.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = item.classList.contains('is-open');
+          navbar.querySelectorAll('.header__nav-item--has-dropdown').forEach(other => {
+            if (other !== item) other.classList.remove('is-open');
+          });
+          item.classList.toggle('is-open', !isOpen);
+        }
+      });
+    });
+
+    // Bấm link con hoặc link đơn thì đóng drawer
+    navbar.querySelectorAll('.header__nav-link, .header__dropdown-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const isParentDropdown = link.parentElement && link.parentElement.classList.contains('header__nav-item--has-dropdown');
+        if (window.innerWidth <= 992 && !isParentDropdown) {
+          closeMenu();
+        }
+      });
+    });
+
+    // Xử lý tìm kiếm trong Drawer
+    const handleDrawerSearch = () => {
+      const q = drawerInput?.value.trim();
+      if (q) {
+        closeMenu();
+        window.location.href = `./products.html?search=${encodeURIComponent(q)}`;
+      }
+    };
+
+    drawerSearchBtn?.addEventListener('click', handleDrawerSearch);
+    drawerInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleDrawerSearch();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navbar.classList.contains('is-active')) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992 && navbar.classList.contains('is-active')) {
+        closeMenu();
+      }
+    });
+  };
+
+  initMobileMenu();
 });

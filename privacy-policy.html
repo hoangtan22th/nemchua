@@ -84,10 +84,16 @@
       </div>
     </div>
 
-    <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
+        <!-- Header Middle: Logo, Search Bar, Cart & Hotline -->
     <div class="header__middle">
       <div class="container">
         <div class="header__middle-wrapper">
+          <!-- Mobile Menu Toggle Button (Far Left on Mobile - Reference Image 1) -->
+          <button class="header__menu-toggle" id="mobileMenuToggle" type="button" aria-label="Mở menu" title="Mở menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Brand Logo (Centered on Mobile, Left on Desktop - Reference Image 1) -->
           <a href="./index.html" class="header__logo">
             <img src="./assets/images/common/logo.jpg" alt="Logo TBAY GROUP" class="header__logo-img">
             <div class="header__logo-text-group">
@@ -96,6 +102,7 @@
             </div>
           </a>
 
+          <!-- Desktop Search Bar (Hidden on Mobile) -->
           <div class="header__search">
             <input type="text" placeholder="Tìm kiếm nệm, phụ kiện..." class="header__search-input">
             <button type="button" class="header__search-btn" aria-label="Tìm kiếm">
@@ -103,15 +110,23 @@
             </button>
           </div>
 
+          <!-- Header Right: Mobile Search Toggle + Cart + Hotline -->
           <div class="header__right">
-            <a href="./cart.html" class="header__cart">
+            <!-- Mobile Search Toggle (Pink Circle on Mobile - Reference Image 1) -->
+            <button class="header__mobile-search-toggle" id="mobileSearchToggle" type="button" aria-label="Tìm kiếm" title="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- Cart Box (Pink Circle on Mobile, Standard on Desktop) -->
+            <a href="./cart.html" class="header__cart" aria-label="Giỏ hàng">
               <div class="header__cart-icon-wrap">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-basket-shopping"></i>
                 <span class="header__cart-badge">0</span>
               </div>
               <span class="header__cart-text">Giỏ hàng</span>
             </a>
 
+            <!-- Hotline Box (Hidden on Mobile, Displayed on Desktop) -->
             <a href="tel:0852080383" class="header__hotline">
               <div class="header__hotline-icon">
                 <i class="fa-solid fa-phone-volume"></i>
@@ -126,9 +141,21 @@
       </div>
     </div>
 
+    <!-- Mobile Category Horizontal Scrollbar (Reference Image 1) -->
+    <div class="header__category-bar">
+      <div class="container">
+        <nav class="header__category-track" aria-label="Danh mục nhanh">
+          <a href="./products.html" class="header__category-link">Nệm</a>
+          <a href="./products.html?cat=nem-cao-su-thien-nhien" class="header__category-link">Nệm cao su</a>
+          <a href="./products.html?cat=nem-foam" class="header__category-link">Nệm foam</a>
+          <a href="./accessories.html?cat=chan-ga" class="header__category-link">Chăn ga</a>
+          <a href="./accessories.html?cat=goi-cao-su" class="header__category-link">Gối</a>
+          <a href="./accessories.html" class="header__category-link">Phụ kiện</a>
+        </nav>
+      </div>
+    </div>
 
-
-    <!-- Main Navigation Bar (Nguyên bản chuẩn 100% như các trang khác) -->
+<!-- Main Navigation Bar (Nguyên bản chuẩn 100% như các trang khác) -->
     <nav class="header__navbar">
       <div class="container">
         <ul class="header__nav-list">
@@ -174,14 +201,14 @@
   <main class="policy-section">
     <div class="container">
       <article class="policy-card">
-          <header class="policy-content__header">
+          <div class="policy-content__header">
             <span class="policy-content__badge"><i class="fa-solid fa-user-shield"></i> Bảo vệ thông tin</span>
             <h1 class="policy-content__title">Chính Sách Bảo Mật Thông Tin Khách Hàng</h1>
             <div class="policy-content__updated">
               <i class="fa-regular fa-clock"></i>
               <span>Cập nhật mới nhất: Tháng 11/2026</span>
             </div>
-          </header>
+          </div>
 
           <div class="policy-content__body">
             <p><strong>TBAY GROUP</strong> cam kết tôn trọng và bảo vệ tuyệt đối sự riêng tư cũng như dữ liệu cá nhân của người tiêu dùng khi truy cập và mua hàng trên website <strong>wpshare247.com</strong>. Chính sách này công bố rõ mục đích, phạm vi thu thập và các biện pháp bảo mật được chúng tôi áp dụng:</p>
